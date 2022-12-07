@@ -1,0 +1,40 @@
+[
+    // sushi food
+    {
+      "id": 1,
+      "foodName": "SALMON SUSHI ROLL",
+      "foodPrice": 229,
+      "foodInfo": "TEMPURA AND CUCUMBER WRAPPED WITH SALMON"
+    },
+    {
+        "id": 2,
+        "foodName": "SMOKED SALMON SUSHI",
+        "foodPrice": 239,
+        "foodInfo": "LAYER THE CHEESE MIX WITH THE RICE, CUCUMBER AND RED BELL PEPPER"
+      },
+      {
+        "id": 3,
+        "foodName": "PALAEO SUSHI",
+        "foodPrice": 229,
+        "foodInfo": "CAULIFLOWER RICE, SMOKED SALMON, BACON ASPARAGUS STALKS AND MEK"
+      },
+    // takoyaki food
+      {
+        "id": 4,
+        "foodName": "ORIGINAL",
+        "foodPrice": 259,
+        "foodInfo": "TANOTA SAUCE, MAYO, BONITO FLAKES AND GREEN SEAWEED"
+      },
+      {
+        "id": 5,
+        "foodName": "JALAPENO",
+        "foodPrice": 219,
+        "foodInfo": "JALAPENO MAYO, JALAPENO SLICE, BONITO FLAKES AND GREEN SEAWEED"
+      },
+      {
+        "id": 6,
+        "foodName": "PONZU",
+        "foodPrice": 259,
+        "foodInfo": "CITRUS SOY SAUCE, BONITO FLAKES AND GREEN ONION"
+      }
+]
