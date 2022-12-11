@@ -32,6 +32,8 @@
         width: 50px;
         height: 50px;
       }
+
+  
     }
     
     #logo {
@@ -86,6 +88,7 @@
     #linkheader {
       text-decoration: none;
       font-weight: 600;
+      font-size: large;
       text-transform: uppercase;
       padding: 15px;
     }
@@ -113,9 +116,22 @@
       padding-bottom: 10px;
     }
 
-    /* * {
+    #menuSakoSushi {
       font-family: 'Manga Temple';
-    } */
+    }
+
+    #menuName {
+      font-family: 'Patrick Hand';
+      text-decoration: none;
+      font-weight: 600;
+      font-size: large;
+      text-transform: uppercase;
+      padding: 15px;
+    }
+
+    * {
+      font-family: 'Patrick Hand';
+    }
 
     .fa-circle-arrow-up {
       color: rgb(248, 248, 248);
@@ -217,7 +233,7 @@
 
         <div class="col-lg-7 col-md-8 mb-5">
           <div class="container card mt-2 mb-4" style="background-color:white; outline-style:groove;">
-            <h4 align="center" class="pt-3">Sushi Boat Platter</h5>
+            <h4 align="center" id="menuSakoSushi" class="pt-3">Sushi Boat Platter</h5>
               <p>
                 Available in Regular (31 pieces of sashimi, nigiri and makimono) and Deluxe (36 pieces of our bestselling makimono).
               </p>
@@ -239,15 +255,15 @@
         <section>
             <div class="row p-4">
                 <!-- SAMPLE PRODUCTS -->
-              <h3 class="text-white">Sushi</h3>
+              <h3 id="menuSakoSushi" class="text-black">Sushi</h3>
 
               <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/1-salmon.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                   <!-- Product name -->
-                  <p align="center">Salmon Sushi Roll<br>
+                  <p align="center" id="menuName" class="pb-0">Salmon Sushi Roll</p>
                     <!-- PRODUCT INFO -->
-                    tempura  and cucumber wrapped with salmon</p>
+                    <p class="pb-4">Tempura  and cucumber wrapped with salmon served with soy sauce and wasabi.</p>
                 </div>
               </div>
 
@@ -255,8 +271,8 @@
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/2-smoked.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                   <!-- INFO + PRICE -->
-                  <p align="center">Smoked salmon sushi<br>
-                    Layer the cheese mix with the rice, cucumber, and red bell pepper.</p>
+                  <p align="center" id="menuName" class="pb-0">Smoked salmon sushi</p>
+                  <p class="pb-4">Layer the cheese mix with the rice, cucumber, and red bell pepper.</p>
                 </div>
               </div>
 
@@ -264,8 +280,8 @@
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/3-paleo.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                   <!-- INFO + PRICE -->
-                  <p align="center">palaeo sushi<br>
-                    cauliflower rice,  smoked salmon, bacon, asparagus stalks and milk.</p>
+                  <p align="center" id="menuName" class="pb-0">palaeo sushi</p>
+                    <p class="pb-4">cauliflower rice,  smoked salmon, bacon, asparagus stalks and milk.</p>
                 </div>
               </div>
 
@@ -281,14 +297,14 @@
         <section>
             <div class="row p-4">
                 <!-- SAMPLE PRODUCTS -->
-              <h3 class="text-white">Takoyaki</h3>
+              <h3 id ="menuSakoSushi" class="text-black">Takoyaki</h3>
 
               <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/1-original.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                   <!-- INFO + PRICE -->
-                  <p align="center">Original<br>
-                    Tanota sauce, mayo, bonito flakes, green seaweed.</p>
+                  <p align="center" id="menuName" class="pb-0">Original</p>
+                    <p class="pb-4">Tanota sauce, mayo, bonito flakes, green seaweed.</p>
                 </div>
               </div>
 
@@ -296,9 +312,9 @@
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/2-jalapeno.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                   <!-- INFO + PRICE -->
-                  <p align="center">Jalapeño<br>
-                    Jalapeño mayo, jalapeño slice, bonito flakes, green seaweed.
-                  </p>
+                  <p align="center" id="menuName" class="pb-0">Jalapeño</p>
+                  <p class="pb-4">Jalapeño mayo, bonito flakes, green seaweed.</p>
+                  
                 </div>
               </div>
 
@@ -306,16 +322,15 @@
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/3-ponzu.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                   <!-- INFO + PRICE -->
-                  <p align="center">Ponzu<br>
-                    Citrus soy sauce, bonito flakes, green onion.
-                  </p>
+                  <p align="center" id="menuName" class="pb-0">Ponzu</p>
+                  <p class="pb-4">Citrus soy sauce, bonito flakes, green onion.</p>
+                  
                 </div>
               </div>
 
               <div align="right" class="mt-2">
-                <a href="/menu.html" class="btn btn-outline-dark text-light"
-                  style="background-color: rgb(0, 0, 0);">Click here
-                  for more! ➜</a>
+                <a id="menuName" href="/menu.html" class="btn btn-outline-dark text-light"
+                  style="background-color: rgb(0, 0, 0);">See our Menu ➜</a>
               </div>
 
             </div>
@@ -330,7 +345,7 @@
 
   
   <div align="right" class="mt-2">
-    <a href="#" class="btn"><i class="fa-solid fa-circle-arrow-up fa-3x"></i></a>
+    <a href="#" class="btn"><i class="fa-solid fa-circle-arrow-up fa-3x" style="color:black"></i></a>
   </div>
 
   <footer class="pt-3 pb-1 pl-3" style="background-color: rgb(255,1,1)">
