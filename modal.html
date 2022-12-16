@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<html>
+
+<head>
+    <title></title>
+    
+    <style>
+        /* html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+} */
+
+/* html {
+  line-height: 1;
+} */
+
+/* ol, ul {
+  list-style: none;
+} */
+/* 
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+} */
+
+/* caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+} */
+
+/* q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+} */
+
+/* article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+} */
+
+/*  START modal-container with login & sign in   */
+/* body {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  font-family: Arial, sans-serif;
+} */
+
+.modal-btn {
+  padding: 5vw;
+  color: #00796b;
+  font-size: 10vw;
+  font-weight: bold;
+  outline: solid #00796b 1.5vw;
+  cursor: pointer;
+}
+
+#modal-toggle {
+  display: none;
+}
+
+.modal-content,
+.modal-backdrop {
+  opacity: 0;
+  position: fixed;
+  z-index: -1;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-content {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+  height: 550px;
+  max-height: 98%;
+  width: 70%;
+  max-width: 600px;
+  text-align: center;
+  /* right to left */
+  transform: translateX(5%);
+}
+
+.modal-backdrop {
+  left: 0;
+  top: 0;
+  height: 100%;
+  height: 100vh;
+  width: 100%;
+  width: 100vw;
+  transform: scale(0);
+}
+
+#modal-toggle:checked ~ .modal-backdrop {
+  opacity: 1;
+  background-color: rgba(119, 109, 109, 0.534);
+  z-index: 998;
+  transform: scale(1);
+}
+
+#modal-toggle:checked ~ .modal-content {
+  opacity: 1;
+  background-color: #fff;
+  overflow-y: auto;
+  overflow-x: hidden;
+  pointer-events: auto;
+  cursor: auto;
+  z-index: 999;
+  transform: translateX(0%);
+}
+
+@media (max-width: 600px) {
+  #modal-toggle:checked ~ .modal-backdrop {
+    opacity: 0;
+  }
+
+  .modal-content {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+/* modal close button pointer */
+.modal-close-btn {
+  margin-left: 500px;
+  margin-top: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+/* modal close button animation */
+.modal-close-btn svg {
+  transition: 0.2s;
+}
+
+/* modal close button color */
+.modal-close-btn svg line {
+  stroke-width: 5px;
+  stroke: #000000;
+}
+
+.modal-close-btn:hover svg {
+  transform: rotate(90deg);
+}
+
+/* BASIC FUNCTIONALITY .tabs */
+.tabs {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.tabs > .radio {
+  display: none;
+}
+.tabs > .radio:checked + .table + .tabs-content {
+  display: block;
+}
+.tabs > .table {
+  order: -1;
+  flex-basis: 50%;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tabs .tabs-content {
+  width: 100%;
+  display: none;
+}
+
+
+/* rgb(255,1,1) */
+
+/* END BASIC FUNCTIONALITY .tabs */
+/*  THEME for .tabs with login & sign-in  */
+.tabs > .table {
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: solid black 5px;
+  color: #fafafa;
+  cursor: pointer;
+  background: black;
+}
+.tabs > .table span {
+  font-weight: 600;
+}
+.tabs > .table:hover {
+  color: rgb(5, 0, 0);
+  background: rgb(255,1,1);
+}
+.tabs > .radio:checked + .table {
+  color: rgb(0, 0, 0);
+  background: rgb(255,1,1);
+  cursor: auto;
+}
+/* click transition */
+.tabs > .radio:checked + .table span {
+  display: inline-block;
+  font-weight: 500;
+  transform: scale(1.2);
+  transition: 0.1s;
+}
+
+/*  END THEME for .tabs with login & sign-in  */
+/*  START style login & sign up  */
+.tabs > .tabs-content .login_socnet {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: no-wrap;
+  justify-content: space-around;
+}
+.tabs > .tabs-content .login_socnet a {
+  margin: 20px;
+  margin-bottom: 0;
+  width: 100%;
+  font-size: 60px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+/* .tabs > .tabs-content .login_socnet a:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.2));
+} */
+/* .tabs > .tabs-content .login_socnet .fa-vk {
+  color: #7986cb;
+}
+.tabs > .tabs-content .login_socnet .fa-google-plus {
+  color: #e57373;
+}
+.tabs > .tabs-content .login_socnet .fa-facebook {
+  color: #5c6bc0;
+} */
+.tabs > .tabs-content form {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+}
+.tabs > .tabs-content form input {
+  padding: 10px;
+  margin: 15px 0;
+  border: none;
+  border-bottom: solid 1px #00796b;
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition: 0.1s;
+}
+.tabs > .tabs-content form input:focus {
+  transform: translateX(10px);
+  outline: none;
+}
+.tabs > .tabs-content input[type="submit"] {
+  padding: 15px;
+  width: 100%;
+  background: #000000;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5%;
+}
+.tabs > .tabs-content input[type="submit"]:focus {
+  transform: none;
+}
+.tabs > .tabs-content .forgot-password label {
+  margin: 0 auto;
+  width: 50%;
+  color: #000000;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.tabs > .tabs-content .forgot-password label:hover {
+  text-decoration: underline;
+}
+
+/*  END style login & sign up  */
+.forgot-password #forgot-password-toggle {
+  display: none;
+}
+.forgot-password .forgot-password-content {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+}
+.forgot-password .forgot-password-content input[type="email"] {
+  width: 80%;
+  margin-right: 0px;
+  border-right: none;
+}
+.forgot-password .forgot-password-content input[type="submit"] {
+  width: 20%;
+  margin-left: 0px;
+}
+.forgot-password #forgot-password-toggle:checked ~ .forgot-password-content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  pointer-events: auto;
+  cursor: auto;
+  visibility: visible;
+}
+        </style>
+</head>
+
+<body>
+    <label class="modal-btn" for="modal-toggle">Click me</label>  
+
+    <input id="modal-toggle" type="checkbox">
+    <label class="modal-backdrop" for="modal-toggle"></label>
+    <div class="modal-content">
+        <label class="modal-close-btn" for="modal-toggle">
+		      <svg width="50" height="50">
+            <line x1="10" y1="10" x2="40" y2="40"/>
+		        <line x1="40" y1="10" x2="10" y2="40"/>
+		      </svg>
+	      </label>
+        <div class="tabs">
+<!--  LOG IN  -->
+            <input class="radio" id="tab-1" name="tabs-name" type="radio" checked>
+            <label for="tab-1" class="table"><span>Login</span></label>
+            <div class="tabs-content">
+               <div class="login_socnet">
+                   <a href="" class="fa fa-vk" aria-hidden="true"></a>
+                   <a href="" class="fa fa-google-plus" aria-hidden="true"></a>
+                   <a href="" class="fa fa-facebook" aria-hidden="true"></a>
+               </div>
+               <form action="">
+                   <input type="email" placeholder="Email" required>
+                   <input type="password" placeholder="Password" required>
+                   <input type="submit" value="Log In">
+               </form>
+               <form class="forgot-password" action="">
+                   <input id="forgot-password-toggle" type="checkbox">
+                   <label for="forgot-password-toggle">forgot password?</label>
+                   <div class="forgot-password-content">
+                       <input type="email" placeholder="enter your email" required>
+                       <input type="submit" value="go">
+                   </div>
+               </form>
+            </div>
+<!--  SIGN UP  -->
+            <input class="radio" id="tab-2" name="tabs-name" type="radio">
+            <label for="tab-2" class="table"><span>Sign up</span></label>
+            <div class="tabs-content">
+                <div class="login_socnet">
+                   <a href="" class="fa fa-vk" aria-hidden="true"></a>
+                   <a href="" class="fa fa-google-plus" aria-hidden="true"></a>
+                   <a href="" class="fa fa-facebook" aria-hidden="true"></a>
+               </div>
+               <form action="">
+                   <input type="email" placeholder="Email" required>
+                   <input type="password" placeholder="Password" required>
+                   <input type="password" placeholder="Confirm password" required>
+                   <input type="submit" value="Sign Up">
+               </form>
+            </div>
+        </div>
+    </div>          
+    
+   
+</body>
+</html>
