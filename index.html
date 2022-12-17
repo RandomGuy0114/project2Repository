@@ -298,7 +298,6 @@
 </head>
 
 <body>
-  <!-- Signin modal -->
   <div class="modal fade" id="signin-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -334,19 +333,23 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 
   <!-- ./Signin modal -->
 
   <!-- Signup modal -->
-  <div class="modal fade" id="signup-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+  <div class="modal fade" data-backdrop="static" id="signup-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <button id="modalclosebtn" type="button" class="btn-close mb-0" data-bs-dismiss="modal" aria-label="Close"></button>
-        <div class="modal-body">
-          <h2 id="logintxt" class="text-center m-0 mb-2 p-0">Signup</h2>
+        <div class="modal-header text-white" style="background-color:rgb(197,0,0);">
+          <h5 class="modal-title">
+            <h2 id="logintxt" class="text-center m-0">Signup</h2>
+          </h5>
+          <button type="button" class="btn-close border-0 text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0 mt-2"> 
           <form>
             <div class="row mx-4">
-              <div class="col-6">
+              <div class="col-6 mt-0">
                 <label for="" class="form-label mb-0">First Name</label>
                 <div class="input-group mb-2">
                   <input type="text" class="form-control" placeholder="" required>
@@ -400,19 +403,19 @@
                   <input type="password" class="form-control" required>
                 </div>
               </div>
-              <div class="my-2">
+              <div class="my-2 mt-1">
                 <button type="submit" class="btn col-12 btn-outline-dark text-white"
                 style="background-color:rgb(197,0,0);">Signup</button>
               </div>
 
-              <h6>Or use a social network</h6>
-              <div style="text-align: center;">
-                <i class="fa-brands fa-square-facebook fa-3x me-2"></i>
-                <i class="fa-brands fa-square-twitter fa-3x me-2"></i>
-                <i class="fa-brands fa-square-instagram fa-3x me-2"></i>
+              <h6 class="mb-1">Or use a social network</h6>
+              <div class="mb-1" style="text-align: center;">
+                <i class="fa-brands fa-square-facebook fa-3x me-3"></i>
+                <i class="fa-brands fa-square-twitter fa-3x me-3"></i>
+                <i class="fa-brands fa-square-instagram fa-3x me-3"></i>
               </div>
               <hr>
-              <h6 class="mt-0" style="text-align: center;">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signin-modal">Login here</a></h6>
+              <h6 class="mb-4 text-center" >Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signin-modal">Login here</a></h6>
             </div>
           </form>
         </div>
