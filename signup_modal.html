@@ -257,7 +257,6 @@
     #modalclosebtn {
       margin-left: 93%;
       margin-top: 2%;
-      margin-bottom: 2%;
     }
 
     #modalloginbtn {
@@ -341,69 +340,51 @@
   <div class="modal fade" id="signup-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <button id="modalclosebtn" type="button" class="btn-close mb-0" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button id="modalclosebtn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         <div class="modal-body">
-          <h2 id="logintxt" class="text-center m-0 mb-2 p-0">Signup</h2>
+          <h2 id="logintxt">Signup</h2>
           <form>
-            <div class="row mx-4">
+            <div class="row m-5">
               <div class="col-6">
                 <label for="" class="form-label mb-0">First Name</label>
-                <div class="input-group mb-2">
+                <div class="input-group">
                   <input type="text" class="form-control" placeholder="" required>
                 </div>
               </div>
               <div class="col-6">
                 <label for="" class="form-label mb-0">Last Name</label>
-                <div class="input-group mb-2">
+                <div class="input-group">
                   <input type="text" class="form-control" placeholder="" required>
                 </div>
               </div>
-              <div class="col-6">
-                <label for="" class="form-label mb-0">Zipcode</label>
-                <div class="input-group mb-2">
-                  <input type="text" class="form-control" placeholder="" required>
-                </div>
+              <label for="" class="form-label mb-0">Zipcode</label>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="" required>
               </div>
-              <div class="col-6">
-                <label for="" class="form-label mb-0">House No./Street</label>
-                <div class="input-group mb-2">
-                  <input type="" class="form-control" placeholder="" required>
-                </div>
+              <label for="" class="form-label mb-0">House No./Street</label>
+              <div class="input-group">
+                <input type="" class="form-control" placeholder="" required>
               </div>
-              <div class="col-6">
-                <label for="" class="form-label mb-0">Brgy/Subd.</label>
-                <div class="input-group mb-2">
-                  <input type="" class="form-control" placeholder="" required>
-                </div>
+              <label for="" class="form-label mb-0">Brgy/Subd.</label>
+              <div class="input-group">
+                <input type="" class="form-control" placeholder="" required>
               </div>
-              <div class="col-6">
-                <label for="" class="form-label mb-0">City/Municipality</label>
-                <div class="input-group mb-2">
-                  <input type="" class="form-control" placeholder="" required>
-                </div>
+              <label for="" class="form-label mb-0">City/Municipality</label>
+              <div class="input-group">
+                <input type="" class="form-control" placeholder="" required>
               </div>
-                <div class="col-12">
-                <label for="basic-url" class="form-label mb-0">Email</label>
-                <div class="input-group mb-2">
-                  <input type="email" class="form-control" placeholder="you@example.com" required>
-                </div>
+              <label for="basic-url" class="form-label mb-0">Email</label>
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="you@example.com" required>
               </div>
-              <div class="col-6">
-                <label for="basic-url" class="form-label mb-0">Password</label>
-                <div class="input-group mb-2">
-                  <input type="password" class="form-control" required>
-                </div>
+              <br>
+              <label for="basic-url" class="form-label mb-0">Password</label>
+              <div class="col-12">
+                <input type="password" class="form-control" required>
+                <div class="form-text m-0"><a href="#">Forgot password?</a></div></label>
               </div>
-              <div class="col-6">
-                <label for="basic-url" class="form-label mb-0">Confirm Password</label>
-                <div class="input-group mb-2">
-                  <input type="password" class="form-control" required>
-                </div>
-              </div>
-              <div class="my-2">
-                <button type="submit" class="btn col-12 btn-outline-dark text-white"
+              <button id="modalloginbtn" type="submit" class="btn btn-outline-dark col-4 text-white"
                 style="background-color:rgb(197,0,0);">Signup</button>
-              </div>
 
               <h6>Or use a social network</h6>
               <div style="text-align: center;">
@@ -412,7 +393,7 @@
                 <i class="fa-brands fa-square-instagram fa-3x me-2"></i>
               </div>
               <hr>
-              <h6 class="mt-0" style="text-align: center;">Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#signin-modal">Login here</a></h6>
+              <h6 style="text-align: center;">Already have an account?<a href="#" data-bs-toggle="modal" data-bs-target="#signin-modal">Signin here</a></h6>
             </div>
           </form>
         </div>
