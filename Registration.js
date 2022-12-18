@@ -24,7 +24,7 @@ const app = initializeApp(firebaseConfig);
   /*---------------------------------------------------------------- */
 
   const signupForm = document.getElementById("signupForm");
-
+  console.log("register")
 
   signupForm.addEventListener("click", () => {
     const firstName = document.getElementById("userfirstName").value;
@@ -32,6 +32,21 @@ const app = initializeApp(firebaseConfig);
     const email = document.getElementById("userEmail").value;
     const password = document.getElementById("userPassword").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
+    
+    // Maximum of 30 firstname length must not be 1 character 
+    if (firstName.length >=30 || firstName.length <= 1)
+    {
+        $("#errorName").text("firstName must be at least 2 characters");
+        return false
+    }
+
+    //Regular expression format para hindi makalusot mga blank at special characters sa email
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)))
+    {
+        $("#userEmail").css("border-bottom", "solid red 2px");
+        $("#errorEmail").text("Invalid email address format");
+        return false
+    }
 
     if(password === confirmPassword) {
       const auth = getAuth();
