@@ -36,7 +36,7 @@ const app = initializeApp(firebaseConfig);
     // Maximum of 30 firstname length must not be 1 character 
     if (firstName.length >=30 || firstName.length <= 1)
     {
-        $("#errorName").text("firstName must be at least 2 characters");
+        $("#errorName").text("First Name must be at least 2 characters");
         return false
     }
 
