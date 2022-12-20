@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/navstyle.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Nerko+One&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="img/images/logo.png">
+    <style>
+        </style>
+</head>
+<body>
+    <nav id="head" class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a id="nuku" class="navbar-brand text-light">
+            <img id="logo" src="img/images/logo.png" alt="Ichiraku Logo">
+            Ichiraku
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item pe-5">
+                <a class="nav-link active text-white" id="linkheader" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item pe-5">
+                <a class="nav-link text-white" id="linkheader" href="menu.html">Menu</a>
+              </li>
+              <li class="nav-item pe-5">
+                <a class="nav-link text-white" id="linkheader" href="contactus.html">Contact Us</a>
+              </li>
+              <li class="nav-item pe-5">
+                <a class="nav-link text-white" id="linkheader" href="aboutus.html">About Us</a>
+              </li>
+            </ul>
+
+            <!-- PROFILE ON NAVBAR -->
+            <div class="dropdown">
+            <button class="btn dropdown-toggle text-light" style=" background-color: black;" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Hi, (Adminnnnn)!
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                <li><button class="dropdown-item" type="button">Logout</button></li>
+            </ul>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+      <div class="card mx-auto" style="width: 98%; margin-top: 100px; box-shadow: 10px 10px 5px rgba(128, 128, 128, 0.432);">
+        <div class="card-body">
+        </div>
+    <table class="table" style="border-radius: 5%;">
+      <thead>
+        <tr>
+          <th scope="col">Order #</th>
+          <th scope="col">Fullname</th>
+          <th scope="col">Contact #</th>
+          <th scope="col">Address</th>
+          <th scope="col">Order(s)</th>
+          <th scope="col">Total</th>
+          <th scope="col">Payment Method</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Jryl Lim</td>
+          <td>09123123123</td>
+          <td>Diliman, Quezon City, Metro Manila</td>
+          <td>
+              <button class="btn text-light" type="button" style="background-color: black;" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapseExample">
+                List
+              </button>
+              <div class="collapse p-0 m-0" style="padding-right: 0%; margin-right: 0%;" id="collapse1">
+                <div class="card" style="width: 20rem; padding-right: 0%; margin-right: 0%; position: absolute;">
+                <div class="card card-body">
+                  x2 - P999 Original Takoyaki<br>
+                  x1 - P999 Smoked Salmon Sushi <br>
+                  <hr>
+                  Total - P999
+                </div>
+              </div>
+              </div>
+          </td>
+          <td>P999</td>
+          <td>GCash</td>
+          <td>Delivered</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jlarence</td>
+            <td>09123423423</td>
+            <td>Soccoro, Cubao, Quezon City</td>
+            <td>
+                <button class="btn text-light" type="button" style="background-color: black;" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">
+                  List
+                </button>
+                <div class="collapse p-0 m-0" style="padding-right: 0%; margin-right: 0%;" id="collapse2">
+                  <div class="card" style="width: 20rem; padding-right: 0%; margin-right: 0%; position: absolute;">
+                  <div class="card card-body">
+                    x2 - P999 Original Takoyaki<br>
+                    x1 - P999 Smoked Salmon Sushi <br>
+                    <hr>
+                    Total - P999
+                  </div>
+                </div>
+                </div>
+            </td>
+            <td>P999</td>
+            <td>Cash</td>
+            <td>Delivered</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jatrick</td>
+            <td>09131434233</td>
+            <td>Cubao, Quezon City</td>
+            <td>
+                <button class="btn text-light" type="button" style="background-color: black;" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapseExample">
+                  List
+                </button>
+                <div class="collapse p-0 m-0" style="padding-right: 0%; margin-right: 0%;" id="collapse3">
+                  <div class="card" style="width: 20rem; padding-right: 0%; margin-right: 0%; position: absolute;">
+                  <div class="card card-body">
+                    x2 - P999 Original Takoyaki<br>
+                    x1 - P999 Smoked Salmon Sushi <br>
+                    <hr>
+                    Total - P999
+                  </div>
+                </div>
+                </div>
+            </td>
+            <td>P999</td>
+            <td>Cash</td>
+            <td>On the way</td>
+          </tr>
+      </tbody>
+    </table>
+</div>
+
+
+
+
+      <div align="right" class="mt-2">
+    <a href="#" class="btn"><i class="fa-solid fa-circle-arrow-up fa-3x" style="color:black"></i></a>
+  </div>
+
+  <footer class="pt-3 pb-1 pl-3" style="background-color: rgb(255,1,1)">
+
+  </footer>
+  <div class="row text-light" style="background-color: rgb(18,18,18);">
+    
+  
+    <div class="col-12 pt-4 text-light">
+
+      <center><a class="navbar-brand ms-2">
+        <img src="img/images/logo2.png" alt="Ichiraku Logo" width="140" height="140">
+      </a></center>
+      <p align="center" id="nuku" style="font-size: 150%">
+        ICHIRAKU
+      </p>
+    </div>
+
+    <center class="mb-2"><i class="fa-brands fa-square-facebook fa-lg mr-5"></i>
+      <i class="fa-brands fa-square-instagram fa-lg mr-5"></i>
+      <i class="fa-brands fa-square-twitter fa-lg mr-5"></i>
+      <i class="fa-brands fa-tiktok fa-lg"></i>
+    </center>
+      
+    <hr>
+
+    <center class="pt-4 pb-5">
+      <a id="footerName" class="mr-5" href="location.html">Location</a>
+      <a id="footerName" class="mr-5" href="rates.html">Rates</a>
+      <a id="footerName" class="mr-5" href="payment.html">Mode of Payment</a>
+      <a id="footerName" class="mr-5" href="menu.html">Menu</a>
+      <a id="footerName" class="mr-5" href="aboutUs.html">Our Team</a>
+      <a id="footerName" class="mr-5" href="contactUs.html">Contact Us</a>
+    </center>
+
+  </div>
+
+  <footer class="pt-1 m-0" style="background-color: rgb(0, 0, 0)">
+    <p class="text-light" align="center">©2022 Copyright: Ichiraku</p>
+  </footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+</body>
+</html>

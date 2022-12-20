@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Nerko+One&display=swap');
+
+
+    @media only screen and (max-width: 600px) {
+      #logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      #nuku{
+      font-family: 'Cantora One';
+      font-size: 150%;
+    }
+    #logo {
+      /* margin-left: 15px; */
+      width: 45px;
+      height: 45px;
+    }
+
+      #footerName {
+      font-family: 'Itim';
+      text-decoration: none;
+      font-weight: 600;
+      font-size: xx-small;
+      text-transform: uppercase;
+      padding: 15px;
+      }
+
+      body {
+      /* background-image: url(img/images/wood.jpg); */
+      /* background-color: rgb(255, 255, 255); */
+      background-size: cover;
+      height: 100vh;
+      background-position: center;
+      overflow-x: hidden;
+    }
+
+    #head {
+      width: 100%;
+      box-shadow: 0 0 10px #000;
+      z-index: 1;
+      padding: 0;
+      /* background-attachment: fixed; */
+      background-color: rgb(255,1,1);
+      /* background-image: url(img/vector1.png);
+      background-repeat: no-repeat; */
+    }
+
+    #linkheader {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: large;
+      text-transform: uppercase;
+      padding: 15px;
+      font-family: 'Itim';
+    }
+
+    #menuName {
+      font-family: 'Cantora One';
+      text-decoration: none;
+      font-weight: 600;
+      font-size: large;
+      text-transform: uppercase;
+      padding: 15px;
+    }
+
+    #footerName {
+      font-family: 'Itim';
+      text-decoration: none;
+      font-weight: 600;
+      font-size: large;
+      text-transform: uppercase;
+      padding: 15px;
+    }
+
+    #menuSakoSushi {
+      font-family: 'Cantora One';
+    }
+    
+    
+    
+    }
+
+    @media only screen and (min-width: 600px){
+      body {
+      /* background-image: url(img/images/wood.jpg); */
+      /* background-color: rgb(255, 255, 255); */
+      background-size: cover;
+      height: 100vh;
+      background-position: center;
+      overflow-x: hidden;
+    }
+    #nuku{
+      font-family: 'Cantora One';
+      font-size: 200%;
+    }
+
+    #logo {
+          /* margin-left: 15px; */
+          width: 50px;
+          height: 50px;
+        }
+
+    #head {
+      width: 100%;
+      box-shadow: 0 0 10px #000;
+      z-index: 1;
+      padding: 0;
+      /* background-attachment: fixed; */
+      background-color: rgb(255,1,1);
+      /* background-image: url(img/vector1.png);
+      background-repeat: no-repeat; */
+    }
+
+    #linkheader {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: large;
+      text-transform: uppercase;
+      padding: 15px;
+      font-family: 'Itim';
+    }
+
+    #menuName {
+      font-family: 'Cantora One';
+      text-decoration: none;
+      font-weight: 600;
+      font-size: large;
+      text-transform: uppercase;
+      padding: 15px;
+    }
+
+    #footerName {
+      font-family: 'Itim';
+      text-decoration: none;
+      font-weight: 600;
+      font-size: large;
+      text-transform: uppercase;
+      padding: 15px;
+    }
+
+    #menuSakoSushi {
+      font-family: 'Cantora One';
+    }
+    
+   
+
+    }
+
+    @media only screen and (min-width: 992px){
+      body {
+      background-size: cover;
+      height: 100vh;
+      background-position: center;
+      overflow-x: hidden;
+    }
+    #nuku{
+      font-family: 'Nuku nuku';
+      font-size: 250%;
+    }
+
+    #head {
+      width: 100%;
+      box-shadow: 0 0 10px #000;
+      z-index: 1;
+      padding: 0;
+      background-color: rgb(255,1,1);
+    }
+
+    #linkheader {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: large;
+      text-transform: uppercase;
+      padding: 15px;
+      font-family: 'Itim';
+    }
+
+    #menuName {
+      font-family: 'Cantora One';
+      text-decoration: none;
+      font-weight: 600;
+      font-size: large;
+      text-transform: uppercase;
+      padding: 15px;
+    }
+
+    #footerName {
+      font-family: 'Itim';
+      text-decoration: none;
+      font-weight: 600;
+      font-size: large;
+      text-transform: uppercase;
+      padding: 15px;
+    }
+
+    #menuSakoSushi {
+      font-family: 'Cantora One';
+    }
+    
+    #logo {
+      width: 70px;
+      height: 70px;
+    }
+
+    }
+
+    .fa-twitter {
+      color: black;
+    }
+
+    .fa-instagram {
+      color: black;
+    }
+
+    .fa-facebook {
+      color: black;
+    }
+
+    #divider {
+      background-color: rgb(0, 0, 0);
+      padding: 5px;
+      margin-bottom: 0px;
+      width: 100%;
+    }
+
+    #logintxt {
+      margin-left: 40%;
+    }
+
+    #modalclosebtn {
+      margin-left: 93%;
+      margin-top: 2%;
+    }
+
+    #modalloginbtn {
+      margin-left: 35%;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+
+
+    * {
+      font-family: 'Cantora One';
+
+    }
+
+    .fa-circle-arrow-up {
+      color: rgb(248, 248, 248);
+    }
+
+  
+    a:link {
+      color: rgb(255, 255, 255);
+    }
+
+ 
+    a:hover {
+      color: rgb(182, 176, 176);
+    }
