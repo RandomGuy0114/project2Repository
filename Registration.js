@@ -61,8 +61,11 @@ createUserWithEmailAndPassword(auth, email, password)
     const errorMessage = error.message;
     // ..
   });
-    }else{
-      alert("Passwords do not match.")
+    }else if(password.length <= 6){
+      $("#errorPassword").text("Password must at least be 6 characters"); 
+    }
+    else {
+      $("#errorConfirmpassword").text("Passwords do not match");
     }
     
   });
