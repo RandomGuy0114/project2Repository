@@ -273,11 +273,12 @@
 
 /* modal close button pointer */
 .modal-close-btn {
-  margin-left: 420px;
+  margin-left: 450px;
   margin-top: 0px;
   display: inline-block;
   cursor: pointer;
-  background-color: rgb(18,18,18);;
+  background-color: rgb(18,18,18);
+  color: #fafafa;
 }
 /* modal close button animation */
 /* .modal-close-btn svg {
@@ -285,10 +286,10 @@
 } */
 
 /* modal close button color */
-.modal-close-btn svg line {
-  stroke-width: 5px;
+/* .modal-close-btn svg line {
+  stroke-width: 1px;
   stroke: white;
-}
+} */
 
 /* .modal-close-btn:hover svg {
   transform: rotate(90deg);
@@ -306,11 +307,12 @@
     <label class="modal-backdrop " for="modal-toggle"></label>
     <div class="modal-content">
       <div style="background-color: rgb(18,18,18);">
-      <label id="modalColor" class="modal-close-btn" for="modal-toggle">
-        <svg width="45" height="45">
+      <label class="modal-close-btn" for="modal-toggle">
+        <i class="fa-solid fa-xmark"></i>
+        <!-- <svg width="30" height="40">
           <line x1="10" y1="10" x2="40" y2="40"/>
           <line x1="40" y1="10" x2="10" y2="40"/>
-        </svg>
+        </svg> -->
       </label>
     </div>
       
