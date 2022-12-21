@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Nerko+One&display=swap');
 
-
+    /* smaller dev */
     @media only screen and (max-width: 600px) {
       #logo {
         width: 50px;
@@ -8,7 +8,7 @@
       }
 
       #nuku{
-      font-family: 'Cantora One';
+      font-family: 'Nuku nuku';
       font-size: 150%;
     }
     #logo {
@@ -20,10 +20,10 @@
       #footerName {
       font-family: 'Itim';
       text-decoration: none;
-      font-weight: 600;
-      font-size: xx-small;
+      font-weight: 10;
+      font-size: 60%;
       text-transform: uppercase;
-      padding: 15px;
+      /* padding: 15px; */
       }
 
       body {
@@ -49,7 +49,7 @@
     #linkheader {
       text-decoration: none;
       font-weight: 600;
-      font-size: large;
+      font-size:medium;
       text-transform: uppercase;
       padding: 15px;
       font-family: 'Itim';
@@ -63,24 +63,22 @@
       text-transform: uppercase;
       padding: 15px;
     }
-
-    #footerName {
-      font-family: 'Itim';
-      text-decoration: none;
-      font-weight: 600;
-      font-size: large;
-      text-transform: uppercase;
-      padding: 15px;
-    }
-
+    
     #menuSakoSushi {
       font-family: 'Cantora One';
     }
+
+    #footerlogo{
+      width: 100px;
+      height: 100px;
+    }
     
     
     
     }
 
+
+    /* small dev */
     @media only screen and (min-width: 600px){
       body {
       /* background-image: url(img/images/wood.jpg); */
@@ -91,7 +89,7 @@
       overflow-x: hidden;
     }
     #nuku{
-      font-family: 'Cantora One';
+      font-family: 'Nuku nuku';
       font-size: 200%;
     }
 
@@ -142,11 +140,16 @@
     #menuSakoSushi {
       font-family: 'Cantora One';
     }
+
+    #footerlogo{
+      width: 100px;
+      height: 100px;
+    }
     
    
 
     }
-
+    /* big dev */
     @media only screen and (min-width: 992px){
       body {
       background-size: cover;
@@ -201,6 +204,11 @@
     #logo {
       width: 70px;
       height: 70px;
+    }
+
+    #footerlogo{
+      width: 140px;
+      height: 140px;
     }
 
     }

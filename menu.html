@@ -54,7 +54,7 @@
   margin: auto;
   left: 0;
   right: 0;
-  height: 620px;
+  height: 600px;
   width: 480px;
   transform: translateX(5%);
 }
@@ -134,10 +134,10 @@
 .tabs > .table {
   padding: 20px 0;
   text-align: center;
-  border-bottom: solid rgb(18,18,18) 5px;
+  border-bottom: solid black 5px;
   color: #fafafa;
   cursor: pointer;
-  background: rgb(18,18,18);;
+  background: black;
 }
 .tabs > .table span {
   font-weight: 600;
@@ -215,7 +215,7 @@
 .tabs > .tabs-content input[type="submit"] {
   padding: 15px;
   width: 80%;
-  background: rgb(18,18,18);;
+  background: #000000;
   color: #fff;
   border: none;
   font-size: 18px;
@@ -229,7 +229,7 @@
 }
 .tabs > .tabs-content .forgot-password label {
   width: 50%;
-  color: rgb(18,18,18);;
+  color: #000000;
   text-decoration: none;
   font-size: 12px;
   line-height: 1.5;
@@ -271,64 +271,26 @@
   visibility: visible;
 }
 
-/* modal close button pointer */
-.modal-close-btn {
-  margin-left: 420px;
-  margin-top: 0px;
-  display: inline-block;
-  cursor: pointer;
-  background-color: rgb(18,18,18);;
-}
-/* modal close button animation */
-/* .modal-close-btn svg {
-  transition: 0.2s;
-} */
-
-/* modal close button color */
-.modal-close-btn svg line {
-  stroke-width: 5px;
-  stroke: white;
-}
-
-/* .modal-close-btn:hover svg {
-  transform: rotate(90deg);
-} */
-
-
-
   </style>
 </head>
 
 <body>
-  
 <!-- SIGN IN SIGN UP MODAL -->
   <input id="modal-toggle" type="checkbox">
     <label class="modal-backdrop " for="modal-toggle"></label>
     <div class="modal-content">
-      <div style="background-color: rgb(18,18,18);">
-      <label id="modalColor" class="modal-close-btn" for="modal-toggle">
-        <svg width="45" height="45">
-          <line x1="10" y1="10" x2="40" y2="40"/>
-          <line x1="40" y1="10" x2="10" y2="40"/>
-        </svg>
-      </label>
-    </div>
-      
-        <div class="tabs mt-0" style="background-color: rgb(255, 255, 255);">
+        <div class="tabs mt-0">
         <!--  LOG IN  -->
-        
             <input class="radio" id="tab-1" name="tabs-name" type="radio" checked>
-            <label for="tab-1" class="table"><span>Sign in</span></label>
+            <label for="tab-1" class="table"><span>Login</span></label>
             <div class="tabs-content mt-3 pl-5 pr-5">
                <form action="">
                 
-                <input type="email" id="loginEmail" placeholder="Email" required>
-                <input type="password" id="loginPassword" placeholder="Password" required>
-                <center><button type="submit" id="loginBtn" class="btn btn-outline-dark col-5 text-white"
-                style="background-color:rgb(197,0,0);">Sign in</button></center>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <center><button type="submit" class="btn btn-outline-dark col-5 text-white"
+                style="background-color:rgb(197,0,0);">Login</button></center>
                </form>
-
-               
                <form class="forgot-password" action="">
                    <input id="forgot-password-toggle" type="checkbox">
                    <label for="forgot-password-toggle">forgot password?</label>
@@ -343,7 +305,6 @@
                     <a href="" class="fa-brands fa-square-google-plus me-0" aria-hidden="true"></a>
                   </div>
             </div>
-            
 <!--  SIGN UP  -->
             <input class="radio" id="tab-2" name="tabs-name" type="radio">
             <label for="tab-2" class="table"><span>Sign up</span></label>
@@ -387,7 +348,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item pe-5">
-            <a class="nav-link active text-white" id="linkheader" aria-current="page" href="">Home</a>
+            <a class="nav-link active text-white" id="linkheader" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item pe-5">
             <a class="nav-link text-white" id="linkheader" href="menu.html">Menu</a>
@@ -407,13 +368,13 @@
     </div>
   </nav>
 
-  <img src="img/images/header.jpg" class="img-fluid" alt="ichirakubg">
+  <!-- <img src="img/images/header.jpg" class="img-fluid" alt="ichirakubg"> -->
 
-  <center><img src="img/images/featured_bannerr.png" class="img-fluid" alt="ichirakubg" width="90%" height="20%"></center>
+  <!-- <center><img src="img/images/featured_bannerr.png" class="img-fluid" alt="ichirakubg" width="90%" height="20%"></center> -->
   <br>
   </div>
 
-  <section id="grad1" class="pt-4">
+  <!-- <section id="grad1" class="pt-4">
     <div class="container text-black">
       <div class="row">
         <div class="col-lg-4 col-md-12 col-12 ms-lg-5">
@@ -430,7 +391,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   
   <center><img src="img/images/menu_banner.png" class="img-fluid" alt="ichirakubg" width="90%" height="20%"></center>
@@ -446,8 +407,10 @@
               <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/1-salmon.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                  <!-- Product price -->
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P123</p>
                   <!-- Product name -->
-                  <p align="center" id="menuName" class="pb-0">Salmon Sushi Roll</p>
+                  <p class="text-center p-0 m-0 mb-2"  id="menuName">Salmon Sushi Roll</p>
                     <!-- PRODUCT INFO -->
                     <p class="pb-4">Tempura  and cucumber wrapped with salmon served with soy sauce and wasabi.</p>
                 </div>
@@ -457,7 +420,8 @@
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/2-smoked.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                   <!-- INFO + PRICE -->
-                  <p align="center" id="menuName" class="pb-0">Smoked salmon sushi</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P123</p>
+                  <p class="text-center p-0 m-0 mb-2" id="menuName" class="pb-0">Smoked salmon sushi</p>
                   <p class="pb-4">Layer the cheese mix with the rice, cucumber, and red bell pepper.</p>
                 </div>
               </div>
@@ -466,8 +430,9 @@
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/3-paleo.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                   <!-- INFO + PRICE -->
-                  <p align="center" id="menuName" class="pb-0">palaeo sushi</p>
-                    <p class="pb-4">cauliflower rice,  smoked salmon, bacon, asparagus stalks and milk.</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P123</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName" class="pb-0">palaeo sushi</p>
+                  <p class="pb-4">Cauliflower rice,  smoked salmon, bacon, asparagus stalks and milk.</p>
                 </div>
               </div>
             </div>
@@ -487,7 +452,8 @@
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/1-original.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                   <!-- INFO + PRICE -->
-                  <p align="center" id="menuName" class="pb-0">Original</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P999</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName" class="pb-0">Original</p>
                     <p class="pb-4">Tanota sauce, mayo, bonito flakes, seaweed.</p>
                 </div>
               </div>
@@ -495,7 +461,8 @@
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/2-jalapeno.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                   <!-- INFO + PRICE -->
-                  <p align="center" id="menuName" class="pb-0">Jalapeño</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P999</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName" class="pb-0">Jalapeño</p>
                   <p class="pb-4">Jalapeño mayo, bonito flakes, green seaweed.</p>
                 </div>
               </div>
@@ -503,9 +470,73 @@
                 <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
                   <img id="shopimage" src="img/menu/3-ponzu.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                   <!-- INFO + PRICE -->
-                  <p align="center" id="menuName" class="pb-0">Ponzu</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P999</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName" class="pb-0">Ponzu</p>
                   <p class="pb-4">Citrus soy sauce, bonito flakes, green onion.</p>
                 </div>
+              </div>
+              <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+                  <img id="shopimage" src="img/menu/4-wasabi.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                  <!-- INFO + PRICE -->
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P999</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName" class="pb-0">Wasabi</p>
+                  <p class="pb-4">Wasabi mayo, tanota sauce, seaweed, wasabi fakes.</p>
+                </div>
+              </div>
+              <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="container card pt-2 h-100" style="border-radius:15%; border:#000; border-style:groove;">
+                  <img id="shopimage" src="img/menu/5-mentaiko.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                  <!-- INFO + PRICE -->
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P999</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName" class="pb-0">Menatiko</p>
+                  <p class="pb-4">Spicy caviar sauce, seaweed green onions.</p>
+                </div>
+              </div>
+              <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+                  <img id="shopimage" src="img/menu/6-goma.jpg" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                  <!-- INFO + PRICE -->
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P999</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName" class="pb-0">Goma</p>
+                  <p class="pb-4">Sesame oil sauce, sea salt, sesame seeds, green onions.</p>
+                </div>
+              </div>
+        </section>
+      </div>
+      <div class="row">
+        <section>
+          <div class="container">
+                <div class="row p-4">
+                <!-- SAMPLE PRODUCTS -->
+              <h3 id ="menuSakoSushi" class="text-black">Ramen</h3>
+              <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+                  <img id="shopimage" src="img/menu/1-TanTan.png" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                  <!-- INFO + PRICE -->
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P999</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName" class="pb-0">TAN TAN</p>
+                    <p class="pb-4">Served in Japanese style sesame chili soup with house-made ground spicy soy meat and bok choy.</p>
+                </div>
+              </div>
+              <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+                  <img id="shopimage" src="img/menu/2-Nikutama.png" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                  <!-- INFO + PRICE -->
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P999</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName" class="pb-0">NIKUTAMA</p>
+                  <p class="pb-4">Made-to-order upon noodles served with sweet and savory beef, hot spring egg, and bk sauce.</p>
+                </div>
+              </div>
+              <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="container card pt-2 h-100" style="border-radius:15%; border:#000; border-style:groove;">
+                  <img id="shopimage" src="img/menu/3-Tonkotsu.png" alt="Avatar" class="image" style="width:100%; border-radius:15%; border:#000; border-style:groove;">
+                  <!-- INFO + PRICE -->
+                  <p class="text-center p-0 m-0 mt-2" id="menuName">P999</p>
+                  <p class="text-center p-0 m-0 mt-2" id="menuName" class="pb-0">TONKOTSU</p>
+                  <p class="pb-4">Served in a pork with chashu pork, miso ground pork, garlic, and seasoned egg.</p>
+                </div>
+              </div>
               </div>
               <div align="right" class="mt-2">
                 <a id="menuName" href="/menu.html" class="btn btn-outline-dark text-light"
@@ -530,7 +561,7 @@
     <div class="col-12 pt-4 text-light">
 
       <center><a class="navbar-brand ms-2">
-        <img id="footerlogo" src="img/images/logo2.png" alt="Ichiraku Logo">
+        <img src="img/images/logo2.png" alt="Ichiraku Logo" width="140" height="140">
       </a></center>
       <p align="center" id="nuku" style="font-size: 150%">
         ICHIRAKU
@@ -561,7 +592,6 @@
   </footer>
 
   <script type="module" src="Registration.js"></script>
-  <script type="module" src="login.js"></script>
 
   <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
 
