@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import {getDatabase, set, get, update, remove, ref, child} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { getDatabase, set, get, update, remove, ref, child,push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -51,33 +51,40 @@ signupForm.addEventListener("click", () => {
     $("#errorEmail").text("Invalid email address format");
     return false
   }
-  
-  
+
 
   if (password === confirmPassword) {
     const auth = getAuth();
+    
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
+
+        // Adding the info of the user into the database
         const user = userCredential.user;
-        set(ref(db, 'Users/'),{
+        push(ref(db, 'Users/' ), {
           firstname: firstName,
           lastName: lastName,
-          email: email 
+          email: email
         })
-        .then(()=>{
-          alert('Data added succesfully')
-        })
-        .catch((error)=>{
-          alert(error)
-        })
+          .then(() => {
+            
+          })
+          .catch((error) => {
+           
+          })
+        // firebase.database().ref("Users").push({
+        //   firstname: firstName,
+        //     lastName: lastName,
+        //     email: email
+        // })
         alert(user)
         document.getElementById("userfirstName").value = "";
         document.getElementById("userlastName").value = "";
         document.getElementById("userEmail").value = "";
         document.getElementById("userPassword").value = "";
         document.getElementById("confirmPassword").value = "";
-        
+
         // ...
       })
       .catch((error) => {
@@ -86,10 +93,13 @@ signupForm.addEventListener("click", () => {
         alert(errorMessage)
         // ..
       });
-  } else {
-    alert("Passwords do not match.")
+  }  else if (password.length <= 6) {
+    $("#errorPassword").text("Password must at least be 6 characters");
   }
-  
+  else {
+    $("#errorConfirmpassword").text("Passwords do not match");
+  }
+
 
 });
 
@@ -100,6 +110,6 @@ loginBtn.addEventListener("click", () => {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
   signInWithEmailAndPassword(auth, email, password)
-  .then()
-  .catch()
+    .then()
+    .catch()
 })
