@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { getDatabase, set, get, update, remove, ref, child,push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, update, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,10 +25,11 @@ const app = initializeApp(firebaseConfig);
 /*---------------------------------------------------------------- */
 
 const signupForm = document.getElementById("signupForm");
-console.log("register")
+
 const db = getDatabase();
 // sign-up codes
 signupForm.addEventListener("click", () => {
+  console.log("register")
   const firstName = document.getElementById("userfirstName").value;
   const lastName = document.getElementById("userlastName").value;
   const email = document.getElementById("userEmail").value;
@@ -55,23 +56,23 @@ signupForm.addEventListener("click", () => {
 
   if (password === confirmPassword) {
     const auth = getAuth();
-    
+
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
 
         // Adding the info of the user into the database
         const user = userCredential.user;
-        push(ref(db, 'Users/' ), {
+        push(ref(db, 'Users/'), {
           firstname: firstName,
           lastName: lastName,
           email: email
         })
           .then(() => {
-            
+
           })
           .catch((error) => {
-           
+
           })
         // firebase.database().ref("Users").push({
         //   firstname: firstName,
@@ -93,7 +94,7 @@ signupForm.addEventListener("click", () => {
         alert(errorMessage)
         // ..
       });
-  }  else if (password.length <= 6) {
+  } else if (password.length <= 6) {
     $("#errorPassword").text("Password must at least be 6 characters");
   }
   else {
@@ -103,13 +104,41 @@ signupForm.addEventListener("click", () => {
 
 });
 
+
+// log in code
 const loginBtn = document.querySelector('#loginBtn');
 
 
 loginBtn.addEventListener("click", () => {
+  console.log('login')
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
+  const auth = getAuth();
   signInWithEmailAndPassword(auth, email, password)
-    .then()
-    .catch()
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+
+      update(ref(db, 'Users/'), {
+        lastLogin: new Date()
+      })
+        .then(() => {
+          alert('login')
+        })
+        .catch((error) => {
+         
+          const errorMessage = error.message;
+          alert(errorMessage + "di naka log in")
+        })
+      alert('login')
+      // ...
+    })
+    .catch((error) => {
+
+      const errorMessage = error.message;
+      alert(errorMessage + "tang ina ayaw gumana")
+    });
+
 })
+
+
