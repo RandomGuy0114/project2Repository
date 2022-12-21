@@ -119,7 +119,7 @@ loginBtn.addEventListener("click", () => {
       // Signed in 
       const user = userCredential.user;
 
-      update(ref(db, 'Users/'), {
+      update(ref(db, 'Users/' + user.uid), {
         lastLogin: new Date()
       })
         .then(() => {
