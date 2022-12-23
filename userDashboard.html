@@ -114,6 +114,9 @@
         <img id="logo" src="img/images/logo.png" alt="Ichiraku Logo">
         Ichiraku
       </a>
+
+      
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -139,12 +142,6 @@
         <!-- <a class="fa-solid fa-cart-shopping fa-2x pe-5" style="color:black;"></a> -->
 
 
-        <!-- Button trigger modal -->
-        <button type="button" style="background-color: #f1f1f100; border:none" class="fa-solid fa-cart-shopping fa-2xl pe-5" data-bs-toggle="modal" data-bs-target="#cartModal" >
-        </button>
-        
-
-
         <!-- PROFILE -->
         <div class="dropdown">
           <button class="dropbtn fa-solid fa-user fa-xl"
@@ -155,11 +152,13 @@
           </div>
         </div>
         <!-- END  OF ->IF LOGGED IN -->
-
-
       </div>
     </div>
   </nav>
+   <!-- Button trigger modal floatingCart -->
+   <button id="floatingCart" type="button" style="background-color: white; border:none" class="fa-solid fa-cart-shopping my-float fa-2xl pe-2" data-bs-toggle="modal" data-bs-target="#cartModal" >
+  </button>
+  
 
   <h1 class="mt-3 ms-3">Hello, userName!</h1>
   <hr>
@@ -186,6 +185,7 @@
       </div>
   </div>
  </div>
+ 
 
 
 
