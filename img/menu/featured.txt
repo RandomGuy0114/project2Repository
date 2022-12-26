@@ -1,0 +1,9 @@
+[
+  {
+    "featuredID": 1,
+    "name": "Salmon Sushi Roll",
+    "price": 60,
+    "info": "Tempura and cucumber wrapped with salmon served with soy sauce and wasabi.",
+    "src": "/img/menu/1-salmon.jpg"
+  }
+]
