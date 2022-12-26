@@ -18,7 +18,7 @@
     "name": "Ponzu",
     "price": 40,
     "info": "Citrus soy sauce, bonito flakes, green onion.",
-    "src": "/img/menu/3-ponzu.jpgg"
+    "src": "/img/menu/3-ponzu.jpg"
   },
 {
     "takoID": 4,

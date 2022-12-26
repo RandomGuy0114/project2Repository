@@ -1,9 +1,9 @@
 [
   {
     "featuredID": 1,
-    "name": "Salmon Sushi Roll",
-    "price": 60,
-    "info": "Tempura and cucumber wrapped with salmon served with soy sauce and wasabi.",
-    "src": "/img/menu/1-salmon.jpg"
+    "name": "Sushi Boat",
+    "price": 1500,
+    "info": "All aboard the Sushi Boat! Available in Regular (31 pieces of sashimi, nigiri and makimono) and Deluxe (36 pieces of our bestselling makimono).",
+    "src": "/img/menu/featured.jpg"
   }
 ]
