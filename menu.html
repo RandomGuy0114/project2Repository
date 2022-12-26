@@ -359,6 +359,14 @@
       border-radius:5%
     }
 
+    #featuredMenu{
+      align-items: center;
+      outline-style: groove;
+      padding: 10px;
+      margin: 20px;
+      border: radius 5%;
+    }
+
     /* .container {
       width: 100%;
     } */
@@ -526,40 +534,18 @@
 
 <div class="row p-5 d-flex justify-content-center">
 
-    <h2 style="padding-left:8%">Ramen</h2>
-    <div class="mb-3 mt-2 col-lg-3 col-md-3 col-sm-6 col-xs-12 d-flex justify-content-center">
-        <div class="container card ">
-          <img id="shopimage" src="/img/menu/1-TanTan.png" alt="Avatar" class="image" style="width:100%; border-radius:5%">
+  <h2 style="padding-left:8%">Featured</h2>
+    <div class="mb-3 mt-2 col-lg-5 col-md-5 col-sm-5 col-xs-12 d-flex justify-content-center" >
+        <div id="featuredMenu" class="container card">
+          <img id="shopimage" src="/img/menu/featured.jpg" alt="Avatar" class="image" style="width:100%; border-radius:5%">
           <p align="center">
             
-              <h5>TAN TAN </h5>
-              <h6>Served in Japanese style sesame chili soup with house-made ground spicy soy meat and bok choy.              </h6>
+              <h5>Sushi Boat</h5>
+              <h6>All aboard the Sushi Boat! Available in Deluxe (36 pieces of sashimi, nigiri and our bestselling makimono).</h6>
             
           </p>
           <div class="middle">
-            <h5>P150</h5>
-            <div class="number d-flex justify-content-center">
-                
-                <span class="minus">-</span>
-                <input id="inputCounter" type="text" value="0"/>
-                <span class="plus">+</span>
-            </div>            
-              <div class="btn" id="add">Add to cart</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-3 mt-2 col-lg-3 col-md-3 col-sm-6 col-xs-12 d-flex justify-content-center">
-        <div class="container card ">
-          <img id="shopimage" src="/img/menu/2-Nikutama.png" alt="Avatar" class="image" style="width:100%;">
-          <p align="center">
-            
-              <h5>Nikutama</h5>
-              <h6>Made-to-order noodles served with sweet and savory beef, hot spring egg, and BK sauce. Can be served cold upon request.</h6>
-            
-          </p>
-          <div class="middle">
-            <h5>P170</h5>
+            <h5>P1500</h5>
             <div class="number d-flex justify-content-center">
                 
                 <span class="minus">-</span>
@@ -571,31 +557,75 @@
         </div>
       </div>
 
+      <h2 style="padding-left:8%">Ramen</h2>
       <div class="mb-3 mt-2 col-lg-3 col-md-3 col-sm-6 col-xs-12 d-flex justify-content-center">
-        <div class="container card ">
-          <img id="shopimage" src="/img/menu/3-Tonkotsu.png" alt="Avatar" class="image" style="width:100%; border-radius:5%">
-          <p align="center">
-            
-              <h5>Tonkotsu</h5>
-              <h6>Made-to-order noodles served in a pork broth with chashu pork, miso ground pork, garlic, and seasoned egg.</h6>
-            
-          </p>
-          <div class="middle">
-            <h5>P180</h5>
-            <div class="number d-flex justify-content-center">
-                
-                <span class="minus">-</span>
-                <input id="inputCounter" type="text" value="0"/>
-                <span class="plus">+</span>
+          <div class="container card ">
+            <img id="shopimage" src="/img/menu/1-TanTan.png" alt="Avatar" class="image" style="width:100%; border-radius:5%">
+            <p align="center">
+              
+                <h5>Tan Tan</h5>
+                <h6>Served in Japanese style sesame chili soup with house-made ground spicy soy meat and bok choy.</h6>
+              
+            </p>
+            <div class="middle">
+              <h5>P150</h5>
+              <div class="number d-flex justify-content-center">
+                  
+                  <span class="minus">-</span>
+                  <input id="inputCounter" type="text" value="0"/>
+                  <span class="plus">+</span>
+              </div>
+                <div class="btn" id="add">Add to cart</div>
             </div>
-              <div class="btn" id="add">Add to cart</div>
           </div>
         </div>
-      </div>
 
-      
+        <div class="mb-3 mt-2 col-lg-3 col-md-3 col-sm-6 col-xs-12 d-flex justify-content-center">
+          <div class="container card ">
+            <img id="shopimage" src="/img/menu/2-Nikutama.png" alt="Avatar" class="image" style="width:100%; border-radius:5%">
+            <p align="center">
+              
+                <h5>Nikutama</h5>
+                <h6>Made-to-order noodles served with sweet and savory beef, hot spring egg, and BK sauce. Can be served cold upon request.</h6>
+              
+            </p>
+            <div class="middle">
+              <h5>P170</h5>
+              <div class="number d-flex justify-content-center">
+                  
+                  <span class="minus">-</span>
+                  <input id="inputCounter" type="text" value="0"/>
+                  <span class="plus">+</span>
+              </div>
+                <div class="btn" id="add">Add to cart</div>
+            </div>
+          </div>
+        </div>
 
-      <h2>Takoyaki</h2>
+        <div class="mb-3 mt-2 col-lg-3 col-md-3 col-sm-6 col-xs-12 d-flex justify-content-center">
+          <div class="container card ">
+            <img id="shopimage" src="/img/menu/3-Tonkotsu.png" alt="Avatar" class="image" style="width:100%; border-radius:5%">
+            <p align="center">
+              
+                <h5>Tonkotsu</h5>
+                <h6>Made-to-order noodles served in a pork broth with chashu pork, miso ground pork, garlic, and seasoned egg.</h6>
+              
+            </p>
+            <div class="middle">
+              <h5>P180</h5>
+              <div class="number d-flex justify-content-center">
+                  
+                  <span class="minus">-</span>
+                  <input id="inputCounter" type="text" value="0"/>
+                  <span class="plus">+</span>
+              </div>
+                <div class="btn" id="add">Add to cart</div>
+            </div>
+          </div>
+        </div>
+
+
+      <h2 style="padding-left:8%">Takoyaki</h2>
     <div class="mb-3 mt-2 col-lg-3 col-md-3 col-sm-6 col-xs-12 d-flex justify-content-center">
         <div class="container card ">
           <img id="shopimage" src="/img/menu/1-original.jpg" alt="Avatar" class="image" style="width:100%; border-radius:5%">
@@ -728,7 +758,7 @@
         </div>
       </div>
 
-      <h2>Sushi</h2>
+      <h2 style="padding-left:8%">Sushi</h2>
     <div class="mb-3 mt-2 col-lg-3 col-md-3 col-sm-6 col-xs-12 d-flex justify-content-center">
         <div class="container card ">
           <img id="shopimage" src="/img/menu/1-salmon.jpg" alt="Avatar" class="image" style="width:100%; border-radius:5%">
@@ -794,11 +824,8 @@
           </div>
         </div>
       </div>
-
       </div>
       
-
-
   </div>
 
   <div align="right" class="mt-2">
