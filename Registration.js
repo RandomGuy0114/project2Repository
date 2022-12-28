@@ -25,9 +25,11 @@ const app = initializeApp(firebaseConfig);
 /*---------------------------------------------------------------- */
 
 const signupForm = document.getElementById("signupForm");
-
+// const onClickUserFirstName = document.getElementById("userfirstname")
 const db = getDatabase();
 // sign-up codes
+
+
 signupForm.addEventListener("click", () => {
   console.log("register")
   const firstName = document.getElementById("userfirstName").value;
@@ -38,19 +40,19 @@ signupForm.addEventListener("click", () => {
 
   // Maximum of 30 firstname length must not be 1 character 
   if (firstName.length >= 30 || firstName.length <= 1) {
-    $("#errorName").text("First Name must be at least 2 characters");
-    return false
+    $("#errorName").text("First Name and Last Name must be at least 2 characters");
+    
   }
   if (lastName.length >= 30 || lastName.length <= 1) {
-    $("#errorName").text("Last Name must be at least 2 characters");
-    return false
+    $("#errorName").text("First Name and Last Name must be at least 2 characters");
+   
   }
 
   //Regular expression format para hindi makalusot mga blank at special characters sa email
   if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
     $("#userEmail").css("border-bottom", "solid red 2px");
     $("#errorEmail").text("Invalid email address format");
-    return false
+  
   }
 
 
@@ -79,7 +81,7 @@ signupForm.addEventListener("click", () => {
         //     lastName: lastName,
         //     email: email
         // })
-        alert(user)
+        console.log('success')
         document.getElementById("userfirstName").value = "";
         document.getElementById("userlastName").value = "";
         document.getElementById("userEmail").value = "";
@@ -91,14 +93,14 @@ signupForm.addEventListener("click", () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage)
+
         // ..
       });
-  } else if (password.length <= 6) {
+  } else if (password.length <= 6 || password.length == 1) {
     $("#errorPassword").text("Password must at least be 6 characters");
   }
   else {
-    $("#errorConfirmpassword").text("Passwords do not match");
+    $("#errorConfirmPassword").text("Passwords do not match");
   }
 
 
@@ -120,23 +122,25 @@ loginBtn.addEventListener("click", () => {
       const user = userCredential.user;
 
       update(ref(db, 'Users/' + user.uid), {
-        lastLogin: new Date()
+        lastLogin: new Date().getTime()
       })
         .then(() => {
-          alert('login')
+
+          document.getElementById("loginEmail").value = "";
+          document.getElementById("loginPassword").value = "";
         })
         .catch((error) => {
-         
+
           const errorMessage = error.message;
-          alert(errorMessage + "di naka log in")
+          console.log(errorMessage + "di naka log in")
         })
-      alert('login')
+      console.log('login')
       // ...
     })
     .catch((error) => {
 
       const errorMessage = error.message;
-      alert(errorMessage + "tang ina ayaw gumana")
+      console.log(errorMessage + "ayaw gumana")
     });
 
 })
