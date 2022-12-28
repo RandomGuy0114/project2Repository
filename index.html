@@ -334,13 +334,15 @@
             <div class="tabs-content pl-5 pr-5">
                <form action="">
                 <div class="input-group">
-                  <input type="text" placeholder="First Name" class="form-control" id="userfirstName"required>
-                  <input type="text" placeholder="Last Name" class="form-control" id="userlastName"required>
+                  <input onclick="clearErrorName()" type="text" placeholder="First Name" class="form-control" id="userfirstName"required>
+                  <input onclick="clearErrorName()" type="text" placeholder="Last Name" class="form-control" id="userlastName"required>
                 </div><span id="errorName" style="color: red" height="auto"></span>
-                   <input type="email" placeholder="Email" class="form-control" id="userEmail" required>
+                   <input onclick="clearErrorEmail()" type="email" placeholder="Email" class="form-control" id="userEmail" required>
                    <span id="errorEmail" style="color: red;"></span>
-                   <input type="password" placeholder="Password" class="form-control" id="userPassword" required>
-                   <input type="password" placeholder="Confirm password" class="form-control" id="confirmPassword" required>
+                   <input onclick="clearErrorPassword()" type="password" placeholder="Password" class="form-control" id="userPassword" required>
+                   <span  id="errorPassword" style="color: red;"></span>
+                   <input onclick="clearErrorConfirmPassword()" type="password" placeholder="Confirm password" class="form-control" id="confirmPassword" required>
+                   <span id="errorConfirmPassword" style="color: red;"></span>
                    <center><button type="button" class="btn btn-outline-dark col-5 text-white mb-5"
                     style="background-color:rgb(197,0,0);" id="signupForm">Sign Up</button></center>
                 
@@ -547,6 +549,24 @@
   <script type="module" src="Registration.js"></script>
  -->
 
+  <script>
+    function clearErrorName(){
+      $("#errorName").text("");
+      
+    }
+    function clearErrorEmail(){
+      $("#errorEmail").text("");
+      
+    }
+    function clearErrorPassword(){
+      $("#errorPassword").text("");
+      clearErrorConfirmPassword();
+    }
+    function clearErrorConfirmPassword(){
+      $("#errorConfirmPassword").text("");
+      
+    }
+  </script>
   <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
