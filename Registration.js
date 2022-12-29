@@ -41,18 +41,18 @@ signupForm.addEventListener("click", () => {
   // Maximum of 30 firstname length must not be 1 character 
   if (firstName.length >= 30 || firstName.length <= 1) {
     $("#errorName").text("First Name and Last Name must be at least 2 characters");
-    
+
   }
   if (lastName.length >= 30 || lastName.length <= 1) {
     $("#errorName").text("First Name and Last Name must be at least 2 characters");
-   
+
   }
 
   //Regular expression format para hindi makalusot mga blank at special characters sa email
   if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
     $("#userEmail").css("border-bottom", "solid red 2px");
     $("#errorEmail").text("Invalid email address format");
-  
+
   }
 
 
@@ -112,7 +112,6 @@ const loginBtn = document.querySelector('#loginBtn');
 
 
 loginBtn.addEventListener("click", () => {
-  console.log('login')
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
   const auth = getAuth();
@@ -128,11 +127,15 @@ loginBtn.addEventListener("click", () => {
 
           document.getElementById("loginEmail").value = "";
           document.getElementById("loginPassword").value = "";
+          document.querySelector(".hideFormBtn").style.display = "none";
+          window.open('index_user.html', '_self');
+          
+
         })
         .catch((error) => {
 
           const errorMessage = error.message;
-          console.log(errorMessage + "di naka log in")
+          console.log(errorMessage + ", di naka log in")
         })
       console.log('login')
       // ...

@@ -259,134 +259,17 @@
       cursor: pointer;
     }
 
-    .forgot-password #forgot-password-toggle {
-      display: none;
-    }
+  
 
-    .forgot-password .forgot-password-content {
-      height: 0;
-      width: 0;
-      opacity: 0;
-      visibility: hidden;
-      overflow: hidden;
-      cursor: pointer;
-      transition: opacity 0.2s ease-in;
-    }
+   
 
-    .forgot-password .forgot-password-content input[type="email"] {
-      width: 80%;
-      margin-right: 0px;
-      border-right: none;
-    }
+    
 
-    .forgot-password .forgot-password-content input[type="submit"] {
-      width: 20%;
-      margin-left: 0px;
-    }
 
-    .forgot-password #forgot-password-toggle:checked~.forgot-password-content {
-      display: flex;
-      opacity: 1;
-      width: 100%;
-      height: 100%;
-      z-index: 999;
-      pointer-events: auto;
-      cursor: auto;
-      visibility: visible;
-    }
-
-    .modal-close-btn {
-      margin-left: 450px;
-      margin-top: 0px;
-      display: inline-block;
-      cursor: pointer;
-      background-color: rgb(18, 18, 18);
-      color: #fafafa;
-    }
   </style>
 </head>
 
 <body>
-
-  <!-- SIGN IN SIGN UP MODAL -->
-  <input id="modal-toggle" type="checkbox">
-  <label class="modal-backdrop " for="modal-toggle"></label>
-  <div class="modal-content">
-    <div style="background-color: rgb(18,18,18);">
-      <label class="modal-close-btn" for="modal-toggle">
-        <i class="fa-solid fa-xmark"></i>
-        <!-- <svg width="30" height="40">
-          <line x1="10" y1="10" x2="40" y2="40"/>
-          <line x1="40" y1="10" x2="10" y2="40"/>
-        </svg> -->
-      </label>
-    </div>
-
-    <div class="tabs mt-0" style="background-color: rgb(255, 255, 255);">
-      <!--  LOG IN  -->
-
-      <input class="radio" id="tab-1" name="tabs-name" type="radio" checked>
-      <label for="tab-1" class="table"><span>Sign in</span></label>
-      <div class="tabs-content mt-3 pl-5 pr-5">
-        <form action="">
-
-          <input type="email" id="loginEmail" placeholder="Email" required>
-          <input type="password" id="loginPassword" placeholder="Password" required>
-          <center><button type="button" id="loginBtn" class="btn btn-outline-dark col-5 text-white"
-              style="background-color:rgb(197,0,0);">Sign in</button></center>
-        </form>
-
-
-        <form class="forgot-password" action="">
-          <input id="forgot-password-toggle" type="checkbox">
-          <label for="forgot-password-toggle">forgot password?</label>
-          <div class="forgot-password-content pl-5 pr-5">
-            <input type="email" placeholder="enter your email" required>
-            <input type="submit" value="go">
-          </div>
-        </form>
-        <h6 align="center" class="mt-4">Or use a social network:</h6>
-        <div class="login_socnet" style="text-align: center;">
-          <a href="" class="fa-brands fa-square-facebook me-0" aria-hidden="true"></a>
-          <a href="" class="fa-brands fa-square-google-plus me-0" aria-hidden="true"></a>
-        </div>
-      </div>
-
-      <!--  SIGN UP  -->
-      <input class="radio" id="tab-2" name="tabs-name" type="radio">
-      <label for="tab-2" class="table"><span>Sign up</span></label>
-      <div class="tabs-content pl-5 pr-5">
-        <form action="">
-          <div class="input-group">
-            <input onclick="clearErrorName()" type="text" placeholder="First Name" class="form-control"
-              id="userfirstName" required>
-            <input onclick="clearErrorName()" type="text" placeholder="Last Name" class="form-control" id="userlastName"
-              required>
-          </div><span id="errorName" style="color: red" height="auto"></span>
-          <input onclick="clearErrorEmail()" type="email" placeholder="Email" class="form-control" id="userEmail"
-            required>
-          <span id="errorEmail" style="color: red;"></span>
-          <input onclick="clearErrorPassword()" type="password" placeholder="Password" class="form-control"
-            id="userPassword" required>
-          <span id="errorPassword" style="color: red;"></span>
-          <input onclick="clearErrorConfirmPassword()" type="password" placeholder="Confirm password"
-            class="form-control" id="confirmPassword" required>
-          <span id="errorConfirmPassword" style="color: red;"></span>
-          <center><button type="button" class="btn btn-outline-dark col-5 text-white mb-5"
-              style="background-color:rgb(197,0,0);" id="signupForm">Sign Up</button></center>
-
-
-          <h6 align="center">Or use a social network:</h6>
-          <div class="login_socnet" style="text-align: center;">
-            <a href="" class="fa-brands fa-square-facebook me-0" aria-hidden="true"></a>
-            <a href="" class="fa-brands fa-square-google-plus me-0" aria-hidden="true"></a>
-          </div>
-
-
-        </form>
-      </div>
-    </div>
-  </div>
 
   <nav id="head" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
@@ -414,10 +297,6 @@
             <a class="nav-link text-white" id="linkheader" href="aboutus.html">About Us</a>
           </li>
         </ul>
-
-        <form class="d-fluid m-3 hideFormBtn">
-          <label class="modal-btn" for="modal-toggle">Sign In / Sign Up</label>
-        </form>
       </div>
     </div>
   </nav>
@@ -588,24 +467,7 @@
   <script type="module" src="Registration.js"></script>
   -->
 
-  <script>
-    function clearErrorName() {
-      $("#errorName").text("");
 
-    }
-    function clearErrorEmail() {
-      $("#errorEmail").text("");
-
-    }
-    function clearErrorPassword() {
-      $("#errorPassword").text("");
-      clearErrorConfirmPassword();
-    }
-    function clearErrorConfirmPassword() {
-      $("#errorConfirmPassword").text("");
-
-    }
-  </script>
   <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
