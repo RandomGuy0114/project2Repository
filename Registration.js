@@ -39,13 +39,13 @@ signupForm.addEventListener("click", () => {
   const confirmPassword = document.getElementById("confirmPassword").value;
 
   // Maximum of 30 firstname length must not be 1 character 
-  if (firstName.length >= 30 || firstName.length <= 1) {
-    $("#errorName").text("First Name and Last Name must be at least 2 characters");
-    
+  if ((firstName.length >= 30 || firstName.length <= 1) || !(/^[a-zA-Z]+$/.test(firstName))){
+    $("#errorName").text("Invalid first Name");
+    return false
   }
-  if (lastName.length >= 30 || lastName.length <= 1) {
-    $("#errorName").text("First Name and Last Name must be at least 2 characters");
-   
+  if ((lastName.length >= 30 || lastName.length <= 1) || !(/^[a-zA-Z]+$/.test(lastName))) {
+    $("#errorlName").text("Invalid last Name");
+    return false
   }
 
   //Regular expression format para hindi makalusot mga blank at special characters sa email
