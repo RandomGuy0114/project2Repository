@@ -145,7 +145,7 @@ document.getElementById("chatbot-form").addEventListener("submit", async event =
   document.getElementById("chatbot-messages").innerHTML += `
     <span class="badge text-bg-primary">${getTimestamp()}</span>
     <div>
-      <i class="fas fa-user" style="font-size: 32px;"></i>Me: ${input}
+      <i class="fa-solid fa-user-large" style="font-size: 32px;"></i>Me: ${input}
     </div>
     
       <hr>
