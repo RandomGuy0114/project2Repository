@@ -553,9 +553,14 @@
       </li>
     </ul>
 
-    <form class="d-fluid m-3">
-      <label class="modal-btn" for="modal-toggle">Sign In / Sign Up</label>  
-    </form>
+    <div class="dropdown">
+      <button class="dropbtn fa-solid fa-user fa-xl"
+        style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"></button>
+      <div class="dropdown-content">
+        <a class="dropdown-item" href="userSettings.html" style="color: black;">Settings</a>
+        <a class="dropdown-item" href="#" style="color: black;">Logout</a>
+      </div>
+    </div>
   </div>
 </div>
 </nav>
@@ -928,7 +933,7 @@
   
     <div class="col-12 pt-4 text-light">
 
-      <center><a class="navbar-brand ms-2">
+      <center><a class="navbar-brand">
         <img id="footerlogo" src="img/images/logo2.png" alt="Ichiraku Logo">
       </a></center>
       <p align="center" id="nuku" style="font-size: 150%">
