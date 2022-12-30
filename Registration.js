@@ -128,6 +128,7 @@ loginBtn.addEventListener("click", () => {
           document.getElementById("loginEmail").value = "";
           document.getElementById("loginPassword").value = "";
           document.querySelector(".hideFormBtn").style.display = "none";
+          
           window.open('index_user.html', '_self');
           
 
