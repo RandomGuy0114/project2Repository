@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { getDatabase, update, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
+import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField,Timestamp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -102,45 +102,41 @@ signupForm.addEventListener("click", () => {
 
 });
 
-
 // log in code
 const loginBtn = document.querySelector('#loginBtn');
-
+const dbFirestore = getFirestore();
 
 loginBtn.addEventListener("click", () => {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
   const auth = getAuth();
+  const date = new Date();
+      
+      addDoc(collection(dbFirestore, "login"), {
+        email:email,
+        signIn: date.toString()
+      })
+  
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
+      
+      document.getElementById("loginEmail").value = "";
+      document.getElementById("loginPassword").value = "";
+      document.querySelector(".hideFormBtn").style.display = "none";
 
-      update(ref(db, 'Users/' + user.uid), {
-        lastLogin: new Date().getTime()
-      })
-        .then(() => {
+      window.open('index_user.html', '_self');
 
-          document.getElementById("loginEmail").value = "";
-          document.getElementById("loginPassword").value = "";
-          document.querySelector(".hideFormBtn").style.display = "none";
-          
-          window.open('index_user.html', '_self');
-          
 
-        })
-        .catch((error) => {
 
-          const errorMessage = error.message;
-          console.log(errorMessage + ", di naka log in")
-        })
       console.log('login')
       // ...
     })
     .catch((error) => {
 
       const errorMessage = error.message;
-      console.log(errorMessage + "ayaw gumana")
+      console.log(errorMessage + " di naka log in")
     });
 
 })
