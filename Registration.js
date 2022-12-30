@@ -62,13 +62,14 @@ signupForm.addEventListener("click", () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
-
+        const date = new Date();
         // Adding the info of the user into the database
         const user = userCredential.user;
         push(ref(db, 'Users/'), {
           firstname: firstName,
           lastName: lastName,
-          email: email
+          email: email,
+          dateCreated: date.toString()
         })
           .then(() => {
 
@@ -76,11 +77,6 @@ signupForm.addEventListener("click", () => {
           .catch((error) => {
 
           })
-        // firebase.database().ref("Users").push({
-        //   firstname: firstName,
-        //     lastName: lastName,
-        //     email: email
-        // })
         console.log('success')
         document.getElementById("userfirstName").value = "";
         document.getElementById("userlastName").value = "";
