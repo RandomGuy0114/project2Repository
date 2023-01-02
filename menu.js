@@ -1,5 +1,3 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
 const firebaseConfig = {
     apiKey: "AIzaSyCp7jA3DrW9RCi5YFMj_fiJ-N8t-IF5M2E",
     authDomain: "wd29-a8133.firebaseapp.com",
@@ -15,24 +13,28 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
 var addToCartButton = document.getElementById("add-to-cart-button");
-addToCartButton.addEventListener("click", function () {
+addToCartButton.addEventListener("click", updateCartModal);
+
+function updateCartModal() {
     db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
         if (doc.exists) {
             var data = doc.data();
-            var array = data.array;
+            var array = data.TakoyakiA;
             updateModal(array[0], array[1], array[2]);
         }
     });
-
-    db.collection("TakoyakiA").get().then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-            var data = doc.data();
-            var array = data.array;
-            updateModal(array[0], array[1], array[2]);
-        });
-    });
-});
+}
 
 function updateModal(name, price, quantity) {
-    // Update the modal with the given data, eto lead lagay ka id sa modal tapos tawagin mo dito
+    // Get ele
+    const modal = document.getElementById("modal");
+
+    // UP
+    modal.innerHTML = `
+      <h4>${name}</h4>
+    <h6 style="float:left">$${price}</h6>
+    <h6 style="float:right">${quantity}</h6>
+    `;
+
+    modal.style.display = "block";
 }
