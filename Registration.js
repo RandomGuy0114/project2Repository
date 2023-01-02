@@ -1,7 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import * as firebase from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { getDatabase, update, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
-import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField,Timestamp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
+import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, Timestamp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -62,14 +63,17 @@ signupForm.addEventListener("click", () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
-        const date = new Date();
+        const date = Timestamp.now();
         // Adding the info of the user into the database
         const user = userCredential.user;
         push(ref(db, 'Users/'), {
           firstname: firstName,
           lastName: lastName,
           email: email,
-          dateCreated: date.toString()
+          dateCreated: date
+        })
+        setDoc(doc(dbFirestore, "signin", email,'InAndOut',"in"), {
+          
         })
           .then(() => {
 
@@ -77,7 +81,17 @@ signupForm.addEventListener("click", () => {
           .catch((error) => {
 
           })
+          setDoc(doc(dbFirestore, "signin", email,'InAndOut',"out"), {
+          
+          })
+            .then(() => {
+  
+            })
+            .catch((error) => {
+  
+            })
         console.log('success')
+
         document.getElementById("userfirstName").value = "";
         document.getElementById("userlastName").value = "";
         document.getElementById("userEmail").value = "";
@@ -110,31 +124,37 @@ loginBtn.addEventListener("click", () => {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
   const auth = getAuth();
-  const date = new Date();
-      
-      push(setDoc(doc(dbFirestore, "signin", email), {
-        email:email,
-        signIn: date.toString()
-      }))
-      
+  const date = new Date;
+
+
+
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
+      updateDoc(doc(dbFirestore, "signin", email,'InAndOut',"in"), {
+        [date]: 'in',
+        
+        // signIn: firebase.firestore.FieldValue.arrayUnion(Timestamp.now())
+      })
+      .then(console.log('sign in date succes'))
+      .catch((error) => {
+        const err = error.message;
+        console.log(err + " sign in date failed")
+      })
+    
       
+      // -------------------
       document.getElementById("loginEmail").value = "";
       document.getElementById("loginPassword").value = "";
-      document.querySelector(".hideFormBtn").style.display = "none";
+      // document.querySelector(".hideFormBtn").style.display = "none";
 
       window.open('index_user.html', '_self');
-
-
 
       console.log('login')
       // ...
     })
     .catch((error) => {
-
       const errorMessage = error.message;
       console.log(errorMessage + " di naka log in")
     });
