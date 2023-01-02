@@ -12,14 +12,27 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
-var addToCartButton = document.getElementById("add-to-cart-button");
-addToCartButton.addEventListener("click", updateCartModal);
+let takoOrigCartButton = document.getElementById("takoOrigbutton");
+takoOrigCartButton.addEventListener("click", takoOrigCartModal);
 
-function updateCartModal() {
+function takoOrigCartModal() {
     db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
         if (doc.exists) {
-            var data = doc.data();
-            var array = data.TakoyakiA;
+            let data = doc.data();
+            let array = data.TakoyakiA;
+            updateModal(array[0], array[1], array[2]);
+        }
+    });
+}
+
+let takoJalapenoCartButton = document.getElementById("takoJalapenobutton");
+takoJalapenoCartButton.addEventListener("click", takoJalapenoCartModal);
+
+function takoJalapenoCartModal() {
+    db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
+        if (doc.exists) {
+            let data = doc.data();
+            let array = data.TakoyakiB;
             updateModal(array[0], array[1], array[2]);
         }
     });
@@ -35,6 +48,7 @@ function updateModal(name, price, quantity) {
     <h6 style="float:left">$${price}</h6>
     <h6 style="float:right">${quantity}</h6>
     `;
+  
 
     modal.style.display = "block";
 }
