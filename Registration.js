@@ -112,11 +112,11 @@ loginBtn.addEventListener("click", () => {
   const auth = getAuth();
   const date = new Date();
       
-      addDoc(collection(dbFirestore, "login"), {
+      push(setDoc(doc(dbFirestore, "signin", email), {
         email:email,
         signIn: date.toString()
-      })
-  
+      }))
+      
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
