@@ -12,12 +12,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
-// Get all of the add to cart buttons
-const buttons = document.querySelectorAll("#add-to-cart-button");
 
-// Loop through the buttons
+const buttons = document.querySelectorAll("#add-to-cart-button");
 for (let i = 0; i < buttons.length; i++) {
-  // Add an onclick event listener to each button
   buttons[i].addEventListener("click", updateCartModal);
 }
 
