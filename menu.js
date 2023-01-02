@@ -20,9 +20,30 @@ function takoOrigCartModal() {
         if (doc.exists) {
             let data = doc.data();
             let array = data.TakoyakiA;
-            updateModal(array[0], array[1], array[2]);
+            updateModalOrig(array[0], array[1], array[2]);
         }
     });
+}
+function updateModalOrig(name, price, quantity) {
+    // Get ele
+    const modal = document.getElementById("modal");
+
+    // UP
+    modal.innerHTML += `
+
+    <div class="col-12 pl-2 pr-4 mb-3">
+     
+    <img class="mr-3" src="img/menu/1-original.jpg" style="width: 50; height: 50px; float:left; border-radius:500%;">
+    <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
+    <h4>${name}</h4>
+    <h6 style="float:left">$${price}</h6>
+    <h6 style="float:right">${quantity}</h6>
+
+    </div>
+    `;
+
+
+    modal.style.display = "block";
 }
 
 let takoJalapenoCartButton = document.getElementById("takoJalapenobutton");
@@ -33,13 +54,48 @@ function takoJalapenoCartModal() {
         if (doc.exists) {
             let data = doc.data();
             let array = data.TakoyakiB;
-            updateModal(array[0], array[1], array[2]);
+            updateModalJalapeno(array[0], array[1], array[2]);
         }
     });
 }
+function updateModalJalapeno(name, price, quantity) {
+    // Get ele
+    const modal = document.getElementById("modal");
+
+    // UP
+    modal.innerHTML += `
+
+    <div class="col-12 pl-2 pr-4 mb-3">
+     
+    <img class="mr-3" src="img/menu/2-jalapeno.jpg" style="width: 50; height: 50px; float:left; border-radius:500%;">
+    <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
+    <h4>${name}</h4>
+    <h6 style="float:left">$${price}</h6>
+    <h6 style="float:right">${quantity}</h6>
+
+    </div>
+    `;
+  
+
+    modal.style.display = "block";
+}
 
 
-function updateModal(name, price, quantity) {
+
+
+
+let takoWasabiCartButton = document.getElementById("takoWasabibutton");
+takoWasabiCartButton.addEventListener("click", takoWasabiCartModal);
+function takoWasabiCartModal() {
+    db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
+        if (doc.exists) {
+            let data = doc.data();
+            let array = data.TakoyakiD;
+            updateModalWasabi(array[0], array[1], array[2]);
+        }
+    });
+}
+function updateModalWasabi(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
 
@@ -61,4 +117,38 @@ function updateModal(name, price, quantity) {
     modal.style.display = "block";
 }
 
-// $(this).remove();
+
+
+let takoMentaikoCartButton = document.getElementById("takoMentaikobutton");
+takoMentaikoCartButton.addEventListener("click", takoMentaikoCartModal);
+function takoMentaikoCartModal() {
+    db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
+        if (doc.exists) {
+            let data = doc.data();
+            let array = data.TakoyakiE;
+            updateMentaiko(array[0], array[1], array[2]);
+        }
+    });
+}
+function updateMentaiko(name, price, quantity) {
+    // Get ele
+    const modal = document.getElementById("modal");
+
+    // UP
+    modal.innerHTML += `
+
+    <div class="col-12 pl-2 pr-4 mb-3">
+     
+    <img class="mr-3" src="img/menu/1-original.jpg" style="width: 50; height: 50px; float:left; border-radius:500%;">
+    <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
+    <h4>${name}</h4>
+    <h6 style="float:left">$${price}</h6>
+    <h6 style="float:right">${quantity}</h6>
+
+    </div>
+    `;
+  
+
+    modal.style.display = "block";
+}
+
