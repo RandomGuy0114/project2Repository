@@ -31,7 +31,9 @@ function updateModal(name, price, quantity) {
 
     // UP
     modal.innerHTML = `
-      <h4>${name}</h4>
+    <img class="mr-3" src="/img/menu/3-Tonkotsu.png" style="width: 50; height: 50px; float:left;">
+    <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
+    <h4>${name}</h4>
     <h6 style="float:left">$${price}</h6>
     <h6 style="float:right">${quantity}</h6>
     `;
