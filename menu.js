@@ -12,6 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
+<<<<<<< HEAD
 let takoOrigCartButton = document.getElementById("takoOrigbutton");
 takoOrigCartButton.addEventListener("click", takoOrigCartModal);
 
@@ -36,19 +37,45 @@ function takoJalapenoCartModal() {
             updateModal(array[0], array[1], array[2]);
         }
     });
+=======
+
+const buttons = document.querySelectorAll("#add-to-cart-button");
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", updateCartModal);
 }
+
+function updateCartModal() {
+  db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
+    if (doc.exists) {
+      var data = doc.data();
+      var array = data.TakoyakiA;
+      updateModal(array[0], array[1], array[2]);
+    }
+  });
+>>>>>>> 1191785026a0c9262bc8158e27c58eab73f706de
+}
+
 
 function updateModal(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
 
     // UP
-    modal.innerHTML = `
-      <h4>${name}</h4>
+    modal.innerHTML += `
+
+    <div class="col-12 pl-2 pr-4 mb-3">
+     
+    <img class="mr-3" src="img/menu/1-original.jpg" style="width: 50; height: 50px; float:left; border-radius:500%;">
+    <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
+    <h4>${name}</h4>
     <h6 style="float:left">$${price}</h6>
     <h6 style="float:right">${quantity}</h6>
+
+    </div>
     `;
   
 
     modal.style.display = "block";
 }
+
+// $(this).remove();
