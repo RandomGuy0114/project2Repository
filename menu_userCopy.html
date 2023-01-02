@@ -429,7 +429,7 @@
       opacity: 1;
     }
 
-    #add {
+    #add-to-cart-button{
       background-color: rgba(197, 0, 0, 1);
       outline-style: inset;
       color: rgb(255, 255, 255);
@@ -578,24 +578,21 @@
     <div class="row">
       <h3>My Cart</h3>
       <!-- ORDER LIST -->
-      <div class="col-12 pl-2 pr-4 mb-3">
-        <img class="mr-3" src="/img/menu/3-Tonkotsu.png" style="width: 50; height: 50px; float:left;">
-        <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
-
+      
         <div id="modal" style="display: none;">
           <!-- Modal content will be added here -->
 
         </div>
         
-  
 
     </div>
-    <h4 class="ps-3 mb-5 mt-0">Total: P999</h4>
+    <hr class="mb-1">
+    <h4 class="ps-3 mb-5 mt-0">Total: P</h4>
         <div class="modal-footer" style="border:none;">
           <a href="userCheckout.html" type="button" class="btn text-light" style="background-color:rgba(197, 0, 0, 1);padding:2px 2px ;font-size: medium;">Check Out</a>
         </div>
 
-      <hr style="height:2px; color:rgb(0, 0, 0);background-color:rgb(5, 0, 0)" class="mb-0">
+      
     </div>
   </div>
   <span id="floatingCart" style="font-size:40px;cursor:pointer; background-color: rgb(0, 0, 0); border:none; padding-top:40px;" class="fa-solid fa-cart-shopping my-float fa-2xl" onclick="openNav()"></span>
@@ -633,7 +630,7 @@
             </div>
             <h6>Total: 0</h6>
 
-              <button id="add-to-cart-button" >Add to cart</button>
+              <button id="" >Add to cart</button>
 
           </div>
         </div>
@@ -660,7 +657,7 @@
                   <span class="plus">+</span>
               </div>
               <h6>Total: 0</h6>
-                <div class="btn" id="add">Add to cart</div>
+                <button id="add-to-cart-button" >Add to cart</button>
             </div>
           </div>
         </div>
@@ -683,7 +680,7 @@
                   <span class="plus">+</span>
               </div>
               <h6>Total: 0</h6>
-                <div class="btn" id="add" onlick="addtoCart('Nikutama', 170)">Add to cart</div>
+              <button id="add-to-cart-button" >Add to cart</button>
             </div>
           </div>
         </div>
@@ -714,7 +711,7 @@
 
       <h2 style="padding-left:8%">Takoyaki</h2>
     <div class="mb-3 mt-2 col-lg-3 col-md-3 col-sm-6 col-xs-12 d-flex justify-content-center">
-        <div class="container card ">
+        <div id="featuredMenu" class="container card">
           <img id="shopimage" src="/img/menu/1-original.jpg" alt="Avatar" class="image" style="width:100%; border-radius:5%">
           <p align="center">
             
@@ -731,7 +728,7 @@
                 <span class="plus">+</span>
             </div>
             <h6>Total: 0</h6>
-            <button id="add-to-cart-button" >Add to cart</button>
+            <button id="takoOrigbutton" >Add to cart</button>
           </div>
         </div>
       </div>
@@ -754,7 +751,7 @@
                 <span class="plus">+</span>
             </div>
             <h6>Total: 0</h6>
-              <div class="btn" id="add">Add to cart</div>
+            <button id="takoJalapenobutton" >Add to cart</button>
           </div>
         </div>
       </div>

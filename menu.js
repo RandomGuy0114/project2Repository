@@ -12,29 +12,53 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
-var addToCartButton = document.getElementById("add-to-cart-button");
-addToCartButton.addEventListener("click", updateCartModal);
+let takoOrigCartButton = document.getElementById("takoOrigbutton");
+takoOrigCartButton.addEventListener("click", takoOrigCartModal);
 
-function updateCartModal() {
+function takoOrigCartModal() {
     db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
         if (doc.exists) {
-            var data = doc.data();
-            var array = data.TakoyakiA;
+            let data = doc.data();
+            let array = data.TakoyakiA;
             updateModal(array[0], array[1], array[2]);
         }
     });
 }
+
+let takoJalapenoCartButton = document.getElementById("takoJalapenobutton");
+takoJalapenoCartButton.addEventListener("click", takoJalapenoCartModal);
+
+function takoJalapenoCartModal() {
+    db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
+        if (doc.exists) {
+            let data = doc.data();
+            let array = data.TakoyakiB;
+            updateModal(array[0], array[1], array[2]);
+        }
+    });
+}
+
 
 function updateModal(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
 
     // UP
-    modal.innerHTML = `
-      <h4>${name}</h4>
+    modal.innerHTML += `
+
+    <div class="col-12 pl-2 pr-4 mb-3">
+     
+    <img class="mr-3" src="img/menu/1-original.jpg" style="width: 50; height: 50px; float:left; border-radius:500%;">
+    <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
+    <h4>${name}</h4>
     <h6 style="float:left">$${price}</h6>
     <h6 style="float:right">${quantity}</h6>
+
+    </div>
     `;
+  
 
     modal.style.display = "block";
 }
+
+// $(this).remove();
