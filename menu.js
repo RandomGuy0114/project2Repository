@@ -12,17 +12,23 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
-var addToCartButton = document.getElementById("add-to-cart-button");
-addToCartButton.addEventListener("click", updateCartModal);
+// Get all of the add to cart buttons
+const buttons = document.querySelectorAll("#add-to-cart-button");
+
+// Loop through the buttons
+for (let i = 0; i < buttons.length; i++) {
+  // Add an onclick event listener to each button
+  buttons[i].addEventListener("click", updateCartModal);
+}
 
 function updateCartModal() {
-    db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
-        if (doc.exists) {
-            var data = doc.data();
-            var array = data.TakoyakiA;
-            updateModal(array[0], array[1], array[2]);
-        }
-    });
+  db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
+    if (doc.exists) {
+      var data = doc.data();
+      var array = data.TakoyakiA;
+      updateModal(array[0], array[1], array[2]);
+    }
+  });
 }
 
 function updateModal(name, price, quantity) {
@@ -31,7 +37,7 @@ function updateModal(name, price, quantity) {
 
     // UP
     modal.innerHTML = `
-    <img class="mr-3" src="/img/menu/3-Tonkotsu.png" style="width: 50; height: 50px; float:left;">
+    <img class="mr-3" src="img/menu/1-original.jpg" style="width: 50; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4>${name}</h4>
     <h6 style="float:left">$${price}</h6>
@@ -40,3 +46,5 @@ function updateModal(name, price, quantity) {
 
     modal.style.display = "block";
 }
+
+// $(this).remove();
