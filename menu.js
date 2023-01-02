@@ -31,17 +31,23 @@ function updateCartModal() {
   });
 }
 
+
 function updateModal(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
 
     // UP
-    modal.innerHTML = `
+    modal.innerHTML += `
+
+    <div class="col-12 pl-2 pr-4 mb-3">
+     
     <img class="mr-3" src="img/menu/1-original.jpg" style="width: 50; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4>${name}</h4>
     <h6 style="float:left">$${price}</h6>
     <h6 style="float:right">${quantity}</h6>
+
+    </div>
     `;
 
     modal.style.display = "block";
