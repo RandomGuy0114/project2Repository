@@ -27,6 +27,9 @@ function takoOrigCartModal() {
 function updateModalOrig(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
+    if (modal.innerHTML.indexOf(name) >= 0) {
+        return;
+      }
 
     // UP
     modal.innerHTML += `
@@ -61,6 +64,9 @@ function takoJalapenoCartModal() {
 function updateModalJalapeno(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
+    if (modal.innerHTML.indexOf(name) >= 0) {
+        return;
+      }
 
     // UP
     modal.innerHTML += `
@@ -98,6 +104,9 @@ function takoWasabiCartModal() {
 function updateModalWasabi(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
+    if (modal.innerHTML.indexOf(name) >= 0) {
+        return;
+      }
 
     // UP
     modal.innerHTML += `
@@ -133,6 +142,9 @@ function takoMentaikoCartModal() {
 function updateMentaiko(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
+    if (modal.innerHTML.indexOf(name) >= 0) {
+        return;
+      }
 
     // UP
     modal.innerHTML += `
@@ -151,4 +163,5 @@ function updateMentaiko(name, price, quantity) {
 
     modal.style.display = "block";
 }
+
 
