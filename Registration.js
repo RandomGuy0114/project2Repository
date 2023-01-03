@@ -133,7 +133,7 @@ loginBtn.addEventListener("click", () => {
       // Signed in 
       const user = userCredential.user;
       updateDoc(doc(dbFirestore, "signin", email,'InAndOut',"in"), {
-        [date]: 'in',
+        [date.toString()]: 'in',
         
         // signIn: firebase.firestore.FieldValue.arrayUnion(Timestamp.now())
       })
@@ -149,7 +149,7 @@ loginBtn.addEventListener("click", () => {
       document.getElementById("loginPassword").value = "";
       // document.querySelector(".hideFormBtn").style.display = "none";
 
-      window.open('index_user.html', '_self');
+      // window.open('index_user.html', '_self');
 
       console.log('login')
       // ...
