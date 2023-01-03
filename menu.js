@@ -12,6 +12,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
+let totalPrice = 0;
+
 let takoOrigCartButton = document.getElementById("takoOrigbutton");
 takoOrigCartButton.addEventListener("click", takoOrigCartModal);
 
@@ -142,8 +144,19 @@ function takoMentaikoCartModal() {
 function updateMentaiko(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
+    const inputCounter = document.getElementById("inputCounter");
+    const totalPriceElement = modal.querySelector("h6:last-of-type");
+    inputCounter.value = parseInt(inputCounter.value) + quantity;
+    totalPrice = price * inputCounter.value;
+    // Check if item is already in modal
     if (modal.innerHTML.indexOf(name) >= 0) {
-        return;
+      // Update quantity and total price
+      let quantityElement = modal.querySelector("h6:first-of-type");
+      let priceElement = modal.querySelector("h6:nth-of-type(2)");
+      quantityElement.innerHTML = inputCounter.value;
+      priceElement.innerHTML = `$${totalPrice}`;
+      totalPriceElement.innerHTML = `Total: $${totalPrice}`;
+      return;
       }
 
     // UP
@@ -154,14 +167,26 @@ function updateMentaiko(name, price, quantity) {
     <img class="mr-3" src="img/menu/1-original.jpg" style="width: 50; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4>${name}</h4>
-    <h6 style="float:left">$${price}</h6>
-    <h6 style="float:right">${quantity}</h6>
+    <h6 style="float:left">Quantity: ${inputCounter.value}</h6>
+    <h6 style="float:right">Price: $${totalPrice}</h6>
+    <h6>Total: $${totalPrice}</h6>
+
 
     </div>
     `;
   
-
     modal.style.display = "block";
 }
+
+$(document).ready(function() {
+    $('.minus').click(function () {
+      updateMentaiko("Mentaiko", 45, -1);
+      return false;
+    });
+    $('.plus').click(function () {
+      updateMentaiko("Mentaiko", 45, 1);
+      return false;
+    });
+  });
 
 
