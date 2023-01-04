@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import * as firebase from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { getDatabase, update, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, Timestamp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
 // TODO: Add SDKs for Firebase products that you want to use
@@ -25,141 +25,154 @@ const app = initializeApp(firebaseConfig);
 
 /*---------------------------------------------------------------- */
 
-const signupForm = document.getElementById("signupForm");
+const signupForm = document.querySelector("#signupForm");
 // const onClickUserFirstName = document.getElementById("userfirstname")
 const db = getDatabase();
 // sign-up codes
 
+if (signupForm !== null && signupForm !== undefined) {
+  signupForm.addEventListener("click", function () {
+    console.log("register")
+    const firstName = document.getElementById("userfirstName").value;
+    const lastName = document.getElementById("userlastName").value;
+    const email = document.getElementById("userEmail").value;
+    const password = document.getElementById("userPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
 
-signupForm.addEventListener("click", () => {
-  console.log("register")
-  const firstName = document.getElementById("userfirstName").value;
-  const lastName = document.getElementById("userlastName").value;
-  const email = document.getElementById("userEmail").value;
-  const password = document.getElementById("userPassword").value;
-  const confirmPassword = document.getElementById("confirmPassword").value;
+    // Maximum of 30 firstname length must not be 1 character 
+    if (firstName.length >= 30 || firstName.length <= 1) {
+      $("#errorName").text("First Name and Last Name must be at least 2 characters");
 
-  // Maximum of 30 firstname length must not be 1 character 
-  if (firstName.length >= 30 || firstName.length <= 1) {
-    $("#errorName").text("First Name and Last Name must be at least 2 characters");
+    }
+    if (lastName.length >= 30 || lastName.length <= 1) {
+      $("#errorName").text("First Name and Last Name must be at least 2 characters");
 
-  }
-  if (lastName.length >= 30 || lastName.length <= 1) {
-    $("#errorName").text("First Name and Last Name must be at least 2 characters");
+    }
 
-  }
+    //Regular expression format para hindi makalusot mga blank at special characters sa email
+    if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
+      $("#userEmail").css("border-bottom", "solid red 2px");
+      $("#errorEmail").text("Invalid email address format");
 
-  //Regular expression format para hindi makalusot mga blank at special characters sa email
-  if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
-    $("#userEmail").css("border-bottom", "solid red 2px");
-    $("#errorEmail").text("Invalid email address format");
-
-  }
+    }
 
 
-  if (password === confirmPassword) {
-    const auth = getAuth();
+    if (password === confirmPassword) {
+      const auth = getAuth();
 
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in 
-        const date = Timestamp.now();
-        // Adding the info of the user into the database
-        const user = userCredential.user;
-        push(ref(db, 'Users/'), {
-          firstname: firstName,
-          lastName: lastName,
-          email: email,
-          dateCreated: date
-        })
-        setDoc(doc(dbFirestore, "signin", email,'InAndOut',"in"), {
-          
-        })
-          .then(() => {
-
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const date = Timestamp.now();
+          // Adding the info of the user into the database
+          const user = userCredential.user;
+          push(ref(db, 'Users/'), {
+            firstname: firstName,
+            lastName: lastName,
+            email: email,
+            dateCreated: date
           })
-          .catch((error) => {
+          setDoc(doc(dbFirestore, "signin", email, 'InAndOut', "in"), {
 
-          })
-          setDoc(doc(dbFirestore, "signin", email,'InAndOut',"out"), {
-          
           })
             .then(() => {
-  
+
             })
             .catch((error) => {
-  
+
             })
-        console.log('success')
+          setDoc(doc(dbFirestore, "signin", email, 'InAndOut', "out"), {
 
-        document.getElementById("userfirstName").value = "";
-        document.getElementById("userlastName").value = "";
-        document.getElementById("userEmail").value = "";
-        document.getElementById("userPassword").value = "";
-        document.getElementById("confirmPassword").value = "";
+          })
+            .then(() => {
 
+            })
+            .catch((error) => {
+
+            })
+          console.log('success')
+
+          document.getElementById("userfirstName").value = "";
+          document.getElementById("userlastName").value = "";
+          document.getElementById("userEmail").value = "";
+          document.getElementById("userPassword").value = "";
+          document.getElementById("confirmPassword").value = "";
+
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+
+          // ..
+        });
+    } else if (password.length <= 6 || password.length == 1) {
+      $("#errorPassword").text("Password must at least be 6 characters");
+    }
+    else {
+      $("#errorConfirmPassword").text("Passwords do not match");
+    }
+
+
+  });
+}
+// log in code
+let emailLogin = "";
+const loginBtn = document.querySelector('#loginBtn');
+const dbFirestore = getFirestore();
+if (loginBtn !== null && loginBtn !== undefined) {
+  loginBtn.addEventListener("click", () => {
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+    const auth = getAuth();
+    const date = new Date;
+
+
+    
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        updateDoc(doc(dbFirestore, "signin", email, 'InAndOut', "in"), {
+          [date.toString()]: 'in',
+
+          // signIn: firebase.firestore.FieldValue.arrayUnion(Timestamp.now())
+        })
+          .then(console.log('sign in date succes'))
+          .catch((error) => {
+            const err = error.message;
+            console.log(err + " sign in date failed")
+          })
+
+
+        // -------------------
+        document.getElementById("emailLogin").dataset.email = 'asdas';
+        document.getElementById("loginEmail").value = "";
+        document.getElementById("loginPassword").value = "";
+    
+        window.open('index_user.html', '_self');
+
+        console.log('login')
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-
-        // ..
+        console.log(errorMessage + " di naka log in")
       });
-  } else if (password.length <= 6 || password.length == 1) {
-    $("#errorPassword").text("Password must at least be 6 characters");
-  }
-  else {
-    $("#errorConfirmPassword").text("Passwords do not match");
-  }
+
+  })
+}
+
+const signOutButton = document.querySelector('#signOutButton');
+if (signOutButton !== null && signOutButton !== undefined) {
+  signOutButton && signOutButton.addEventListener("click", () => {
+
+    console.log(emailLogin)
 
 
-});
+  })
+}
 
-// log in code
-const loginBtn = document.querySelector('#loginBtn');
-const dbFirestore = getFirestore();
-
-loginBtn.addEventListener("click", () => {
-  const email = document.getElementById("loginEmail").value;
-  const password = document.getElementById("loginPassword").value;
-  const auth = getAuth();
-  const date = new Date;
-  const emailForSignOut = email
-
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      updateDoc(doc(dbFirestore, "signin", email,'InAndOut',"in"), {
-        [date.toString()]: 'in',
-        
-        // signIn: firebase.firestore.FieldValue.arrayUnion(Timestamp.now())
-      })
-      .then(console.log('sign in date succes'))
-      .catch((error) => {
-        const err = error.message;
-        console.log(err + " sign in date failed")
-      })
-    
-      
-      // -------------------
-      document.getElementById("loginEmail").value = "";
-      document.getElementById("loginPassword").value = "";
-      // document.querySelector(".hideFormBtn").style.display = "none";
-
-      window.open('index_user.html', '_self');
-
-      console.log('login')
-      // ...
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-      console.log(errorMessage + " di naka log in")
-    });
-
-})
 
 
 
