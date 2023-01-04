@@ -253,7 +253,7 @@ function takoWasabiCartModal() {
 function updateModalWasabi(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
-    const inputCounter = document.getElementById("inputCounter");
+    const inputCounter = document.getElementById("inputCounter3");
     const totalPriceElement = modal.querySelector("h6:last-of-type");
     inputCounter.value = parseInt(inputCounter.value) + quantity;
     totalPrice = price * inputCounter.value;
@@ -300,7 +300,7 @@ function updateModalWasabi(name, price, quantity) {
 }
 document.getElementById('minusWasabi').addEventListener('click', function() {
     // imbis na naka hard code dito na lng mag geget ng current quantity at price
-    let quantityElement = document.getElementById('inputCounter');
+    let quantityElement = document.getElementById('inputCounter3');
     let quantity = parseInt(quantityElement.value, 10);
     let price = 45;
   
@@ -315,18 +315,19 @@ document.getElementById('minusWasabi').addEventListener('click', function() {
   
   document.getElementById('plusWasabi').addEventListener('click', function() {
     // imbis na naka hard code dito na lng mag geget ng current quantity at price
-    let quantityElement = document.getElementById('inputCounter');
+    let quantityElement = document.getElementById('inputCounter3');
     let quantity = parseInt(quantityElement.value, 10);
     let price = 45;
   
     // pang increment
-    quantity++;
+    quantity += 1; // increment by 1 instead of adding 1
     let totalPrice = quantity * price;
     document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
-    
+  
     // Update ung quantity
     quantityElement.value = quantity;
   });
+  
 
 
 
@@ -347,7 +348,7 @@ function takoMentaikoCartModal() {
 function updateModalMentaiko(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
-    const inputCounter = document.getElementById("inputCounter");
+    const inputCounter = document.getElementById("inputCounter4");
     const totalPriceElement = modal.querySelector("h6:last-of-type");
     inputCounter.value = parseInt(inputCounter.value) + quantity;
     totalPrice = price * inputCounter.value;
@@ -393,7 +394,7 @@ function updateModalMentaiko(name, price, quantity) {
 }
 document.getElementById('minusMentaiko').addEventListener('click', function() {
     // imbis na naka hard code dito na lng mag geget ng current quantity at price
-    let quantityElement = document.getElementById('inputCounter');
+    let quantityElement = document.getElementById('inputCounter4');
     let quantity = parseInt(quantityElement.value, 10);
     let price = 45;
   
@@ -408,12 +409,12 @@ document.getElementById('minusMentaiko').addEventListener('click', function() {
   
   document.getElementById('plusMentaiko').addEventListener('click', function() {
     // imbis na naka hard code dito na lng mag geget ng current quantity at price
-    let quantityElement = document.getElementById('inputCounter');
+    let quantityElement = document.getElementById('inputCounter4');
     let quantity = parseInt(quantityElement.value, 10);
     let price = 45;
   
     // pang increment
-    quantity++;
+    quantity+=1;
     let totalPrice = quantity * price;
     document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
     
