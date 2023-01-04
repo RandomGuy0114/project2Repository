@@ -417,6 +417,95 @@
     .fa-circle-arrow-up {
       color: rgb(0, 0, 0);
     } 
+
+    <!-- Chatbot -->
+    #chatbot-container {
+      width: 400px;
+      height: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 0 0 3px rgba(255,255,255,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.5s;
+    }
+    
+    
+    #chatbot-messages {
+      flex: 1;
+      overflow-y: scroll;
+      padding: 20px;
+      opacity: 85%;
+    }
+    
+    #chatbot-form {
+      display: flex;
+      align-items: center;
+      padding: 10px;;
+      border-top: 5px solid rgba(255, 0, 0, 0.349);
+      border-bottom: 5px solid rgba(255, 0, 0, 0.1);
+    }
+    
+    #chatbot-input {
+      flex: 1;
+      border: 1;
+      padding: 5px;
+      font-size: 16px;
+      outline: 0;
+      background-color: rgb(156, 129, 129);
+      color: rgb(255, 255, 255);
+      font-family: 'Roboto', sans-serif;
+      font-weight: 600;
+      transition: border 0.2s;
+    }
+    
+    #chatbot-input:focus {
+      border: 0;
+      box-shadow: 0 0 0 3px #b6d0f7;
+    }
+    
+    button[type="submit"] {
+      margin-left: 10px;
+      border-radius: 10px;
+      background-color: #f3d4d8;
+      border: 0;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    button[type="submit"]:hover {
+      background-color: #557ec4;
+    }
+    
+    
+    /*-----------------*/
+    
+    #chatbot-container{
+      padding: 25px;
+      box-shadow: 5px 10px 10px 10px rgb(219, 189, 189);
+    }
+    
+    #chatbot-messages{
+      margin-top: 30px;
+      background-color: #fffff8;
+    
+    }
+    
+    #chatbot-container {
+      background: url('here.jpg') center / cover;
+      animation: swing 5s linear infinite;
+      background-position: center;
+    }
+    
+    #chatbot-input:placeholder-shown{
+      opacity: 90%;
+      font-weight: 400;
+    
+    }
+
   </style>
   <!-- logo tab -->
   <link rel="shortcut icon" type="image/x-icon" href="img/images/logo.png">
@@ -537,16 +626,31 @@
   <div class="container d-flex justify-content-center">
     <div class="row justify-content-center align-items-center g-2">
       <div class="col-lg-4">
-        <div class="row justify align-items">
-          <div class="col-lg-12" >
+        <div class="row justify align-items me-3">
+          <div class="col-lg-12" id="contact" >
             <p>Number: 091223456789</p>
             <p>Email: ichiriku-g7@gmail.com</p>
             <p class="mb-0">Address: 2 Chome-8-5 Dogenzaka, Shibuya City, </p>
                 <p class="ps-5 ms-3 mt-0"> Tokyo, 150-0043, Japan </p>
           </div>
-          <div class="m-5 col-lg-8">
+          <div class="m-5 col-lg-8" id="chat-btn">
             <button type="button" class="btn btn-lg text-white" style="background-color: #000000;">Live Chat</button>
           </div>
+
+
+
+          <div id="chatbot-container" class="container col-lg-12 d-none">
+            <h3 style="color: rgb(219, 126, 3);">Customer Service Support</h3>
+            <div id="chatbot-messages">
+              
+              <!-- Chatbot messages will be displayed here -->
+            </div>
+            <form id="chatbot-form">
+              <input type="text" id="chatbot-input" placeholder="Input your text here" />
+              <button type="submit">Send</button>
+            </form>
+          </div>
+
         </div>
       </div>
       <div class="col-lg-8 text-center">
@@ -555,16 +659,47 @@
         </iframe>
       </div>
     </div>
-  </div>
-
+</div>
+  
   <div align="right" class="mt-2">
     <a href="#" class="btn"><i class="fa-solid fa-circle-arrow-up fa-3x" style="color:black"></i></a>
   </div>
 
+  <!-- Messenger plug-in -->
+  <!-- <div align="right" class="mt-2">
+    <div id="fb-root"></div>
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "101578034933707");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+    
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v15.0'
+        });
+      };
+      
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+  </div> -->
+  
+  
   <footer>
     <div class="pt-3 pb-1 pl-3" style="background-color: rgb(255,1,1)">
     </div>
-   
+    
     <div class="row text-light" style="background-color: rgb(18,18,18);">
       <div class="col-12 pt-4 text-light">
         <center>
@@ -576,15 +711,15 @@
           ICHIRAKU
         </p>
       </div>
-
+      
       <center class="mb-2"><i class="fa-brands fa-square-facebook fa-lg mr-5"></i>
         <i class="fa-brands fa-square-instagram fa-lg mr-5"></i>
         <i class="fa-brands fa-square-twitter fa-lg mr-5"></i>
         <i class="fa-brands fa-tiktok fa-lg"></i>
       </center>
-        
+      
       <hr>
-
+      
       <center class="pt-4 pb-5">
         <a id="footerName" class="mr-5" href="location.html">Location</a>
         <a id="footerName" class="mr-5" href="rates.html">Rates</a>
@@ -594,11 +729,25 @@
         <a id="footerName" class="mr-5" href="contactUs.html">Contact Us</a>
       </center>
     </div>
-
+    
     <div class="pt-3 pb-1" style="background-color: rgb(0, 0, 0)">
       <p class="text-light" align="center">©2022 Copyright: Ichiraku</p>
     </div>
   </footer>
+  
+  <script src="chatbot/chatbot.js"></script>
+  
+  <script>
+    document.getElementById("sign-up").addEventListener("click", function () {
+      document.getElementById("sign-up-form").style.display = "block";
+      document.getElementById("login-form").style.display = "none";
+    });
+
+    document.getElementById("login").addEventListener("click", function () {
+      document.getElementById("login-form").style.display = "block";
+      document.getElementById("sign-up-form").style.display = "none";
+    });
+  </script>
 
   <script type="module" src="Registration.js"></script>
   <script type="module" src="menuCounter.js"></script>

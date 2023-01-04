@@ -1,5 +1,5 @@
 
-const API_KEY = "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";
+const API_KEY = "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";
 const MODEL = "text-davinci-002";
 
 /**-------------------------------------------------------------- */
