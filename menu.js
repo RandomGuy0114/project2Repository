@@ -66,6 +66,7 @@ function updateModalOrig(name, price, quantity) {
     // Add a click event listener to each trash button
     trashButtons.forEach(function(trashButton) {
       trashButton.addEventListener('click', function() {
+        inputCounter.value = 0;
         // Remove the parent element of the trash button (which is the item)
         this.parentElement.remove();
       });
@@ -136,6 +137,7 @@ function updateModalJalapeno(name, price, quantity) {
     // Add a click event listener to each trash button
     trashButtons.forEach(function(trashButton) {
       trashButton.addEventListener('click', function() {
+        inputCounter.value = 0;
         // Remove the parent element of the trash button (which is the item)
         this.parentElement.remove();
       });
@@ -164,7 +166,7 @@ function takoWasabiCartModal() {
     db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
         if (doc.exists) {
             let data = doc.data();
-            let array = data.TakoyakiD;
+            let array = data.TakoyakiC;
             updateModalWasabi(array[0], array[1], array[2]);
         }
     });
@@ -209,6 +211,7 @@ function updateModalWasabi(name, price, quantity) {
     // Add a click event listener to each trash button
     trashButtons.forEach(function(trashButton) {
       trashButton.addEventListener('click', function() {
+        inputCounter.value = 0;
         // Remove the parent element of the trash button (which is the item)
         this.parentElement.remove();
       });
@@ -235,7 +238,7 @@ function takoMentaikoCartModal() {
     db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
         if (doc.exists) {
             let data = doc.data();
-            let array = data.TakoyakiE;
+            let array = data.TakoyakiD;
             updateModalMentaiko(array[0], array[1], array[2]);
         }
     });
@@ -280,6 +283,7 @@ function updateModalMentaiko(name, price, quantity) {
     // Add a click event listener to each trash button
     trashButtons.forEach(function(trashButton) {
       trashButton.addEventListener('click', function() {
+        inputCounter.value = 0;
         // Remove the parent element of the trash button (which is the item)
         this.parentElement.remove();
       });
