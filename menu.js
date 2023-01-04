@@ -253,7 +253,7 @@ function takoWasabiCartModal() {
 function updateModalWasabi(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
-    const inputCounter = document.getElementById("inputCounter3");
+    const inputCounter = document.getElementById("inputCounter");
     const totalPriceElement = modal.querySelector("h6:last-of-type");
     inputCounter.value = parseInt(inputCounter.value) + quantity;
     totalPrice = price * inputCounter.value;
@@ -300,7 +300,7 @@ function updateModalWasabi(name, price, quantity) {
 }
 document.getElementById('minusWasabi').addEventListener('click', function() {
     // imbis na naka hard code dito na lng mag geget ng current quantity at price
-    let quantityElement = document.getElementById('inputCounter3');
+    let quantityElement = document.getElementById('inputCounter');
     let quantity = parseInt(quantityElement.value, 10);
     let price = 45;
   
@@ -315,7 +315,7 @@ document.getElementById('minusWasabi').addEventListener('click', function() {
   
   document.getElementById('plusWasabi').addEventListener('click', function() {
     // imbis na naka hard code dito na lng mag geget ng current quantity at price
-    let quantityElement = document.getElementById('inputCounter3');
+    let quantityElement = document.getElementById('inputCounter');
     let quantity = parseInt(quantityElement.value, 10);
     let price = 45;
   
@@ -348,7 +348,7 @@ function takoMentaikoCartModal() {
 function updateModalMentaiko(name, price, quantity) {
     // Get ele
     const modal = document.getElementById("modal");
-    const inputCounter = document.getElementById("inputCounter4");
+    const inputCounter = document.getElementById("inputCounter");
     const totalPriceElement = modal.querySelector("h6:last-of-type");
     inputCounter.value = parseInt(inputCounter.value) + quantity;
     totalPrice = price * inputCounter.value;
@@ -394,7 +394,7 @@ function updateModalMentaiko(name, price, quantity) {
 }
 document.getElementById('minusMentaiko').addEventListener('click', function() {
     // imbis na naka hard code dito na lng mag geget ng current quantity at price
-    let quantityElement = document.getElementById('inputCounter4');
+    let quantityElement = document.getElementById('inputCounter');
     let quantity = parseInt(quantityElement.value, 10);
     let price = 45;
   
@@ -409,7 +409,7 @@ document.getElementById('minusMentaiko').addEventListener('click', function() {
   
   document.getElementById('plusMentaiko').addEventListener('click', function() {
     // imbis na naka hard code dito na lng mag geget ng current quantity at price
-    let quantityElement = document.getElementById('inputCounter4');
+    let quantityElement = document.getElementById('inputCounter');
     let quantity = parseInt(quantityElement.value, 10);
     let price = 45;
   
