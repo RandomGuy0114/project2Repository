@@ -12,7 +12,47 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
+
+
 let totalPrice = 0;
+
+// show - & + buttons after click
+//ORIGINAL
+var takoOrigbutton = document.getElementById('takoOrigbutton');
+var minusOriginal = document.getElementById('minusOriginal');
+var plusOriginal = document.getElementById('plusOriginal');
+
+takoOrigbutton.addEventListener('click', function() {
+    minusOriginal.style.display = 'inline-block';
+    plusOriginal.style.display = 'inline-block';
+});
+//JALAPENO
+var takoJalapenobutton = document.getElementById('takoJalapenobutton');
+var minusJalapeno = document.getElementById('minusJalapeno');
+var plusJalapeno = document.getElementById('plusJalapeno');
+
+takoJalapenobutton.addEventListener('click', function() {
+    minusJalapeno.style.display = 'inline-block';
+    plusJalapeno.style.display = 'inline-block';
+});
+//WASABI
+var takoWasabibutton = document.getElementById('takoWasabibutton');
+var minusWasabi = document.getElementById('minusWasabi');
+var plusWasabi = document.getElementById('plusWasabi');
+
+takoWasabibutton.addEventListener('click', function() {
+    minusWasabi.style.display = 'inline-block';
+  plusWasabi.style.display = 'inline-block';
+});
+//MENTAIKO
+var takoMentaikobutton = document.getElementById('takoMentaikobutton');
+var minusMentaiko = document.getElementById('minusMentaiko');
+var plusMentaiko = document.getElementById('plusMentaiko');
+
+takoMentaikobutton.addEventListener('click', function() {
+  minusMentaiko.style.display = 'inline-block';
+  plusMentaiko.style.display = 'inline-block';
+});
 
 let takoOrigCartButton = document.getElementById("takoOrigbutton");
 takoOrigCartButton.addEventListener("click", takoOrigCartModal);
@@ -302,6 +342,7 @@ $(document).ready(function() {
 
 
 
+
 let takoMentaikoCartButton = document.getElementById("takoMentaikobutton");
 takoMentaikoCartButton.addEventListener("click", takoMentaikoCartModal);
 function takoMentaikoCartModal() {
@@ -312,6 +353,8 @@ function takoMentaikoCartModal() {
             updateModalMentaiko(array[0], array[1], array[2]);
         }
     });
+
+  
 }
 function updateModalMentaiko(name, price, quantity) {
     // Get ele
@@ -343,7 +386,6 @@ function updateModalMentaiko(name, price, quantity) {
     <h6 style="float:right">Price: $${totalPrice}</h6>
     <h6>Total: $${totalPrice}</h6>
 
-
     </div>
     `;
 
@@ -361,36 +403,37 @@ function updateModalMentaiko(name, price, quantity) {
   
     modal.style.display = "block";
 }
-
 document.getElementById('minusMentaiko').addEventListener('click', function() {
-  // imbis na naka hard code dito na lng mag geget ng current quantity at price
-  let quantityElement = document.getElementById('inputCounter');
-  let quantity = parseInt(quantityElement.value, 10);
-  let price = 45;
-
-  // pang decrement
-  quantity--;
-  let totalPrice = quantity * price;
-  document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
+    // imbis na naka hard code dito na lng mag geget ng current quantity at price
+    let quantityElement = document.getElementById('inputCounter');
+    let quantity = parseInt(quantityElement.value, 10);
+    let price = 45;
   
-  // update ung quantity
-  quantityElement.value = quantity;
-});
-
-document.getElementById('plusMentaiko').addEventListener('click', function() {
-  // imbis na naka hard code dito na lng mag geget ng current quantity at price
-  let quantityElement = document.getElementById('inputCounter');
-  let quantity = parseInt(quantityElement.value, 10);
-  let price = 45;
-
-  // pang increment
-  quantity++;
-  let totalPrice = quantity * price;
-  document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
+    // pang decrement
+    quantity--;
+    let totalPrice = quantity * price;
+    document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
+    
+    // update ung quantity
+    quantityElement.value = quantity;
+  });
   
-  // Update ung quantity
-  quantityElement.value = quantity;
-});
+  document.getElementById('plusMentaiko').addEventListener('click', function() {
+    // imbis na naka hard code dito na lng mag geget ng current quantity at price
+    let quantityElement = document.getElementById('inputCounter');
+    let quantity = parseInt(quantityElement.value, 10);
+    let price = 45;
+  
+    // pang increment
+    quantity++;
+    let totalPrice = quantity * price;
+    document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
+    
+    // Update ung quantity
+    quantityElement.value = quantity;
+  });
+
+
 
   
 
