@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import * as firebase from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { getDatabase, update, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, Timestamp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
 // TODO: Add SDKs for Firebase products that you want to use
@@ -125,7 +125,7 @@ loginBtn.addEventListener("click", () => {
   const password = document.getElementById("loginPassword").value;
   const auth = getAuth();
   const date = new Date;
-
+  const emailForSignOut = email
 
 
   signInWithEmailAndPassword(auth, email, password)
@@ -149,7 +149,7 @@ loginBtn.addEventListener("click", () => {
       document.getElementById("loginPassword").value = "";
       // document.querySelector(".hideFormBtn").style.display = "none";
 
-      // window.open('index_user.html', '_self');
+      window.open('index_user.html', '_self');
 
       console.log('login')
       // ...
@@ -160,5 +160,11 @@ loginBtn.addEventListener("click", () => {
     });
 
 })
+
+
+
+
+
+
 
 
