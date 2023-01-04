@@ -114,86 +114,36 @@ function updateModalOrig(name, price, quantity) {
   
     modal.style.display = "block";
 }
-$(document).ready(function() {
-    $('#minusOriginal').click(function () {
-        updateModalOrig("Original", 45, -1);
-      return false;
-    });
-    $('#plusOriginal').click(function () {
-        updateModalOrig("Original", 45, 1);
-      return false;
-    });
+document.getElementById('minusOriginal').addEventListener('click', function() {
+    // imbis na naka hard code dito na lng mag geget ng current quantity at price
+    let quantityElement = document.getElementById('inputCounter');
+    let quantity = parseInt(quantityElement.value, 10);
+    let price = 45;
+  
+    // pang decrement
+    quantity--;
+    let totalPrice = quantity * price;
+    document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
+    
+    // update ung quantity
+    quantityElement.value = quantity;
+  });
+  
+  document.getElementById('plusOriginal').addEventListener('click', function() {
+    // imbis na naka hard code dito na lng mag geget ng current quantity at price
+    let quantityElement = document.getElementById('inputCounter');
+    let quantity = parseInt(quantityElement.value, 10);
+    let price = 45;
+  
+    // pang increment
+    quantity++;
+    let totalPrice = quantity * price;
+    document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
+    
+    // Update ung quantity
+    quantityElement.value = quantity;
   });
 
-let sushiSalmonCartButton = document.getElementById("sushiSalmonbutton");
-sushiSalmonCartButton.addEventListener("click", sushiSalmonCartModal);
-
-function sushiSalmonCartModal() {
-    db.collection("Food Menu").doc("Sushi").get().then(function (doc) {
-        if (doc.exists) {
-            let data = doc.data();
-            let array = data.SushiA;
-            updateModalSalmon(array[0], array[1], array[2]);
-        }
-    });
-}
-function updateModalSalmon(name, price, quantity) {
-    // Get ele
-    const modal = document.getElementById("modal");
-    const inputCounter = document.getElementById("inputCounter");
-    const totalPriceElement = modal.querySelector("h6:last-of-type");
-    inputCounter.value = parseInt(inputCounter.value) + quantity;
-    totalPrice = price * inputCounter.value;
-    // Check if item is already in modal
-    if (modal.innerHTML.indexOf(name) >= 0) {
-      // Update quantity and total price
-      let quantityElement = modal.querySelector("h6:first-of-type");
-      let priceElement = modal.querySelector("h6:nth-of-type(2)");
-      quantityElement.innerHTML = inputCounter.value;
-      priceElement.innerHTML = `$${totalPrice}`;
-      totalPriceElement.innerHTML = `Total: $${totalPrice}`;
-      return;
-      }
-
-    // UP
-    modal.innerHTML += `
-
-    <div class="col-12 pl-2 pr-4 mb-3">
-     
-    <img class="mr-3" src="img/menu/1-original.jpg" style="width: 50; height: 50px; float:left; border-radius:500%;">
-    <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
-    <h4>${name}</h4>
-    <h6 style="float:left">Quantity: ${inputCounter.value}</h6>
-    <h6 style="float:right">Price: $${totalPrice}</h6>
-    <h6>Total: $${totalPrice}</h6>
-
-
-    </div>
-    `;
-
-    // Get a list of all the trash button elements
-    const trashButtons = modal.querySelectorAll('.fa-trash');
-  
-    // Add a click event listener to each trash button
-    trashButtons.forEach(function(trashButton) {
-      trashButton.addEventListener('click', function() {
-        // Remove the parent element of the trash button (which is the item)
-        this.parentElement.remove();
-      });
-    });
-  
-    modal.style.display = "block";
-}
-$(document).ready(function() {
-    $('#minusSushiSalmon').click(function () {
-        updateModalSalmon("Salmon Sushi Roll", 60, -1);
-      return false;
-    });
-    $('#plusSushiSalmon').click(function () {
-        updateModalSalmon("Salmon Sushi Roll", 60, 1);
-      return false;
-    });
-  });
 
 let takoJalapenoCartButton = document.getElementById("takoJalapenobutton");
 takoJalapenoCartButton.addEventListener("click", takoJalapenoCartModal);
@@ -255,15 +205,34 @@ function updateModalJalapeno(name, price, quantity) {
   
     modal.style.display = "block";
 }
-$(document).ready(function() {
-    $('#minusJalapeno').click(function () {
-        updateModalJalapeno("Jalapeno", 45, -1);
-      return false;
-    });
-    $('#plusJalapeno').click(function () {
-        updateModalJalapeno("Jalapeno", 45, 1);
-      return false;
-    });
+document.getElementById('minusJalapeno').addEventListener('click', function() {
+    // imbis na naka hard code dito na lng mag geget ng current quantity at price
+    let quantityElement = document.getElementById('inputCounter');
+    let quantity = parseInt(quantityElement.value, 10);
+    let price = 45;
+  
+    // pang decrement
+    quantity--;
+    let totalPrice = quantity * price;
+    document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
+    
+    // update ung quantity
+    quantityElement.value = quantity;
+  });
+  
+  document.getElementById('plusJalapeno').addEventListener('click', function() {
+    // imbis na naka hard code dito na lng mag geget ng current quantity at price
+    let quantityElement = document.getElementById('inputCounter');
+    let quantity = parseInt(quantityElement.value, 10);
+    let price = 45;
+  
+    // pang increment
+    quantity++;
+    let totalPrice = quantity * price;
+    document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
+    
+    // Update ung quantity
+    quantityElement.value = quantity;
   });
 
 
@@ -329,15 +298,34 @@ function updateModalWasabi(name, price, quantity) {
   
     modal.style.display = "block";
 }
-$(document).ready(function() {
-    $('#minusWasabi').click(function () {
-        updateModalWasabi("Wasabi", 45, -1);
-      return false;
-    });
-    $('#plusWasabi').click(function () {
-        updateModalWasabi("Wasabi", 45, 1);
-      return false;
-    });
+document.getElementById('minusWasabi').addEventListener('click', function() {
+    // imbis na naka hard code dito na lng mag geget ng current quantity at price
+    let quantityElement = document.getElementById('inputCounter');
+    let quantity = parseInt(quantityElement.value, 10);
+    let price = 45;
+  
+    // pang decrement
+    quantity--;
+    let totalPrice = quantity * price;
+    document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
+    
+    // update ung quantity
+    quantityElement.value = quantity;
+  });
+  
+  document.getElementById('plusWasabi').addEventListener('click', function() {
+    // imbis na naka hard code dito na lng mag geget ng current quantity at price
+    let quantityElement = document.getElementById('inputCounter');
+    let quantity = parseInt(quantityElement.value, 10);
+    let price = 45;
+  
+    // pang increment
+    quantity++;
+    let totalPrice = quantity * price;
+    document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
+    
+    // Update ung quantity
+    quantityElement.value = quantity;
   });
 
 
