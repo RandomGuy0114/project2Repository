@@ -117,7 +117,7 @@ if (signupForm !== null && signupForm !== undefined) {
   });
 }
 // log in code
-let emailLogin = "";
+
 const loginBtn = document.querySelector('#loginBtn');
 const dbFirestore = getFirestore();
 if (loginBtn !== null && loginBtn !== undefined) {
@@ -126,7 +126,7 @@ if (loginBtn !== null && loginBtn !== undefined) {
     const password = document.getElementById("loginPassword").value;
     const auth = getAuth();
     const date = new Date;
-
+    emailLogin(document.getElementById("loginEmail").value);
 
     
     signInWithEmailAndPassword(auth, email, password)
@@ -146,8 +146,8 @@ if (loginBtn !== null && loginBtn !== undefined) {
 
 
         // -------------------
-        document.getElementById("emailLogin").dataset.email = 'asdas';
-        document.getElementById("loginEmail").value = "";
+       
+        // document.getElementById("loginEmail").value = "";
         document.getElementById("loginPassword").value = "";
     
         window.open('index_user.html', '_self');
@@ -159,15 +159,19 @@ if (loginBtn !== null && loginBtn !== undefined) {
         const errorMessage = error.message;
         console.log(errorMessage + " di naka log in")
       });
-
+   
   })
+}
+function emailLogin(email){
+  const emails = email;
+  console.log(emails)
 }
 
 const signOutButton = document.querySelector('#signOutButton');
 if (signOutButton !== null && signOutButton !== undefined) {
   signOutButton && signOutButton.addEventListener("click", () => {
 
-    console.log(emailLogin)
+    console.log(emailLogin())
 
 
   })
