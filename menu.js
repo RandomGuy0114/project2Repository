@@ -161,9 +161,8 @@ function updateModalOrig(name, price, quantity) {
     <img class="mr-3" src="img/menu/1-original.jpg" style="width: 50px; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4 style="font-size:medium;">${name}</h4>
-    <h6 style="float:left;">Qty: ${inputCounterOrig.value}</h6>
+    <h6 style="float:left;">${inputCounterOrig.value}</h6>
     <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: $30</p><br>
-    <h6 style="float:right; line-height: 0.5; margin-top: 0; padding-top: 0;">Total: $${totalPrice}</h6>
 
     <br>
     </div>
@@ -255,9 +254,8 @@ function updateModalOrig(name, price, quantity) {
     <img class="mr-3" src="img/menu/2-jalapeno.jpg" style="width: 50px; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4 style="font-size:medium;">${name}</h4>
-    <h6 style="float:left;">Qty: ${inputCounterJalapeno.value}</h6>
+    <h6 style="float:left;">${inputCounterJalapeno.value}</h6>
     <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: $35</p><br>
-    <h6 style="float:right; line-height: 0.5; margin-top: 0; padding-top: 0;">Total: $${totalPrice}</h6>
 
     <br>
     </div>
@@ -349,9 +347,8 @@ function updateModalWasabi(name, price, quantity) {
     <img class="mr-3" src="img/menu/4-wasabi.jpg" style="width: 50px; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4 style="font-size:medium;">${name}</h4>
-    <h6 style="float:left;">Qty: ${inputCounterWasabi.value}</h6>
+    <h6 style="float:left;">${inputCounterWasabi.value}</h6>
     <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: $35</p><br>
-    <h6 style="float:right; line-height: 0.5; margin-top: 0; padding-top: 0;">Total: $${totalPrice}</h6>
 
     <br>
     `;
@@ -442,9 +439,8 @@ function updateModalMentaiko(name, price, quantity) {
     <img class="mr-3" src="img/menu/5-mentaiko.jpg" style="width: 50px; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4 style="font-size:medium;">${name}</h4>
-    <h6 style="float:left;">Qty: ${inputCounterMentaiko.value}</h6>
+    <h6 style="float:left;">${inputCounterMentaiko.value}</h6>
     <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: $45</p><br>
-    <h6 style="float:right; line-height: 0.5; margin-top: 0; padding-top: 0;">Total: $${totalPrice}</h6>
 
     <br>
     </div>
@@ -538,9 +534,8 @@ function updateModalSalmon(name, price, quantity) {
     <img class="mr-3" src="/img/menu/1-salmon.jpg" style="width: 50px; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4 style="font-size:medium;">${name}</h4>
-    <h6 style="float:left;">Qty: ${inputCounterSalmon.value}</h6>
+    <h6 style="float:left;">${inputCounterSalmon.value}</h6>
     <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: $60</p><br>
-    <h6 style="float:right; line-height: 0.5; margin-top: 0; padding-top: 0;">Total: $${totalPrice}</h6>
 
     <br>
     </div>
@@ -633,9 +628,8 @@ function updateModalSmokedSalmon(name, price, quantity) {
     <img class="mr-3" src="/img/menu/2-smoked.jpg" style="width: 50px; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4 style="font-size:medium;">${name}</h4>
-    <h6 style="float:left;">Qty: ${inputCounterSmokedSalmon.value}</h6>
+    <h6 style="float:left;">${inputCounterSmokedSalmon.value}</h6>
     <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: $70</p><br>
-    <h6 style="float:right; line-height: 0.5; margin-top: 0; padding-top: 0;">Total: $${totalPrice}</h6>
 
     <br>
     </div>
@@ -726,13 +720,12 @@ function updateModalPaleo(name, price, quantity) {
     <img class="mr-3" src="/img/menu/3-paleo.jpg" style="width: 50px; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4 style="font-size:medium;">${name}</h4>
-    <h6 style="float:left;">Qty: ${inputCounterPaleo.value}</h6>
+    <h6 style="float:left;"> ${inputCounterPaleo.value}</h6>
     <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: $75</p><br>
-    <h6 style="float:right; line-height: 0.5; margin-top: 0; padding-top: 0;">Total: $${totalPrice}</h6>
-
     <br>
     </div>
     `;
+    
     document.getElementById('minusPaleo').addEventListener('click', function() {
       // imbis na naka hard code dito na lng mag geget ng current quantity at price
       let quantityElement = document.getElementById('inputCounterPaleo');
@@ -819,9 +812,8 @@ function updateModalTantan(name, price, quantity) {
     <img class="mr-3" src="/img/menu/1-TanTan.png"  style="width: 50px; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4 style="font-size:medium;">${name}</h4>
-    <h6 style="float:left;">Qty: ${inputCounterTantan.value}</h6>
+    <h6 style="float:left;">${inputCounterTantan.value}</h6>
     <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: $150</p><br>
-    <h6 style="float:right; line-height: 0.5; margin-top: 0; padding-top: 0;">Total: $${totalPrice}</h6>
 
     <br>
     </div>
@@ -912,9 +904,8 @@ function updateModalNikutama(name, price, quantity) {
     <img class="mr-3" src="/img/menu/2-Nikutama.png"  style="width: 50px; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4 style="font-size:medium;">${name}</h4>
-    <h6 style="float:left;">Qty: ${inputCounterNikutama.value}</h6>
+    <h6 style="float:left;">${inputCounterNikutama.value}</h6>
     <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: $170</p><br>
-    <h6 style="float:right; line-height: 0.5; margin-top: 0; padding-top: 0;">Total: $${totalPrice}</h6>
 
     <br>
     </div>
@@ -1005,10 +996,9 @@ function updateModalTonkotsu(name, price, quantity) {
     <img class="mr-3" src="/img/menu/3-Tonkotsu.png"   style="width: 50px; height: 50px; float:left; border-radius:500%;">
     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
     <h4 style="font-size:medium;">${name}</h4>
-    <h6 style="float:left;">Qty: ${inputCounterTonkotsu.value}</h6>
+    <h6 style="float:left;">${inputCounterTonkotsu.value}</h6>
     <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: $180</p><br>
-    <h6 style="float:right; line-height: 0.5; margin-top: 0; padding-top: 0;">Total: $${totalPrice}</h6>
-
+    
     <br>
     </div>
     `;
