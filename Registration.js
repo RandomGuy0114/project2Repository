@@ -148,7 +148,7 @@ if (loginBtn !== null && loginBtn !== undefined) {
         // -------------------
        
         // document.getElementById("loginEmail").value = "";
-        document.getElementById("loginPassword").value = "";
+        // document.getElementById("loginPassword").value = "";
     
         localStorage.setItem('email', email);
         window.open('index_user.html', '_self');
