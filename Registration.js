@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import * as firebase from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { getDatabase, update, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField, Timestamp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
 // TODO: Add SDKs for Firebase products that you want to use
@@ -122,13 +122,13 @@ const loginBtn = document.querySelector('#loginBtn');
 const dbFirestore = getFirestore();
 if (loginBtn !== null && loginBtn !== undefined) {
   loginBtn.addEventListener("click", () => {
-    const email =  document.getElementById("loginEmail").value;
+    const email = document.getElementById("loginEmail").value;
     const password = document.getElementById("loginPassword").value;
     const auth = getAuth();
     const date = new Date;
-   
 
-    
+
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
@@ -138,35 +138,39 @@ if (loginBtn !== null && loginBtn !== undefined) {
 
           // signIn: firebase.firestore.FieldValue.arrayUnion(Timestamp.now())
         })
-          .then(console.log('sign in date succes'))
+          .then(() => {
+            localStorage.setItem('email', email);
+            window.open('index_user.html', '_self');
+            console.log('login')
+          })
           .catch((error) => {
             const err = error.message;
             console.log(err + " sign in date failed")
+
           })
 
 
         // -------------------
-       
+
         // document.getElementById("loginEmail").value = "";
         // document.getElementById("loginPassword").value = "";
-    
-        localStorage.setItem('email', email);
-        window.open('index_user.html', '_self');
 
-        console.log('login')
+
+
+
         // ...
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage + " di naka log in")
       });
-   
+
   })
 }
 
 const signOutButton = document.querySelector('#signOutButton');
 if (signOutButton !== null && signOutButton !== undefined) {
- signOutButton.addEventListener("click", () => {
+  signOutButton.addEventListener("click", () => {
     const email = localStorage.getItem('email');
     document.getElementById('emailLogin').dataset.email = email
     const dbFirestore = getFirestore();
@@ -182,14 +186,14 @@ if (signOutButton !== null && signOutButton !== undefined) {
           console.log("sign out date succes")
           window.open('index.html', '_self')
         }
-          )
+        )
         .catch((error) => {
           const err = error.message;
           console.log(err + " sign out date failed")
         })
 
-      
-     
+
+
     }).catch((error) => {
       const err = error.message;
       console.log(err + " sign out failed")
