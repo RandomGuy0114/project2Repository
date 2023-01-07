@@ -1,0 +1,22 @@
+{
+    "name": "Ichiraku",
+    "short_name": "Ichiraku",
+    "start_url": "index.html?utm_source=homescreen",
+    "scope" : "./",
+    "icons": [
+        {
+            "src": "/img/logo/logo.png",
+            "sizes": "",
+            "type": "image/png"
+        },
+        {
+            "src": "/img/images/header.jpg",
+
+            "sizes": "",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "",
+    "background_color": "",
+    "display": "standalone"
+}
