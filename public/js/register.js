@@ -1,4 +1,3 @@
-
 function registration() {
   console.log('Attempting to register user ...')
   var user_email = document.getElementById("user_email").value;

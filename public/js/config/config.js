@@ -1,4 +1,3 @@
-
 var firebaseConfig = {
   apiKey: "AIzaSyCp7jA3DrW9RCi5YFMj_fiJ-N8t-IF5M2E",
   authDomain: "wd29-a8133.firebaseapp.com",
@@ -9,5 +8,7 @@ var firebaseConfig = {
   appId: "1:600682734449:web:9a25f7ae7ae1688a5accd0",
   measurementId: "G-SB9ZFSFS82"
 };
-// Initialize Firebase
+
 firebase.initializeApp(firebaseConfig);
+
+

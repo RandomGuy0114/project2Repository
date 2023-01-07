@@ -1,5 +1,3 @@
-
-
 function successNotification(message) {
   new Noty({
     type: 'success',

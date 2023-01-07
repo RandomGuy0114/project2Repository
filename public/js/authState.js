@@ -1,5 +1,3 @@
-
-
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     var user = firebase.auth().currentUser;
