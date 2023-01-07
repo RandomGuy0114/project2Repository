@@ -74,9 +74,9 @@ window.onload = function () {
         });
 
 
-      } else if (event.target.classList.contains('closeCart')) {
-        document.getElementById("mySidenav").style.width = "0";
       }
+    } else if (event.target.classList.contains('closeCart')) {
+      document.getElementById("mySidenav").style.width = "0";
     }
   });
 
