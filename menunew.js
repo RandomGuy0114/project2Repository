@@ -48,6 +48,7 @@ window.onload = function () {
         const img = container.querySelector('.image');
         const foodImage = img.getAttribute('src');
         
+        const totalPrice = value*input.value;
         const modal = document.querySelector('#modal');
         
         modal.innerHTML += `
@@ -59,11 +60,13 @@ window.onload = function () {
       <h6 style="float:left;">Qty: ${input.value}</h6>
 
       <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: ${value}</p><br>
-      <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Total Price: ${value*input.value}</p><br>
+      <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Total Price: ${totalPrice}</p><br>
 
       <br>
       </div>
       `;
+     
+      
       input.value = 0;
         modal.style.display = "block";
         // Get a list of all the trash button elements
