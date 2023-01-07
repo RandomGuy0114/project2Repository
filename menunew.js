@@ -38,18 +38,22 @@ window.onload = function () {
 
         // Get the value of the data-value attribute
         const container = event.target.parentNode.parentNode;
+
         const h5 = container.querySelector('.foodPrice');
         const value = h5.dataset.value;
         // const parent = event.target.parentNode;
         const div = container.querySelector('.middle');
         const foodName = div.dataset.food;
+
+        const img = container.querySelector('.image');
+        const foodImage = img.getAttribute('src');
+        
         const modal = document.querySelector('#modal');
-        const img = "img/menu/1-original.jpg"
         
         modal.innerHTML += `
         <div id="modalOrig" class="col-12 pl-2 pr-4 mb-3">
 
-      <img class="mr-3" src=${img} style="width: 50px; height: 50px; float:left; border-radius:500%;">
+      <img class="mr-3" src=${foodImage} style="width: 50px; height: 50px; float:left; border-radius:500%;">
       <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
       <h4 style="font-size:medium;">${foodName}</h4>
       <h6 style="float:left;">Qty: ${input.value}</h6>
