@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ichiraku</title>
+    <meta name="google-signin-client_id"
+        content="600682734449-0aorp0avkvpg60hqck006er8bo2kueu6.apps.googleusercontent.com">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,6 +14,7 @@
     <!-- Noty -->
     <!-- Firebase Core -->
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 
     <!-- Firebase Services -->
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
@@ -378,6 +381,9 @@
                         <a class="button" onclick="myFunction_reload()" class="btn btn-primary float-right">Login</a>
                         <a class="button shift" onclick="registration()" class="btn btn-primary">Register</a>
                     </div>
+                    <!----------------Google Button Added ----------------------->
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    <!----------------Google Button Added ----------------------->
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -406,6 +412,7 @@
                     <div class="user-box">
                         <a class="button" onclick="reg_account()">Register</a>
                         <a class="button shift" onclick="login()">Login</a>
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
                     </div>
                 </div>
             </div>
@@ -674,6 +681,35 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <!-- Initialize the Google Sign-In API -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<!-- Initialize the Google Sign-In API -->
+<script>
+  gapi.load('auth2', function() {
+    gapi.auth2.init({
+      client_id: '600682734449-0aorp0avkvpg60hqck006er8bo2kueu6.apps.googleusercontent.com'
+    });
+  });
+</script>
+<script>
+  function onSignIn(googleUser) {
+    // Get the GoogleUser object
+    var googleUser = auth2.currentUser.get();
+
+    // Get the BasicProfile object
+    var profile = googleUser.getBasicProfile();
+
+    // Get the user's name, email, and photo URL
+    var name = profile.getName();
+    var email = profile.getEmail();
+    var photoUrl = profile.getImageUrl();
+
+    // ...
+  }
+</script>
     <script>
         function registerServiceWorker() {
             // register sw script in supporting browsers
