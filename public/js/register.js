@@ -11,3 +11,4 @@ function registration() {
     promise.catch((err) => errorNotification(err.message))
   }
 }
+
