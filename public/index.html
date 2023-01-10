@@ -85,6 +85,7 @@
         }
 
         .modal-content {
+            background: rgba(70, 5, 5, 0.863);
             padding-top: 0px;
             margin-top: 0px;
             border-radius: 2%;
@@ -116,7 +117,7 @@
 
         #modal-toggle:checked~.modal-content {
             opacity: 1;
-            background-color: #fff;
+            background-color: none;
             overflow-y: auto;
             overflow-x: hidden;
             pointer-events: auto;
@@ -335,11 +336,13 @@
         }
 
         .modal-close-btn {
+            z-index: 1;
+            position: relative;
             margin-left: 450px;
             margin-top: 0px;
             display: inline-block;
             cursor: pointer;
-            background-color: rgb(18, 18, 18);
+            background-color: rgb(49, 7, 7);
             color: #fafafa;
         }
     </style>
@@ -351,18 +354,11 @@
     <input id="modal-toggle" type="checkbox">
     <label class="modal-backdrop " for="modal-toggle"></label>
     <div class="modal-content">
-        <div style="background-color: rgb(245, 245, 245);">
-            <label class="modal-close-btn" for="modal-toggle">
-                <i class="fa-solid fa-xmark"
-                    style="width: 50px; height: 32px; margin: 5px; padding: 9px; color: rgb(245, 243, 243)"></i>
-                <!-- <svg width="30" height="40">
-          <line x1="10" y1="10" x2="40" y2="40"/>
-          <line x1="40" y1="10" x2="10" y2="40"/>
-        </svg> -->
-            </label>
-        </div>
-        <div class="tabs mt-0" style="background-color: rgb(255, 255, 255);">
             <div class="row" id="registration-div">
+                <label class="modal-close-btn" for="modal-toggle">
+                    <i class="fa-solid fa-xmark"
+                        style="width: 50px; height: 32px; margin: 5px; padding: 9px; color: rgb(245, 243, 243)"></i>
+                </label>
                 <div class="login-box">
                     <h2>Create an Account</h2>
                     <div class="user-box">
@@ -399,6 +395,10 @@
             </div>
             <div class="clearfix"></div>
             <div class="row" id="login-div">
+                <label class="modal-close-btn" for="modal-toggle">
+                    <i class="fa-solid fa-xmark"
+                        style="width: 50px; height: 32px; margin: 5px; padding: 9px; color: rgb(245, 243, 243)"></i>
+                </label>
                 <div class="login-box">
                     <h2>Login</h2>
                     <div class="user-box">
@@ -687,28 +687,6 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <!-- Initialize the Google Sign-In API -->
-<script>
-  gapi.load('auth2', function() {
-    gapi.auth2.init({
-      client_id: '600682734449-0aorp0avkvpg60hqck006er8bo2kueu6.apps.googleusercontent.com'
-    });
-  });
-</script>
-<script>
-  function onSignIn(googleUser) {
-    // Get the GoogleUser object
-    var googleUser = auth2.currentUser.get();
-
-    // Get the BasicProfile object
-    var profile = googleUser.getBasicProfile();
-
-    // Get the user's name, email, and photo URL
-    var name = profile.getName();
-    var email = profile.getEmail();
-    var photoUrl = profile.getImageUrl();
-
-    // ...
-  }
 </script>
     <script>
         function registerServiceWorker() {
