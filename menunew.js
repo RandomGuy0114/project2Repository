@@ -1,7 +1,7 @@
 
 window.onload = function () {
 
-
+  let totalLast=0;
   // for customer choices of quantity.
   const buttons = document.querySelectorAll('.add, .subtract');
 
@@ -23,6 +23,10 @@ window.onload = function () {
     });
   });
 
+
+
+  // functions for clicking the menu buttons.
+
   document.addEventListener('click', (event) => {
     if (event.target.classList.contains('addToCart')) {
       // Find the parent element of the clicked button
@@ -32,10 +36,11 @@ window.onload = function () {
 
       // Reset the value of the input element to 0
       if (input.value != 0) {
-        
+
         document.getElementById("mySidenav").style.width = "250px";
 
-
+        
+        
         // Get the value of the data-value attribute
         const container = event.target.parentNode.parentNode;
 
@@ -45,12 +50,13 @@ window.onload = function () {
         const div = container.querySelector('.middle');
         const foodName = div.dataset.food;
 
+
         const img = container.querySelector('.image');
         const foodImage = img.getAttribute('src');
-        
-        const totalPrice = value*input.value;
+
+        const totalPrice = value * input.value;
         const modal = document.querySelector('#modal');
-        
+
         modal.innerHTML += `
         <div id="modalOrig" class="col-12 pl-2 pr-4 mb-3">
 
@@ -60,25 +66,51 @@ window.onload = function () {
       <h6 style="float:left;">Qty: ${input.value}</h6>
 
       <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: ${value}</p><br>
-      <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Total Price: ${totalPrice}</p><br>
+      <p id="total" style="float:right; margin-bottom:0rem;  padding-top:0rem;">Total Price: ${totalPrice}</p><br>
 
       <br>
       </div>
       `;
-     
-      
-      input.value = 0;
+        // getting all of the total of orders.
+        modal.querySelector('#total').setAttribute('data-totall', totalPrice)
+        const totalSaIsangItem = modal.querySelector('#total').dataset.totall;
+        console.log(totalSaIsangItem);
+        const sideNavTotal = document.querySelector('#mySidenav').childNodes[7].childNodes[1];
+        console.log(sideNavTotal);
+        // const modalTotal = sumTotalPrices()
+        // 
+        
+        const totalValues = modal.querySelectorAll('#total');
+        totalValues.forEach((totalvalue)=>{
+          totalLast += parseInt(totalvalue.dataset.totall);
+          totalLast += isNaN(value) ? 0 : value;
+        })
+        ;
+        sideNavTotal.innerHTML = `Total: ${totalLast}`
+        // kada pindut sa addToCart yung input quantity maging 0.
+        input.value = 0;
+
         modal.style.display = "block";
+
+
         // Get a list of all the trash button elements
         const trashButtons = modal.querySelectorAll('.fa-trash');
         // Add a click event listener to each trash button
         trashButtons.forEach(function (trashButton) {
           trashButton.addEventListener('click', function () {
-            inputCounterOrig.value = 0;
             // Remove the parent element of the trash button (which is the item)
             this.parentElement.remove();
           });
         });
+
+        // function sumTotalPrices() {
+        //   const modalOrigElements = modal.querySelectorAll('[data-totall]');
+        //   const total = 0;
+        //   modalOrigElements.forEach(element => {
+        //     total += parseInt(element.dataset.totall);
+        //   });
+        //   return total;
+        // }
 
 
       }
@@ -88,106 +120,10 @@ window.onload = function () {
   });
 
 
+  // updating the total in modal.
   
-  // modal.innerHTML += `
-  // <h5>${foodPrice}</h5>
-  // `;
-
-
-
-
-  // let takoOrigCartButton = document.getElementById("takoOrigbutton");
-  // takoOrigCartButton.addEventListener("click", takoOrigCartModal);
-  // function takoOrigCartModal() {
-  //     db.collection("Food Menu").doc("Takoyaki").get().then(function (doc) {
-  //         if (doc.exists) {
-  //             let data = doc.data();
-  //             let array = data.TakoyakiA;
-  //             updateModalOrig(array[0], array[1], array[2]);
-  //         }
-  //     });
-
-
-  // }
-  // function updateModalOrig(name, price, quantity) {
-  //     // Get ele
-  //     const modal = document.getElementById("modal");
-  //     const inputCounter = document.getElementById("inputCounterOrig");
-  //     const totalPriceElement = modal.querySelector("h6:last-of-type");
-  //     inputCounter.value = parseInt(inputCounter.value) + quantity;
-  //     totalPrice = price * inputCounter.value;
-  //     // Check if item is already in modal
-  //     if (modal.innerHTML.indexOf(name) >= 0) {
-  //       // Update quantity and total price
-  //       let quantityElement = modal.querySelector("#modalOrig h6:first-of-type");
-  //       let priceElement = modal.querySelector("#modalOrig h6:nth-of-type(2)");
-  //       quantityElement.innerHTML = inputCounter.value;
-  //       priceElement.innerHTML = `$${totalPrice}`;
-  //       totalPriceElement.innerHTML = `Total: $${totalPrice}`;
-  //       return;
-  //       }
-
-  //     // UP
-  //     modal.innerHTML += `
-
-  //     <div id="modalOrig" class="col-12 pl-2 pr-4 mb-3">
-
-  //     <img class="mr-3" src="img/menu/1-original.jpg" style="width: 50px; height: 50px; float:left; border-radius:500%;">
-  //     <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
-  //     <h4 style="font-size:medium;">${name}</h4>
-  //     <h6 style="float:left;">${inputCounterOrig.value}</h6>
-  //     <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: $30</p><br>
-
-  //     <br>
-  //     </div>
-  //     `;
-  //     document.getElementById('minusOrig').addEventListener('click', function() {
-  //       // imbis na naka hard code dito na lng mag geget ng current quantity at price
-  //       let quantityElement = document.getElementById('inputCounterOrig');
-  //       let quantity = parseInt(quantityElement.value, 10);
-  //       let price = 30;
-
-  //       // pang decrement
-  //       quantity--;
-  //       let totalPrice = quantity * price;
-  //       document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
-
-  //       // update ung quantity
-  //       quantityElement.value = quantity;
-  //     });
-
-  //     document.getElementById('plusOrig').addEventListener('click', function() {
-  //       // imbis na naka hard code dito na lng mag geget ng current quantity at price
-  //       let quantityElement = document.getElementById('inputCounterOrig');
-  //       let quantity = parseInt(quantityElement.value, 10);
-  //       let price = 30;
-
-  //       // pang increment
-  //       quantity+=1;
-  //       let totalPrice = quantity * price;
-  //       document.getElementById('totalPrice').innerHTML = `Total: $${totalPrice}`;
-
-  //       // Update ung quantity
-  //       quantityElement.value = quantity;
-  //     });
-
-  //     // Get a list of all the trash button elements
-  //     const trashButtons = modal.querySelectorAll('.fa-trash');
-
-  //     // Add a click event listener to each trash button
-  //     trashButtons.forEach(function(trashButton) {
-  //       trashButton.addEventListener('click', function() {
-  //         inputCounterOrig.value = 0;
-  //         // Remove the parent element of the trash button (which is the item)
-  //         this.parentElement.remove();
-  //       });
-  //     });
-
-  //     modal.style.display = "block";
-  // }
-
-
-
+  
+  
 
 
 
