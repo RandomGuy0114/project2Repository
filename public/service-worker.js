@@ -70,7 +70,6 @@ var isPathWhitelisted = function (whitelist, absoluteUrlString) {
 var stripIgnoredUrlParameters = function (originalUrl,
   ignoreUrlParametersMatching) {
   var url = new URL(originalUrl);
-  // Remove the hash; see https://github.com/GoogleChrome/sw-precache/issues/290
   url.hash = '';
 
   url.search = url.search.slice(1) // Exclude initial '?'
