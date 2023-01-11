@@ -150,7 +150,7 @@ window.onload = function () {
             const totalOneItem = parent.querySelector('#total').getAttribute('data-totall');
             const totalOneItemInt = parseInt(totalOneItem);
 
-            totalOfAll -= totalOneItemInt;
+            totalOfAll = parseInt(totalOfAll) - totalOneItemInt;
             console.log('totalOfAll: ', totalOfAll, typeof totalOfAll);
             sideNavTotal.innerHTML = `Total:  ${totalOfAll}`;
             parent.remove();
