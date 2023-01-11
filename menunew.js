@@ -64,7 +64,6 @@ window.onload = function () {
         <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
         <h4 style="font-size:medium;">${foodName}</h4>
         <h6 style="float:left;">Qty: ${input.value}</h6>
-      
         <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: ${value}</p><br>
         <p id="total" style="float:right; margin-bottom:0rem; padding-top:0rem;" data-totall="${totalPrice}">Total Price: ${totalPrice}</p><br>
       
@@ -92,12 +91,7 @@ window.onload = function () {
             const parent = trashButton.parentNode;
             const totalOneItem = parent.querySelector('#total').getAttribute('data-totall');
             const totalOneItemInt = parseInt(totalOneItem);
-            console.log('')
-            console.log('bawas: ',totalOneItem,parseInt(totalOneItem));
-            console.log('totalOfAll: ',totalOfAll,typeof totalOfAll)
-            console.log('totalOneItem: ',totalOneItem,typeof totalOneItem)
-            console.log('totalOneItemInt: ',totalOneItemInt,typeof totalOneItemInt)
-            console.log('')
+            
             totalOfAll -= totalOneItemInt;
             console.log('totalOfAll: ',totalOfAll,typeof totalOfAll);
             sideNavTotal.innerHTML = `Total:  ${totalOfAll}`;
