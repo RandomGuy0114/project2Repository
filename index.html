@@ -303,6 +303,8 @@
       background-color: rgb(18, 18, 18);
       color: #fafafa;
     }
+
+    
   </style>
 </head>
 
@@ -479,6 +481,21 @@
 
   <center><img src="img/images/news-Banner.png" class="img-fluid" alt="ichirakubg" width="90%" height="20%"></center>
   <!-- SUSHI -->
+  <script>
+    function onScroll() {
+  const cards = document.querySelectorAll('.card');
+  const screenPosition = window.innerHeight;
+  
+  cards.forEach((card) => {
+    if (card.getBoundingClientRect().top < screenPosition) {
+      card.classList.add('fade-in');
+    }
+  });
+}
+
+document.addEventListener('scroll', onScroll);
+
+    </script>
   <section id="grad1">
     <div class="container text-black">
       <div class="row">
@@ -486,7 +503,7 @@
           <div class="row p-4">
 
             <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+              <div class="container card pt-2 fade-in" style="border-radius:15%; border:#000; border-style:groove;">
                 <img id="shopimage" src="img/news/news1.jpg" alt="Avatar" class="image"
                   style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                 <!-- Product name -->
@@ -497,7 +514,7 @@
             </div>
 
             <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+              <div class="container card pt-2 fade-in" style="border-radius:15%; border:#000; border-style:groove;">
                 <img id="shopimage" src="img/news/news2.jpg" alt="Avatar" class="image"
                   style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                 <!-- INFO + PRICE -->
@@ -507,7 +524,7 @@
             </div>
 
             <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
+              <div class="container card pt-2 fade-in" style="border-radius:15%; border:#000; border-style:groove;">
                 <img id="shopimage" src="img/news/news3.jpg" alt="Avatar" class="image"
                   style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                 <!-- INFO + PRICE -->
