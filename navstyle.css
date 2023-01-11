@@ -23,12 +23,13 @@
       font-weight: 10;
       font-size: 60%;
       text-transform: uppercase;
+      color: white;
       /* padding: 15px; */
       }
 
       body {
       /* background-image: url(img/images/wood.jpg); */
-      /* background-color: rgb(255, 255, 255); */
+      background-color: rgb(236, 216, 178);
       background-size: cover;
       height: 100vh;
       background-position: center;
@@ -80,7 +81,7 @@
     @media only screen and (min-width: 600px){
       body {
       /* background-image: url(img/images/wood.jpg); */
-      /* background-color: rgb(255, 255, 255); */
+      background-color: rgb(236, 216, 178);
       background-size: cover;
       height: 100vh;
       background-position: center;
@@ -134,6 +135,7 @@
       font-size: large;
       text-transform: uppercase;
       padding: 15px;
+      color: white;
     }
 
     #menuSakoSushi {
@@ -149,6 +151,7 @@
     /* big dev */
     @media only screen and (min-width: 992px){
       body {
+        background-color: rgb(236, 216, 178);
       background-size: cover;
       height: 100vh;
       background-position: center;
