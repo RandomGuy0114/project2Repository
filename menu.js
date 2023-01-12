@@ -122,15 +122,43 @@ window.onload = function () {
         <p id="total" style="float:right; margin-bottom:0rem; padding-top:0rem;" data-totall="${totalPrice}">Total Price: ${totalPrice}</p><br>
       
         <br>
+        
+        </div>
+        `;
+      
+        user_Checkout.innerHTML += `
+        <div id="${uid}" class="col-12 pl-2 pr-4 mb-3">
+
+        <img class="mr-3" src=${foodImage} style="width: 50px; height: 50px; float:left; border-radius:500%;">
+        <h4 style="font-size:medium;">${foodName}</h4>
+        <h6 id="kuwantiti" style="float:left;" data-qnt="${input.value}">Qty: ${input.value}</h6>
+        <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: ${value}</p><br>
+        <p id="total" style="float:right; margin-bottom:0rem; padding-top:0rem;" data-totall="${totalPrice}">Total Price: ${totalPrice}</p><br>
+      
+        <br>
+        
         </div>
         `;}
+
+       
         
         
         console.log('nadagdagan ', totalOfAll, typeof totalOfAll);
 
         // Get the side navigation menu's total element
         const sideNavTotal = document.querySelector('#mySidenav').childNodes[7].childNodes[1];
-        sideNavTotal.innerHTML = `Total:  ${totalOfAll}`;
+        sideNavTotal.innerHTML = `Total:  ₱${totalOfAll}`;
+
+
+        
+        const anotherDiv = document.querySelector('#checkOutTotal');
+        anotherDiv.innerHTML = `₱${totalOfAll}`;
+
+        const totalWith30 = totalOfAll + 30;
+        const totalDiv = document.querySelector('#totalDiv');
+        totalDiv.innerHTML = `₱${totalWith30}`;
+        
+
 
         // modal.querySelector('#total').setAttribute('data-totall', totalPrice)
 
@@ -170,6 +198,7 @@ window.onload = function () {
 
 
 
+
   // getting all of the total of orders.
   // modal.querySelector('#total').setAttribute('data-totall', totalPrice)
   // const totalSaIsangItem = modal.querySelector('#total').dataset.totall;
@@ -186,11 +215,5 @@ window.onload = function () {
   // });
   // sideNavTotal.innerHTML = `Total: ${totalLast}`
   // kada pindut sa addToCart yung input quantity maging 0.
-
-
-
-
-
-
 
 }
