@@ -699,6 +699,7 @@
                 if (doc.exists) {
                     const user_name = doc.data().name;
                     const user_email = doc.data().email;
+                    document.getElementById("user-prof").innerHTML = user_name;
                     document.getElementById("user_name_show").innerHTML = user_name;
                     document.getElementById("user_email_show").innerHTML = user_email;
                 } else {
