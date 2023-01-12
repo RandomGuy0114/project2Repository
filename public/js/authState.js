@@ -20,7 +20,6 @@ firebase.auth().onAuthStateChanged(function (user) {
         // User is logged in
         
         console.log("User is logged in.");
-        getUser()
         successNotification("Welcome, " + email_id + "!" + user.user_name);
         document.getElementById("user-div").style.display = "block";
         document.getElementById("login-div").style.display = "none";
