@@ -362,11 +362,11 @@
             <div class="login-box">
                 <h2>Create an Account</h2>
                 <div class="user-box">
-                    <input class="form-control" type="name" id="user_name" required="">
+                    <input class="form-control" type="name" id="user_name required="">
                     <label>Name</label>
                 </div>
                 <div class="user-box">
-                    <input class="form-control" type="email" id="user_email" required="">
+                    <input class="form-control" type="email" id="user_name" required="">
                     <label>Email</label>
                 </div>
                 <div class="user-box">
@@ -422,7 +422,7 @@
         <div class="user-dashboard">
             <div class="grid-row">
                 <div class="grid-cell">
-                    <h1>Welcome! <span id="user_name">Loading ...</span>.</h1> <!-- Display username here -->
+                    <h1>Welcome! <span id="user_name_show">Loading ...</span>.</h1> <!-- Display username here -->
                     <p>You are currently logged in using Email :</span><span id="user_email_show">Loading ...</span>.
                     </p>
                 </div>
@@ -673,7 +673,6 @@
     <script type="text/javascript" src="./js/register.js"></script>
     <script type="text/javascript" src="./js/sendVerification.js"></script>
     <script type="text/javascript" src="./js/authState.js"></script>
-    <script type="text/javascript" src="./js/userdb.js"></script>
 
     <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
 
@@ -695,7 +694,18 @@
         }
     </script>
     <script> /* ------------------------script for collecting data and storing to firestore dD*/
-
+        function getUserData(userId) {
+            db.collection("userData").doc(userId).get().then(function (doc) {
+                if (doc.exists) {
+                    const user_name = doc.data().name;
+                    const user_email = doc.data().email;
+                    document.getElementById("user_name_show").innerHTML = user_name;
+                    document.getElementById("user_email_show").innerHTML = user_email;
+                } else {
+                    console.log("No such document!");
+                }
+            });
+        }
 
 /// chat GPT code here
 
