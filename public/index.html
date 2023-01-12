@@ -695,23 +695,29 @@
         }
     </script>
     <script> /* ------------------------script for collecting data and storing to firestore dD*/
-        const nameInput = document.querySelector("#user_name");
-        const emailInput = document.querySelector("#user_email");
 
-        // Find the register button
-        const registerButton = document.querySelector(".btn btn-primary");
 
-        // Add a click event listener to the register button
-        registerButton.addEventListener("click", (event) => {
-            event.preventDefault();
+/// chat GPT code here
 
-            // Get the user's name and email from the input elements
-            const name = nameInput.value;
-            const email = emailInput.value;
+// const addUser = (userData) => {
+//   if(userData.userId){
+//     db.collection("user Data")
+//       .doc(userData.userId)
+//       .set({
+//         name: userData.name,
+//         email: userData.email,
+//       })
+//       .then(function (docRef) {
+//         console.log("Document written with ID: ", docRef.id);
+//       })
+//       .catch(function (error) {
+//         console.error("Error adding document: ", error);
+//       });
+//   }else{
+//       console.error("userData object should have userId property");
+//   }
+// }
 
-            // Pass the user's name and email to the addUser function
-            addUser({ name, email });
-        });
     </script>
 
     <script> /*--------------script for entering or login*/

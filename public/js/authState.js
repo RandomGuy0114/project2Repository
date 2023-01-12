@@ -20,13 +20,14 @@ firebase.auth().onAuthStateChanged(function (user) {
         // User is logged in
         
         console.log("User is logged in.");
-        successNotification("Welcome, " + email_id + "!" + user.displayName);
+        getUser()
+        successNotification("Welcome, " + email_id + "!" + user.user_name);
         document.getElementById("user-div").style.display = "block";
         document.getElementById("login-div").style.display = "none";
         document.getElementById("registration-div").style.display = "none";
         document.getElementById("send-verification-div").style.display = "none";
         document.getElementById("user_email_show").innerHTML = email_id;
-        document.getElementById("user_name_show").innerHTML = user.displayName
+        document.getElementById("user_name_show").innerHTML = user.user_name
         document.getElementById("user-log").style.display = "none";
         document.getElementById("user-prof").style.display = "block";
         closeModal();
