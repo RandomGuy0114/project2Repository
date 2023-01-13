@@ -332,7 +332,8 @@
       <div class="tabs-content mt-3 pl-5 pr-5">
         <form action="">
 
-          <input type="email" onclick="clearErrorloginPassword()" id="loginEmail" placeholder="Email" required>
+          <input type="email" onclick="clearErrorloginEmail()" id="loginEmail" placeholder="Email" required>
+          <span id="errorloginEmail" style="color: red" height="auto"></span>
           <input type="password" onclick="clearErrorloginPassword()" id="loginPassword" placeholder="Password" required>
           <span id="errorloginPassword" style="color: red" height="auto"></span>
           <center><button type="button" id="loginBtn" class="btn btn-outline-dark col-5 text-white"
@@ -593,6 +594,9 @@ document.addEventListener('scroll', onScroll);
     function clearErrorloginPassword() {
       $("#errorloginPassword").text("");
 
+    }
+    function clearErrorloginEmail(){
+      $("#errorloginEmail").text("");
     }
     function clearErrorEmail() {
       $("#errorEmail").text("");

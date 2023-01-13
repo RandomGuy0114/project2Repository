@@ -155,7 +155,12 @@ if (loginBtn !== null && loginBtn !== undefined) {
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage);
-        $("#errorloginPassword").text("Email and Password do not match.");
+        if (errorMessage == 'Firebase: Error (auth/wrong-password).') {
+          $("#errorloginPassword").text("Email and Password do not match.");
+        }else if(errorMessage == 'Firebase: Error (auth/user-not-found).'){
+          $("#errorloginEmail").text("Email is not registered!");
+        }
+
       });
 
   })
