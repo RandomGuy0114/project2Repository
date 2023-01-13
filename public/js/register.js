@@ -18,9 +18,9 @@ const addUser = (userData) => {
 };
 
 const db = firebase.firestore();
-const getUser = (userData) => {
+const getUser = (userId) => {
   db.collection("userData")
-    .doc(userData.docRef.id)
+    .doc(userId)
     .get()
     .then(function (doc) {
       if (doc.exists) {
@@ -34,7 +34,6 @@ const getUser = (userData) => {
       console.log("Error getting document:", error);
     });
 };
-
 
 function registration() {
   console.log("Attempting to register user ...");
@@ -54,7 +53,7 @@ function registration() {
         };
         userData.userId = user.user.uid;
         addUser(userData);
-        getUser(userData.userId);
+        getUser(user.user.uid);
       })
       .catch((err) => errorNotification(err.message));
   }
