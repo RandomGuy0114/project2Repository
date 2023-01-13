@@ -326,12 +326,13 @@
       <!--  LOG IN  -->
 
       <input class="radio" id="tab-1" name="tabs-name" type="radio" checked>
-      <label for="tab-1" class="table"><span>Sign in</span></label>
+      <label for="tab-1" class="table sign_in_btn"><span>Sign in</span></label>
       <div class="tabs-content mt-3 pl-5 pr-5">
         <form action="">
 
-          <input type="email" id="loginEmail" placeholder="Email" required>
-          <input type="password" id="loginPassword" placeholder="Password" required>
+          <input type="email" onclick="clearErrorloginPassword()" id="loginEmail" placeholder="Email" required>
+          <input type="password" onclick="clearErrorloginPassword()" id="loginPassword" placeholder="Password" required>
+          <span id="errorloginPassword" style="color: red" height="auto"></span>
           <center><button type="button" id="loginBtn" class="btn btn-outline-dark col-5 text-white"
               style="background-color:rgb(197,0,0);">Sign in</button></center>
         </form>
@@ -590,6 +591,10 @@
   <script>
     function clearErrorName() {
       $("#errorName").text("");
+
+    }
+    function clearErrorloginPassword() {
+      $("#errorloginPassword").text("");
 
     }
     function clearErrorEmail() {
