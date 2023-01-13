@@ -303,6 +303,8 @@
       background-color: rgb(18, 18, 18);
       color: #fafafa;
     }
+
+    
   </style>
 </head>
 
@@ -423,7 +425,29 @@
     </div>
   </nav>
 
-  <img src="img/images/header.jpg" class="img-fluid" alt="ichirakubg">
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/images/H1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="img/images/H2.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="img/images/H3.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- <img src="img/images/H1.jpg" class="img-fluid" alt="ichirakubg"> -->
 
   <center><img src="img/images/featured_bannerr.png" class="img-fluid mt-2" alt="ichirakubg" width="90%" height="20%">
   </center>
@@ -433,16 +457,19 @@
   <section id="grad1" class="pt-4">
     <div class="container text-black">
       <div class="row">
-        <div class="col-lg-4 col-md-12 col-12 ms-lg-5">
+        <div class="col-lg-5 col-md-12 col-12 ms-lg-5">
           <img id="conimg" src="img/images/boat.jpg"
             style="border: 5px solid rgb(0, 0, 0); border-radius: 15%; border-color: #000;" alt="BoatPhoto1"
             class="img-fluid col-md-9 col-lg-12 mb-5">
         </div>
 
-        <div class="col-lg-7 col-md-8 mb-5">
+        <div class="col-lg-6 col-md-8 mb-5">
           <div class="container card mt-2 mb-4" style="background-color:white; outline-style:groove;">
             <h4 align="center" id="menuSakoSushi" class="pt-3">Sushi Boat Platter</h5>
               <p>
+                A sushi boat is a special plate used in Japanese restaurants to serve your favorite sushi. This sushi boat will serve anywhere from 2 to 8 people and contain a mix of sushi, sashimi, and sushi rolls.
+                <br>
+                <br>
                 Available in Regular (31 pieces of sashimi, nigiri and makimono) and Deluxe (36 pieces of our
                 bestselling makimono).
               </p>
@@ -453,44 +480,57 @@
   </section>
 
 
-  <center><img src="img/images/menu_banner.png" class="img-fluid" alt="ichirakubg" width="90%" height="20%"></center>
+  <center><img src="img/images/news-Banner.png" class="img-fluid" alt="ichirakubg" width="90%" height="20%"></center>
   <!-- SUSHI -->
+  <script>
+    function onScroll() {
+  const cards = document.querySelectorAll('.card');
+  const screenPosition = window.innerHeight;
+  
+  cards.forEach((card) => {
+    if (card.getBoundingClientRect().top < screenPosition) {
+      card.classList.add('fade-in');
+    }
+  });
+}
+
+document.addEventListener('scroll', onScroll);
+
+    </script>
   <section id="grad1">
     <div class="container text-black">
       <div class="row">
         <section>
           <div class="row p-4">
-            <!-- SAMPLE PRODUCTS -->
-            <h3 id="menuSakoSushi" class="text-black">Sushi</h3>
 
             <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
-                <img id="shopimage" src="img/menu/1-salmon.jpg" alt="Avatar" class="image"
+              <div class="container card pt-2 fade-in" style="border-radius:15%; border:#000; border-style:groove;">
+                <img id="shopimage" src="img/news/news1.jpg" alt="Avatar" class="image"
                   style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                 <!-- Product name -->
-                <p align="center" id="menuName" class="pb-0">Salmon Sushi Roll</p>
+                <p align="center" id="menuName" class="pb-0">New branch opening</p>
                 <!-- PRODUCT INFO -->
-                <p class="pb-4">Tempura and cucumber wrapped with salmon served with soy sauce and wasabi.</p>
+                <center><p class="pb-4">Another Ichiraku restaurant in Manila Opening on November 2023!</p></center>
               </div>
             </div>
 
             <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
-                <img id="shopimage" src="img/menu/2-smoked.jpg" alt="Avatar" class="image"
+              <div class="container card pt-2 fade-in" style="border-radius:15%; border:#000; border-style:groove;">
+                <img id="shopimage" src="img/news/news2.jpg" alt="Avatar" class="image"
                   style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                 <!-- INFO + PRICE -->
-                <p align="center" id="menuName" class="pb-0">Smoked salmon sushi</p>
-                <p class="pb-4">Layer the cheese mix with the rice, cucumber, and red bell pepper.</p>
+                <p align="center" id="menuName" class="pb-0">New Flavor Soon!</p>
+                <center><p class="pb-4">This might be the only ramen flavor you'll ever crave from now on.</p</center>
               </div>
             </div>
 
             <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
-                <img id="shopimage" src="img/menu/3-paleo.jpg" alt="Avatar" class="image"
+              <div class="container card pt-2 fade-in" style="border-radius:15%; border:#000; border-style:groove;">
+                <img id="shopimage" src="img/news/news3.jpg" alt="Avatar" class="image"
                   style="width:100%; border-radius:15%; border:#000; border-style:groove;">
                 <!-- INFO + PRICE -->
-                <p align="center" id="menuName" class="pb-0">palaeo sushi</p>
-                <p class="pb-4">cauliflower rice, smoked salmon, bacon, asparagus stalks and milk.</p>
+                <p align="center" id="menuName" class="pb-0">We now deliver!</p>
+                <center><p class="pb-4">Craving for Japanese cuisine? Order now with our online system!</p></center>
               </div>
             </div>
           </div>
@@ -498,50 +538,7 @@
       </div>
     </div>
   </section>
-  <!-- TAKOYAKI -->
-  <section id="grad1">
-    <div class="container text-black">
-      <div class="row">
-        <section>
-          <div class="row p-4">
-            <!-- SAMPLE PRODUCTS -->
-            <h3 id="menuSakoSushi" class="text-black">Takoyaki</h3>
-            <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
-                <img id="shopimage" src="img/menu/1-original.jpg" alt="Avatar" class="image"
-                  style="width:100%; border-radius:15%; border:#000; border-style:groove;">
-                <!-- INFO + PRICE -->
-                <p align="center" id="menuName" class="pb-0">Original</p>
-                <p class="pb-4">Tanota sauce, mayo, bonito flakes, seaweed.</p>
-              </div>
-            </div>
-            <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
-                <img id="shopimage" src="img/menu/2-jalapeno.jpg" alt="Avatar" class="image"
-                  style="width:100%; border-radius:15%; border:#000; border-style:groove;">
-                <!-- INFO + PRICE -->
-                <p align="center" id="menuName" class="pb-0">Jalapeño</p>
-                <p class="pb-4">Jalapeño mayo, bonito flakes, green seaweed.</p>
-              </div>
-            </div>
-            <div class="mb-3 mt-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="container card pt-2" style="border-radius:15%; border:#000; border-style:groove;">
-                <img id="shopimage" src="img/menu/3-ponzu.jpg" alt="Avatar" class="image"
-                  style="width:100%; border-radius:15%; border:#000; border-style:groove;">
-                <!-- INFO + PRICE -->
-                <p align="center" id="menuName" class="pb-0">Ponzu</p>
-                <p class="pb-4">Citrus soy sauce, bonito flakes, green onion.</p>
-              </div>
-            </div>
-            <div align="right" class="mt-2">
-              <a id="menuName" href="/menu.html" class="btn btn-outline-dark text-light"
-                style="background-color: rgb(0, 0, 0);">See our Menu ➜</a>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </section>
+
 
   <div align="right" class="mt-2">
     <a href="#" class="btn"><i class="fa-solid fa-circle-arrow-up fa-3x" style="color:black"></i></a>
@@ -572,9 +569,9 @@
     <hr>
 
     <center class="pt-4 pb-5">
-      <a id="footerName" class="mr-5" href="location.html">Location</a>
-      <a id="footerName" class="mr-5" href="rates.html">Rates</a>
-      <a id="footerName" class="mr-5" href="payment.html">Mode of Payment</a>
+      <a id="footerName" class="mr-5" href="contact.html">Location</a>
+      <!-- <a id="footerName" class="mr-5" href="rates.html">Rates</a> -->
+      <!-- <a id="footerName" class="mr-5" href="payment.html">Mode of Payment</a> -->
       <a id="footerName" class="mr-5" href="menu.html">Menu</a>
       <a id="footerName" class="mr-5" href="about.html">Our Team</a>
       <a id="footerName" class="mr-5" href="contact.html">Contact Us</a>

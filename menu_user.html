@@ -83,7 +83,8 @@
       display: none;
     }
 
-    .modal-content,
+    /* AAAAAAAAAAAA */
+    /* .modal-content,
     .modal-backdrop {
       opacity: 0;
       position: fixed;
@@ -91,7 +92,7 @@
       overflow: hidden;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
-    }
+    } */
 
     .modal-content {
       padding-top: 0px;
@@ -506,80 +507,235 @@
     .fa-circle-arrow-up {
       color: rgb(0, 0, 0);
     }
+
+
+    .alert {
+    position:fixed; 
+    top: 0px; 
+    left:25%; 
+    width: 50%;
+    z-index:9999;
+    border-radius:5px;
+    text-align: center;
+}
+
+.checkmark__circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 5;
+      stroke-miterlimit: 10;
+      stroke: #080000;
+      fill: none;
+      animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+    }
+
+    .checkmark {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: block;
+      stroke-width: 4;
+      stroke: rgb(8, 0, 0);
+      stroke-miterlimit: 10;
+      margin: 10% auto;
+      margin-top: 5px;
+      box-shadow: inset 0px 0px 0px #e00f0f;
+      animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+    }
+
+    .checkmark__check {
+      transform-origin: 50% 50%;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+
+
+    }
+
+    @keyframes stroke {
+      100% {
+        stroke-dashoffset: 0
+      }
+    }
+
+    @keyframes scale {
+
+      0%,
+      100% {
+        transform: none
+      }
+
+      50% {
+        transform: scale3d(1.1, 1.1, 1)
+      }
+    }
+
+    @keyframes fill {
+      100% {
+        box-shadow: inset 0px 0px 0px 50px #ffffff
+      }
+    }
+
+
   </style>
   <!-- logo tab -->
   <link rel="shortcut icon" type="image/x-icon" href="img/images/logo.png">
 </head>
 
 <body>
-  <!-- SIGN IN SIGN UP MODAL -->
-  <input id="modal-toggle" type="checkbox">
-  <label class="modal-backdrop " for="modal-toggle"></label>
-  <div class="modal-content">
-    <div style="background-color: rgb(18,18,18);">
-      <label class="modal-close-btn" for="modal-toggle">
-        <i class="fa-solid fa-xmark"></i>
-      </label>
-    </div>
+  <div class="alert alert-danger" role="alert" style="display:none">Please fill out all fields!</div>
 
-    <div class="tabs mt-0" style="background-color: rgb(255, 255, 255);">
-      <!--  LOG IN  -->
-
-      <input class="radio" id="tab-1" name="tabs-name" type="radio" checked>
-      <label for="tab-1" class="table"><span>Sign in</span></label>
-      <div class="tabs-content mt-3 pl-5 pr-5">
-        <form action="">
-
-          <input type="email" id="loginEmail" placeholder="Email" required>
-          <input type="password" id="loginPassword" placeholder="Password" required>
-          <center><button type="button" id="loginBtn" class="btn btn-outline-dark col-5 text-white"
-              style="background-color:rgb(197,0,0);">Sign in</button></center>
-        </form>
-
-
-        <form class="forgot-password" action="">
-          <input id="forgot-password-toggle" type="checkbox">
-          <label for="forgot-password-toggle">forgot password?</label>
-          <div class="forgot-password-content pl-5 pr-5">
-            <input type="email" placeholder="enter your email" required>
-            <input type="submit" value="go">
-          </div>
-        </form>
-        <h6 align="center" class="mt-4">Or use a social network:</h6>
-        <div class="login_socnet" style="text-align: center;">
-          <a href="" class="fa-brands fa-square-facebook me-0" aria-hidden="true"></a>
-          <a href="" class="fa-brands fa-square-google-plus me-0" aria-hidden="true"></a>
+<!-- MODAL START -->
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content mx-auto">
+        <div class="modal-header" style="background-color:rgb(197,0,0);">
+          <h4 class="modal-title mx-auto text-light" style="padding-left:20%;"  id="exampleModalToggleLabel">Checkout</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
+        <div class="modal-body">
+              <!-- FORM -->
+              <form>
+                <div class="col-11 pl-1 mb-4 pl-1 mt-2">
+                  <div class="row g-3 align-items-center">
+                    <div id="user_Checkout">
+                    </div>
+                    <hr>
 
-      <!--  SIGN UP  -->
-      <input class="radio" id="tab-2" name="tabs-name" type="radio">
-      <label for="tab-2" class="table"><span>Sign up</span></label>
-      <div class="tabs-content pl-5 pr-5">
-        <form action="">
-          <div class="input-group">
-            <input type="text" placeholder="First Name" class="form-control" id="userfirstName" required>
-            <input type="text" placeholder="Last Name" class="form-control" id="userlastName" required>
-          </div><span id="errorName" style="color: red" height="auto"></span>
-          <input type="email" placeholder="Email" class="form-control" id="userEmail" required>
-          <span id="errorEmail" style="color: red;"></span>
-          <input type="password" placeholder="Password" class="form-control" id="userPassword" required>
-          <input type="password" placeholder="Confirm password" class="form-control" id="confirmPassword" required>
-          <center><button type="button" class="btn btn-outline-dark col-5 text-white mb-5"
-              style="background-color:rgb(197,0,0);" id="signupForm">Sign Up</button></center>
-
-
-          <h6 align="center">Or use a social network:</h6>
-          <div class="login_socnet" style="text-align: center;">
-            <a href="" class="fa-brands fa-square-facebook me-0" aria-hidden="true"></a>
-            <a href="" class="fa-brands fa-square-google-plus me-0" aria-hidden="true"></a>
+          <div class="col-11 pl-2 pr-4 pl-1">
+            <h6 style="float:left;">Subtotal <h6 style="float:left; margin-left:2.2rem">:</h6>
+            </h6>
+            <h6 style="float:left; margin-left:30%" id="checkOutTotal"></h6>
+            <br>
           </div>
 
+          <div class="col-11 pl-2 pr-4 pl-1">
+            <h6 style="float:left;">Delivery Fee‎ :</h6>
+            <h6 style="float:left; margin-left:32%">₱30</h6>
+            <br>
+          </div>
 
-        </form>
+          <hr>
+
+          <div class="col-11 pl-2 pr-4 pl-1 pb-3 mt-0 pt-0">
+            <h4 style="float:left;" >Total Amount :</h4>
+            <h4 style="float:left; margin-left:15%" id="totalDiv"></h4>
+            <br>
+          </div>
+                    <div class="col-5">
+                      <label for="houseno" class="col-form-label" style="float:left; padding-left:20%">House#:</label>
+                    </div>
+                    <div class="col-7">
+                      <input type="text" id="houseno" class="form-control" style="width: 100%" required>
+                    </div>
+    
+                    <div class="col-5">
+                      <label for="street" class="col-form-label" style="float:left; padding-left:20%">Street:</label>
+                    </div>
+                    <div class="col-7">
+                      <input type="text" id="street" class="form-control" style="width: 100%" required>
+                    </div>
+    
+                    <div class="col-5">
+                      <label for="barangay" class="col-form-label" style="float:left; padding-left:20%; width: 100%">Barangay:</label>
+                    </div>
+                    <div class="col-7">
+                      <input type="text" id="barangay" class="form-control" style="width: 100%" required>
+                    </div>
+    
+                    <div class="col-5">
+                      <label for="city" class="col-form-label" style="float:left; padding-left:20%">City:</label>
+                    </div>
+                    <div class="col-7">
+                      <input type="text" id="city" class="form-control" style="width: 100%" required>
+                    </div>
+    
+                    <div class="col-5">
+                      <label for="landmark" class="col-form-label" style="float:left; padding-left:20%; width: 100%">Landmark:</label>
+                    </div>
+                    <div class="col-7">
+                      <input type="text" id="landmark" class="form-control" style="width: 100%" required>
+                    </div>
+    
+                    <div class="col-5">
+                      <label for="contact" class="col-form-label" style="float:left; padding-left:20%; width: 100%">Contact:</label>
+                    </div>
+                    <div class="col-7">
+                      <input type="number" id="contact" class="form-control" style="width: 100%" required>
+                    </div>
+    
+                    <div class="col-5">
+                      <label for="payment" class="col-form-label" style="float:left; padding-left:20%">Payment
+                        Method:</label>
+                    </div>
+                    <div class="col-3">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                          required>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Cash
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Gcash
+                        </label>
+                      </div>
+                    </div>
+    
+                    <div class="col-5">
+                      <label for="specialRequest" class="col-form-label" style="float:left; padding-left:20%">Special
+                        Requests:</label>
+                    </div>
+                    <div class="col-7 mt-5">
+                      <input type="text" id="specialRequest" class="form-control" style="width: 100%; height:100px"
+                        aria-describedby="passwordHelpInline">
+                    </div>
+                    </div>
+                    </div>
+                  </form>
+        </div>
+        <div class="modal-footer">
+         
+
+          <button type="button" class="btn btn-outline-dark col-5 text-white mb-2 mt-2"
+                  style="background-color:rgb(197,0,0); margin-left:175%" id="proceed-button">Proceed</button>
+
+        </div>
       </div>
     </div>
   </div>
+  <div class="modal fade pt-5" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" style="height: 70%; border-radius: 15px;">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+          
+            <div class="wrapper"> <svg class="checkmark" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+              </svg>
+            </div>
+            <center><h3>Your order has been placed!</h3></center>
+         
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark col-5 text-white mt-3 mx-auto"
+            style="background-color:rgb(197,0,0);" onclick="redirect()">Ok</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  <script>
+    function redirect() {
+      window.location.href = "userDashboard.html";
+    }
+  </script>
+  <!-- MODAL END -->
+
 
   <nav id="head" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
@@ -608,12 +764,13 @@
           </li>
         </ul>
 
-        <div class="dropdown">
+        <div class="dropdown" id="emailLogin" data-email="">
           <button class="dropbtn fa-solid fa-user fa-xl"
             style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"></button>
           <div class="dropdown-content">
             <a class="dropdown-item" href="userDashboard.html" style="color: black;">Dashboard</a>
-            <a class="dropdown-item" href="#" style="color: black;">Logout</a>
+            <!-- <button class="dropdown-item" id="signOutButton" style="color: black;">Logout</button> -->
+            <a class="dropdown-item" id="signOutButton" href="#" style="color: black;">Logout</a>
           </div>
         </div>
       </div>
@@ -629,23 +786,25 @@
     <div class="row">
       <h3>My Cart</h3>
       <!-- ORDER LIST -->
-
+      <div id="display-modal">
       <div id="modal" style="display: none;">
-        <!-- Modal content will be added here -->
-
+       
       </div>
-
-
     </div>
+  </div>
     <hr class="mb-1">
     <div>
       <h4 class="ps-3 mb-5 mt-0" data-totalOfAll='0' id="totalPrice">Total: 0</h4>
     </div>
 
     <div class="modal-footer" style="border:none;">
-      <a href="userCheckout.html" type="button" class="btn text-light"
-        style="background-color:rgba(197, 0, 0, 1);padding:2px 2px ;font-size: medium;">Check Out</a>
+      <button data-bs-toggle="modal" href="#exampleModalToggle" role="button"  class="btn text-light"
+      style="background-color:rgba(197, 0, 0, 1);padding:2px 2px ;font-size: medium;">Check Out</button>
+  
     </div>
+
+  
+
 
 
   </div>
@@ -969,12 +1128,12 @@
     <hr>
 
     <center class="pt-4 pb-5">
-      <a id="footerName" class="mr-5" href="contact.html">Location</a>
-      <a id="footerName" class="mr-5" href="rates.html">Rates</a>
-      <a id="footerName" class="mr-5" href="payment.html">Mode of Payment</a>
+      <a id="footerName" class="mr-5" href="contactus_user.html">Location</a>
+      <!-- <a id="footerName" class="mr-5" href="rates.html">Rates</a> -->
+      <!-- <a id="footerName" class="mr-5" href="payment.html">Mode of Payment</a> -->
       <a id="footerName" class="mr-5" href="menu_user.html">Menu</a>
-      <a id="footerName" class="mr-5" href="aboutUs.html">Our Team</a>
-      <a id="footerName" class="mr-5" href="contactUs.html">Contact Us</a>
+      <a id="footerName" class="mr-5" href="aboutus_user.html">Our Team</a>
+      <a id="footerName" class="mr-5" href="contactus_user.html">Contact Us</a>
     </center>
 
   </div>
@@ -983,7 +1142,9 @@
     <p class="text-light" align="center">©2022 Copyright: Ichiraku</p>
   </footer>
   <script src="menu.js"></script>
-
+  <script type="module" src="userCheckOut.js"></script>
+  <script type="module" src="modalForm.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
   <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
 

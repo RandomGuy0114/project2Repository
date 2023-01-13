@@ -9,8 +9,7 @@ $(document).ready(function() {
         
       });
       if (isValid === true) {
-        $("#exampleModalToggle2").modal("show");
-        $("#exampleModalToggle").modal("hide");
+        $("#orderModal").modal("show");
         
         } else {
            $('.alert-danger').show();

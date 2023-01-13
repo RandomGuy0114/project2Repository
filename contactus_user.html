@@ -17,9 +17,6 @@
    <!-- LOGO HERE -->
    <link rel="icon" type="image/x-icon" href=""> 
 
-   <!-- logo tab -->
-  <link rel="shortcut icon" type="image/x-icon" href="img/images/logo.png">
-
   <style>
     /* SIGN IN/SIGN UP MODAL */
     /* Button settings */
@@ -28,7 +25,7 @@
   font-weight: bold;
   outline: solid #000000 1vw;
   cursor: pointer;
-  border-radius: 3%;
+  border-radius: 5%;
   background-color: #000000;
 }
 
@@ -420,7 +417,98 @@
     .fa-circle-arrow-up {
       color: rgb(0, 0, 0);
     } 
+
+    <!-- Chatbot -->
+    #chatbot-container {
+      width: 400px;
+      height: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 0 0 3px rgba(255,255,255,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.5s;
+    }
+    
+    
+    #chatbot-messages {
+      flex: 1;
+      overflow-y: scroll;
+      padding: 20px;
+      opacity: 85%;
+    }
+    
+    #chatbot-form {
+      display: flex;
+      align-items: center;
+      padding: 10px;;
+      border-top: 5px solid rgba(255, 0, 0, 0.349);
+      border-bottom: 5px solid rgba(255, 0, 0, 0.1);
+    }
+    
+    #chatbot-input {
+      flex: 1;
+      border: 1;
+      padding: 5px;
+      font-size: 16px;
+      outline: 0;
+      background-color: rgb(156, 129, 129);
+      color: rgb(255, 255, 255);
+      font-family: 'Roboto', sans-serif;
+      font-weight: 600;
+      transition: border 0.2s;
+    }
+    
+    #chatbot-input:focus {
+      border: 0;
+      box-shadow: 0 0 0 3px #b6d0f7;
+    }
+    
+    button[type="submit"] {
+      margin-left: 10px;
+      border-radius: 10px;
+      background-color: #f3d4d8;
+      border: 0;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    button[type="submit"]:hover {
+      background-color: #557ec4;
+    }
+    
+    
+    /*-----------------*/
+    
+    #chatbot-container{
+      padding: 25px;
+      box-shadow: 5px 10px 10px 10px rgb(219, 189, 189);
+    }
+    
+    #chatbot-messages{
+      margin-top: 30px;
+      background-color: #fffff8;
+    
+    }
+    
+    #chatbot-container {
+      background: url('here.jpg') center / cover;
+      animation: swing 5s linear infinite;
+      background-position: center;
+    }
+    
+    #chatbot-input:placeholder-shown{
+      opacity: 90%;
+      font-weight: 400;
+    
+    }
+
   </style>
+  <!-- logo tab -->
+  <link rel="shortcut icon" type="image/x-icon" href="img/images/logo.png">
 </head>
 <body>
   
@@ -481,11 +569,11 @@
             <span id="errorEmail" style="color: red;"></span>
             <input type="password" placeholder="Password" class="form-control" id="userPassword" required>
             <input type="password" placeholder="Confirm password" class="form-control" id="confirmPassword" required>
-            <button type="button" class="btn btn-outline-dark col-5 text-white mb-5"
-            style="background-color:rgb(197,0,0);" id="signupForm">Sign Up</button>
+            <center><button type="button" class="btn btn-outline-dark col-5 text-white mb-5"
+            style="background-color:rgb(197,0,0);" id="signupForm">Sign Up</button></center>
         
 
-            <h6 class="align-center">Or use a social network:</h6>
+            <h6 align="center">Or use a social network:</h6>
         <div class="login_socnet"  style="text-align: center;">
           <a href="" class="fa-brands fa-square-facebook me-0" aria-hidden="true"></a>
           <a href="" class="fa-brands fa-square-google-plus me-0" aria-hidden="true"></a>
@@ -511,182 +599,78 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item pe-5">
-          <a class="nav-link active text-white" id="linkheader" aria-current="page" href="index.html">Home</a>
+          <a class="nav-link active text-white" id="linkheader" aria-current="page" href="index_user.html">Home</a>
         </li>
         <li class="nav-item pe-5">
-          <a class="nav-link text-white" id="linkheader" href="menu.html">Menu</a>
+          <a class="nav-link text-white" id="linkheader" href="menu_user.html">Menu</a>
         </li>
         <li class="nav-item pe-5">
-          <a class="nav-link text-white" id="linkheader" href="contact.html">Contact Us</a>
+          <a class="nav-link text-white" id="linkheader" href="contactus_user.html">Contact Us</a>
         </li>
         <li class="nav-item pe-5">
-          <a class="nav-link text-white" id="linkheader" href="about.html">About Us</a>
+          <a class="nav-link text-white" id="linkheader" href="aboutus_user.html">About Us</a>
         </li>
       </ul>
 
-      <form class="d-fluid m-3">
-        <label class="modal-btn" for="modal-toggle">Sign In / Sign Up</label>  
-      </form>
+      <div class="dropdown" id="emailLogin" data-email="">
+        <button class="dropbtn fa-solid fa-user fa-xl"
+          style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"></button>
+        <div class="dropdown-content">
+          <a class="dropdown-item" href="userDashboard.html" style="color: black;">Dashboard</a>
+          <!-- <button class="dropdown-item" id="signOutButton" style="color: black;">Logout</button> -->
+          <a class="dropdown-item" id="signOutButton" href="#" style="color: black;">Logout</a>
+        </div>
+      </div>
+
     </div>
   </div>
   </nav>
 
-  <div class="text-center">
-    <img src="img/images/AboutUs-Banner.png" class="img-fluid my-3" alt="ichirakubg" width="90%" height="20%">
-  </div>
+  <center>
+    <img src="img/images/contactUs-Banner.png" class="img-fluid my-3" alt="ichirakubg" width="90%" height="20%">
+  </center>
 
   <div class="container d-flex justify-content-center">
-    <div class="card rounded-3 col-lg-8">
-      <div class="card-body">
-        <h4>
-        We pride ourselves in our original batter made from a secret recipe. <br>
-        This delicious batter consists of a lot of different ingredients. <br>
-        To mention a few we use Chicken broth, 10+ different kinds of fruit and vegetables, 
-          combined with Konbu (seaweed) and Bonito broth. <br> 
-          We stew the combined broth for over 5 hours and finally we add it to our original flour. <br>
-          We offer a variety of sauces including our classic “OG” style Takoyaki, which comes with another original creation
-          “TANOTA Takoyaki Sauce” that compliments the delicious batter perfectly. <br>
-          Enjoy our addicting Takoyaki and sushi at your own risk! You’ll definitely want more!
-        </h4>
+    <div class="row justify-content-center align-items-center g-2">
+      <div class="col-lg-4">
+        <div class="row justify align-items me-3">
+          <div class="col-lg-12" id="contact" >
+            <p>Number: 091223456789</p>
+            <p>Email: ichiriku-g7@gmail.com</p>
+            <p class="mb-0">Address: 2 Chome-8-5 Dogenzaka, Shibuya City, </p>
+                <p class="ps-5 ms-3 mt-0"> Tokyo, 150-0043, Japan </p>
+          </div>
+          <div class="m-5 col-lg-8" id="chat-btn">
+            <button type="button" class="btn btn-lg text-white" style="background-color: #000000;">Live Chat</button>
+          </div>
+
+
+
+          <div id="chatbot-container" class="container col-lg-12 d-none">
+            <h3 style="color: rgb(219, 126, 3);">Customer Service Support</h3>
+            <div id="chatbot-messages">
+              
+              <!-- Chatbot messages will be displayed here -->
+            </div>
+            <form id="chatbot-form">
+              <input type="text" id="chatbot-input" placeholder="Input your text here" />
+              <button type="submit">Send</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-8 text-center">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.74630872267!2d139.6960784147454!3d35.65862153882005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b5628f3e63d%3A0x4df9ee4248078411!2s2-ch%C5%8Dme-8-5%20D%C5%8Dgenzaka%2C%20Shibuya%20City%2C%20Tokyo%20150-0043%2C%20Japan!5e0!3m2!1sen!2sph!4v1672338243988!5m2!1sen!2sph" 
+          width="740" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </div>
-  </div>
-
-  <div class="d-flex justify-content-center">
-    <img src="img/images/OurTeam-Banner.png" class="img-fluid my-2" alt="ichirakubg" width="90%" height="20%">
-  </div>
-
-  <div class="container">
-    <div class="row d-flex justify-content-center">
-      <div class="col-lg-4 col-md-6 mb-2">
-        <div class="card min-h-100">
-          <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/323542396_601154371937044_7249916184277373096_n.jpg?stp=dst-jpg_s206x206&_nc_cat=111&ccb=1-7&_nc_sid=aee45a&_nc_eui2=AeEADT6tRBEUKIuCL9BS5_rDiAqWiyyzjLCICpaLLLOMsMqMx0OsLXhpZ0eI6IKPzmePji-0fV4iZd22rBvbs0Sb&_nc_ohc=aMSjIAOcR9MAX8pMHxk&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdS4uvu4SITagRSNkNqN-Wea1KLmndOuVibC-HElzbEPiQ&oe=63DBB327" 
-            class="card-img-top rounded-circle" style="width: 200px; height:200px" alt="">
-          <div class="card-body">
-            <p class="text-center"><strong>Rica Guno</strong></p>
-            <p class="pb-0"><i>Perfection is achieved not when there is nothing more to add, but rather when there is nothing more to take away.</i></p>
-          </div>
-            <div class="card-footer bg-transparent d-flex justify-content-evenly">
-              <a href="https://www.facebook.com/RiriiiChi" class="text-decoration-none me-5">
-                <i class="fa-brands fa-square-facebook fa-lg"></i>
-              </a>
-              <a href="#" class="text-decoration-none me-5">
-                <i class="fa-brands fa-square-github fa-lg"></i>                
-              </a>
-              <a href="#" class="text-decoration-none me-5">
-                <i class="fa-brands fa-linkedin fa-lg"></i>                
-              </a>
-              <a href="#" class="text-decoration-none">
-                <i class="fa-brands fa-square-instagram fa-lg"></i>
-              </a>
-            </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-2">
-        <div class="card min-h-100">
-          <img src="https://scontent.fmnl4-2.fna.fbcdn.net/v/t39.30808-6/308972609_3221868608141357_3045038549388837018_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeF8aAGd7rPWPCu26uZQ6xjGmJ-DTEMSrSiYn4NMQxKtKIDC0ArYRIPj6s8HmFszohYhxQiSWQC_LOqQqnvSgV3u&_nc_ohc=E0gziCqWahUAX-74nTh&tn=LFBnWjErvNNtdyMc&_nc_zt=23&_nc_ht=scontent.fmnl4-2.fna&oh=00_AfDBk2hKkvzfZbpPNAKI2ev_izegVSG2ks-kegirA7v-hw&oe=63B87A36"
-             class="card-img-top rounded-circle" style="width: 200px;"  alt="">
-          <div class="card-body">
-            <p class="text-center"><strong>Patrick Angeles</strong></p>
-            <p class="pb-0"><i>Measuring programming progress by lines of code is like measuring aircraft building progress by weight.</i></p>
-          </div>
-            <div class="card-footer bg-transparent d-flex justify-content-evenly">
-              <a href="https://www.facebook.com/profile.php?id=100009547487406" class="text-decoration-none me-5">
-                <i class="fa-brands fa-square-facebook fa-lg"></i>
-              </a>
-              <a href="#" class="text-decoration-none me-5">
-                <i class="fa-brands fa-square-github fa-lg"></i>                
-              </a>
-              <a href="#" class="text-decoration-none me-5">
-                <i class="fa-brands fa-linkedin fa-lg"></i>                
-              </a>
-              <a href="#" class="text-decoration-none">
-                <i class="fa-brands fa-square-instagram fa-lg"></i>
-              </a>
-            </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-2">
-        <div class="card min-h-100">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYIMmE0bLUSDD7LII20c-b06qmFH_ZWUqUQA&usqp=CAU" class="card-img-top" style="width: 200px;" alt="">
-          <div class="card-body">
-            <p class="text-center"><strong>Clarence Perez</strong></p>
-            <p class="pb-0"><i>Any fool can write code that a computer can understand. Good programmers write code that humans can understand.</i></p>
-          </div>
-            <div class="card-footer bg-transparent d-flex justify-content-evenly">
-              <a href="https://www.facebook.com/clarenceperez74bnbhbbnbbnmghgygghgghj" class="text-decoration-none me-5">
-                <i class="fa-brands fa-square-facebook fa-lg"></i>
-              </a>
-              <a href="#" class="text-decoration-none me-5">
-                <i class="fa-brands fa-square-github fa-lg"></i>                
-              </a>
-              <a href="#" class="text-decoration-none me-5">
-                <i class="fa-brands fa-linkedin fa-lg"></i>                
-              </a>
-              <a href="#" class="text-decoration-none">
-                <i class="fa-brands fa-square-instagram fa-lg"></i>
-              </a>
-            </div>
-        </div>
-      </div>
-    
-      <div class="col-lg-4 col-md-6 mb-2">
-        <div class="card min-h-100">
-          <img src="https://scontent.fmnl4-3.fna.fbcdn.net/v/t39.30808-6/296290636_442188227801885_4059030697566198145_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeGeQyAfeJ34OqjbD8DlBYoPs116q5HCrBGzXXqrkcKsEciv5TyEGUMnCJZK-j4rMisZEbRz6hb8lc2Iz0BusoAx&_nc_ohc=VtVpDe227DsAX_lquRb&_nc_zt=23&_nc_ht=scontent.fmnl4-3.fna&oh=00_AfCRW9I4VfxWMNU5yi0WQzgjygTcIQEBqcRIvV_88AB35Q&oe=63B809AD"
-           class="card-img-top rounded-circle" style="width: 200px; height:200px;" alt="">
-          <div class="card-body">
-            <p class="text-center"><strong>Marjo Neri</strong></p>
-            <p><i>Don't write better error messages, write code that doesn't need them.</i></p>
-          </div>
-            <div class="card-footer bg-transparent d-flex justify-content-evenly">
-              <a href="https://www.facebook.com/codeace110" class="text-decoration-none me-5">
-                <i class="fa-brands fa-square-facebook fa-lg"></i>
-              </a>
-              <a href="#" class="text-decoration-none me-5">
-                <i class="fa-brands fa-square-github fa-lg"></i>                
-              </a>
-              <a href="#" class="text-decoration-none me-5">
-                <i class="fa-brands fa-linkedin fa-lg"></i>                
-              </a>
-              <a href="#" class="text-decoration-none">
-                <i class="fa-brands fa-square-instagram fa-lg"></i>
-              </a>
-            </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 mb-2">
-        <div class="card min-h-100">
-          <img src="https://scontent.fmnl4-5.fna.fbcdn.net/v/t39.30808-6/287243919_100526649370868_7982957840828574836_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeF-9Kz8OwLma3E6usti8003HPY0tDEcHUMc9jS0MRwdQ9wtUxK1LecqDfXwcG5YtBB7yD1KBf4_7FEfZDYRC6BX&_nc_ohc=qkfvH-5U3YkAX__aG_M&_nc_zt=23&_nc_ht=scontent.fmnl4-5.fna&oh=00_AfDZuuOwp08wvkFt9T5LsLKWwGsRn0W7lc1jou5yjHIguw&oe=63B987C9" 
-            class="card-img-top rounded-circle" style="width: 200px;" alt="">
-          <div class="card-body">
-            <p class="text-center"><strong>Mike Denum</strong></p>
-            <p><i>Testing leads to failure, and failure leads to understanding.</i></p>
-          </div>
-            <div class="card-footer bg-transparent d-flex justify-content-evenly">
-              <a href="https://www.facebook.com/mike.denum" class="text-decoration-none me-5">
-                <i class="fa-brands fa-square-facebook fa-lg"></i>
-              </a>
-              <a href="#" class="text-decoration-none me-5">
-                <i class="fa-brands fa-square-github fa-lg"></i>                
-              </a>
-              <a href="#" class="text-decoration-none me-5">
-                <i class="fa-brands fa-linkedin fa-lg"></i>                
-              </a>
-              <a href="#" class="text-decoration-none">
-                <i class="fa-brands fa-square-instagram fa-lg"></i>
-              </a>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div align="right" class="mt-0" >
+</div>
+  
+  <div align="right" class="mt-2">
     <a href="#" class="btn"><i class="fa-solid fa-circle-arrow-up fa-3x" style="color:black"></i></a>
-  </div> 
+  </div>
 
   <!-- Messenger plug-in -->
   <!-- <div align="right" class="mt-2">
@@ -699,7 +683,7 @@
       chatbox.setAttribute("page_id", "101578034933707");
       chatbox.setAttribute("attribution", "biz_inbox");
     </script>
-
+    
     <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -707,7 +691,7 @@
           version          : 'v15.0'
         });
       };
-
+      
       (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -717,12 +701,12 @@
       }(document, 'script', 'facebook-jssdk'));
     </script>
   </div> -->
-
-
+  
+  
   <footer>
     <div class="pt-3 pb-1 pl-3" style="background-color: rgb(255,1,1)">
     </div>
-   
+    
     <div class="row text-light" style="background-color: rgb(18,18,18);">
       <div class="col-12 pt-4 text-light">
         <center>
@@ -734,36 +718,50 @@
           ICHIRAKU
         </p>
       </div>
-
+      
       <center class="mb-2"><i class="fa-brands fa-square-facebook fa-lg mr-5"></i>
         <i class="fa-brands fa-square-instagram fa-lg mr-5"></i>
         <i class="fa-brands fa-square-twitter fa-lg mr-5"></i>
         <i class="fa-brands fa-tiktok fa-lg"></i>
       </center>
-        
+      
       <hr>
-
+      
       <center class="pt-4 pb-5">
-        <a id="footerName" class="mr-5" href="contact.html">Location</a>
-        <!-- <a id="footerName" class="mr-5" href="rates.html">Rates</a> -->
-        <!-- <a id="footerName" class="mr-5" href="payment.html">Mode of Payment</a> -->
-        <a id="footerName" class="mr-5" href="menu.html">Menu</a>
-        <a id="footerName" class="mr-5" href="about.html">Our Team</a>
-        <a id="footerName" class="mr-5" href="contact.html">Contact Us</a>
-      </center>
+      <a id="footerName" class="mr-5" href="contactus_user.html">Location</a>
+      <!-- <a id="footerName" class="mr-5" href="rates.html">Rates</a> -->
+      <!-- <a id="footerName" class="mr-5" href="payment.html">Mode of Payment</a> -->
+      <a id="footerName" class="mr-5" href="menu_user.html">Menu</a>
+      <a id="footerName" class="mr-5" href="aboutus_user.html">Our Team</a>
+      <a id="footerName" class="mr-5" href="contactus_user.html">Contact Us</a>
+    </center>
     </div>
-
+    
     <div class="pt-3 pb-1" style="background-color: rgb(0, 0, 0)">
       <p class="text-light" align="center">©2022 Copyright: Ichiraku</p>
     </div>
   </footer>
+  
+  <script src="chatbot/chatbot.js"></script>
+  
+  <script>
+    document.getElementById("sign-up").addEventListener("click", function () {
+      document.getElementById("sign-up-form").style.display = "block";
+      document.getElementById("login-form").style.display = "none";
+    });
+
+    document.getElementById("login").addEventListener("click", function () {
+      document.getElementById("login-form").style.display = "block";
+      document.getElementById("sign-up-form").style.display = "none";
+    });
+  </script>
 
   <script type="module" src="Registration.js"></script>
   <script type="module" src="menuCounter.js"></script>
   <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>

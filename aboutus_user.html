@@ -511,22 +511,28 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item pe-5">
-          <a class="nav-link active text-white" id="linkheader" aria-current="page" href="index.html">Home</a>
+          <a class="nav-link active text-white" id="linkheader" aria-current="page" href="index_user.html">Home</a>
         </li>
         <li class="nav-item pe-5">
-          <a class="nav-link text-white" id="linkheader" href="menu.html">Menu</a>
+          <a class="nav-link text-white" id="linkheader" href="menu_user.html">Menu</a>
         </li>
         <li class="nav-item pe-5">
-          <a class="nav-link text-white" id="linkheader" href="contact.html">Contact Us</a>
+          <a class="nav-link text-white" id="linkheader" href="contactus_user.html">Contact Us</a>
         </li>
         <li class="nav-item pe-5">
-          <a class="nav-link text-white" id="linkheader" href="about.html">About Us</a>
+          <a class="nav-link text-white" id="linkheader" href="aboutus_user.html">About Us</a>
         </li>
       </ul>
 
-      <form class="d-fluid m-3">
-        <label class="modal-btn" for="modal-toggle">Sign In / Sign Up</label>  
-      </form>
+      <div class="dropdown" id="emailLogin" data-email="">
+        <button class="dropbtn fa-solid fa-user fa-xl"
+          style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"></button>
+        <div class="dropdown-content">
+          <a class="dropdown-item" href="userDashboard.html" style="color: black;">Dashboard</a>
+          <!-- <button class="dropdown-item" id="signOutButton" style="color: black;">Logout</button> -->
+          <a class="dropdown-item" id="signOutButton" href="#" style="color: black;">Logout</a>
+        </div>
+      </div>
     </div>
   </div>
   </nav>
@@ -744,12 +750,12 @@
       <hr>
 
       <center class="pt-4 pb-5">
-        <a id="footerName" class="mr-5" href="contact.html">Location</a>
+        <a id="footerName" class="mr-5" href="contactus_user.html">Location</a>
         <!-- <a id="footerName" class="mr-5" href="rates.html">Rates</a> -->
         <!-- <a id="footerName" class="mr-5" href="payment.html">Mode of Payment</a> -->
-        <a id="footerName" class="mr-5" href="menu.html">Menu</a>
-        <a id="footerName" class="mr-5" href="about.html">Our Team</a>
-        <a id="footerName" class="mr-5" href="contact.html">Contact Us</a>
+        <a id="footerName" class="mr-5" href="menu_user.html">Menu</a>
+        <a id="footerName" class="mr-5" href="aboutus_user.html">Our Team</a>
+        <a id="footerName" class="mr-5" href="contactus_user.html">Contact Us</a>
       </center>
     </div>
 
