@@ -29,55 +29,62 @@ function displayOrderData(orderDataArray) {
         newOrder.classList.add("card", "col-lg-4", "col-md-6", "col-sm-12", "col-xs-12");
         // Add the order data to the new div element
         newOrder.innerHTML = `
-            <div class="col-12 pl-2 pr-4 mb-0 pb-0 pl-1 pt-3">
-                <p style="float:left; margin-bottom:0px;">Order#:
-                <p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="idNumber">${orderDataArray[i].id}
-                </p>
-                <p style="float:right;" id="orderStatus">${orderDataArray[i].orderStatus}
-                </p>
-                <p style="float:right;" >Status:
-                </p>
-                </p>
-            </div>
-            <div class="col-12 pl-2 pr-4 mb-0 pb-0 pl-1">
-                <p style="float:left; margin-bottom:0px;">Name:
-                <p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="customerName">${orderDataArray[i].customerName}
-                </p>
-                <p style="float:right; margin-bottom:0px;" id="contactNumber">${orderDataArray[i].contact}
-                </p>
-                <p style="float:right; margin-bottom:0px;">Phone #:
-                </p>
-                </p>
-            </div>
-            <div class="col-12 pl-2 pr-4 mb- pl-1">
-                <p style="float:left;
-                margin-bottom:0px;">House No#:
-                <p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="houseno">${orderDataArray[i].houseno}
-                </p>
-                <p style="float:right;
-                margin-bottom:0px;">Street:<p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="street">${orderDataArray[i].street}
-                </p>
-                <br>
-                <p style="float:left;
-                margin-bottom:0px;">Address:
-                <p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="address">${orderDataArray[i].barangay}
-                </p>
-                <p style="float:right; margin-bottom:0px;" id="landmark">${orderDataArray[i].landmark}
-                </p>
-                <p style="float:right; margin-bottom:0px;">Landmark:
-                </p>
-                </p>
+        <div class="card col-lg-12 col-md-6 col-sm-12 col-xs-12 mt-2">
+                <div class="col-12 pl-2 pr-4 mb-0 pb-0 pl-1 pt-3">
+                    <p style="float:left; margin-bottom:0px;">Order#:
+                    <p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="idNumber">${orderDataArray[i].id}
+                    </p>
+                    <p style="float:right;" id="orderStatus">${orderDataArray[i].orderStatus}
+                    </p>
+                    <p style="float:right;" >Status:
+                    </p>
+                    </p>
                 </div>
-                <div class="col-12 pl-2 pr-4 mb-0 pl-1">
-                <p style="float:left; margin-bottom:0px;">Special Requests:
-                <p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="specialRequests">${orderDataArray[i].specialRequest}
-                </p>
-                <p style="float:right; margin-bottom:0px;" id="user">${orderDataArray[i].user}
-                </p>
-                <p style="float:right; margin-bottom:0px;">Your Order:
-                </p>
-                </p>
+                <div class="col-12 pl-2 pr-4 mb-0 pb-0 pl-1">
+                    <p style="float:left; margin-bottom:0px;">Name:
+                    <p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="customerName">${orderDataArray[i].customerName}
+                    </p>
+                    <p style="float:right; margin-bottom:0px;" id="contactNumber">${orderDataArray[i].contact}
+                    </p>
+                    <p style="float:right; margin-bottom:0px;">Phone #:
+                    </p>
+                    </p>
                 </div>
+                <div class="col-12 pl-2 pr-4 mb- pl-1">
+                    <p style="float:left;
+                    margin-bottom:0px;">House No#:
+                    <p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="houseno">${orderDataArray[i].houseno}
+                    </p>
+                    <p style="float:right;
+                    margin-bottom:0px;">Street:<p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="street">${orderDataArray[i].street}
+                    </p>
+                    <br>
+                    <p style="float:left;
+                    margin-bottom:0px;">Address:
+                    <p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="address">${orderDataArray[i].barangay}
+                    </p>
+                    <p style="float:right; margin-bottom:0px;" id="landmark">${orderDataArray[i].landmark}
+                    </p>
+                    <p style="float:right; margin-bottom:0px;">Landmark:
+                    </p>
+                    </p>
+                    </div>
+                    <div class="col-12 pl-2 pr-4 mb-0 pl-1">
+                    <p style="float:left; margin-bottom:0px;">Special Requests:
+                    <p style="float:left;margin-bottom:0px; margin-left:0.2rem" id="specialRequests">${orderDataArray[i].specialRequest}
+                    </p>
+                    <br>
+                    <br>
+                    <p style="float:left; margin-bottom:0px;">Your Order:
+                    </p>
+                    <p style="float:right; margin-bottom:0px;" id="user">${orderDataArray[i].user}
+                    </p>
+                    </p>
+                    </div>
+                    </div>
+                    
+
+                    
                 `;
         // Append the new div element to the order list
         document.getElementById("orderlist").appendChild(newOrder);
