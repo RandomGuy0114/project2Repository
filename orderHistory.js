@@ -12,6 +12,8 @@ var orderData = {
     paymentMethod: "GCash",
     specialRequests: "SENDHELP",
     foodQuantity: "2",
+    orderSubtotal: "₱900",
+    deliveryFee: "₱30",
     orderTotal: "₱100"
 };
 
@@ -28,5 +30,7 @@ function displayOrderData(orderData) {
     document.getElementById("paymentMethod").innerHTML = orderData.paymentMethod;
     document.getElementById("specialRequests").innerHTML = orderData.specialRequests;
     document.getElementById("foodQuantity").innerHTML = orderData.foodQuantity;
+    document.getElementById("orderSubtotal").innerHTML = orderData.orderSubtotal;
+    document.getElementById("deliveryFee").innerHTML = orderData.deliveryFee;
     document.getElementById("orderTotal").innerHTML = orderData.orderTotal;
 }
