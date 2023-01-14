@@ -410,7 +410,7 @@
                     <input class="form-control" type="password" id="password_field" name="password" required="">
                     <label>Password</label>
                 </div>
-                <div class="user-box">
+                <div id="firebaseui-auth-container" class="user-box">
                     <a class="button" onclick="reg_account()">Register</a>
                     <a class="button shift" onclick="login()" onkeydown="if (event.key === 'Enter') login()">Confirm</a>
                 </div>
@@ -427,7 +427,7 @@
                     </p>
                 </div>
             </div>
-            <a class="button shift" onclick="logout()">Logout</a>
+            <a id="logout" class="button shift" onclick="logout()">Logout</a>
         </div>
     </div>
     <div id="open-modal" class="modal-window">
@@ -676,14 +676,78 @@
 
     <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <!-- Initialize the Google Sign-In API -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+    <script>
+        // Listen for the user to click the sign-out button
+        document.getElementById('logout').addEventListener('click', function () {
+            // Sign the user out
+            firebase.auth().signOut().then(function () {
+                // Sign-out successful.
+            }).catch(function (error) {
+                // An error happened.
+                console.error(error);
+            });
+        });
+    </script>
+    <script>
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        var uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                    // User successfully signed in.
+                    // Return type determines whether we continue the redirect automatically
+                    // or whether we leave that to developer to handle.
+                    return true;
+                },
+                uiShown: function () {
+                    // The widget is rendered.
+                    // Hide the loader.
+                    document.getElementById('loader').style.display = 'none';
+                }
+            },
+            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+            signInFlow: 'popup',
+            signInSuccessUrl: '<url-to-redirect-to-on-success>',
+            signInOptions: [
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                {
+                    provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                    scopes: ['public_profile', 'email'],
+                    customParameters: {
+                        auth_type: 'reauthenticate'
+                    },
+                    clientId: '600682734449-0aorp0avkvpg60hqck006er8bo2kueu6.apps.googleusercontent.com'
+                },
+            ],
+            signInFlow: 'popup',
+            signInSuccessUrl: 'https://wd29-a8133.web.app',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID
+            ],
+            // Terms of service url.
+            tosUrl: '<your-tos-url>',
+            // Privacy policy url.
+            privacyPolicyUrl: '<your-privacy-policy-url>',
+        };
+
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+        document.getElementById('google-signin-button').addEventListener('click', function () {
+            firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        });
+
+        document.getElementById('facebook-signin-button').addEventListener('click', function () {
+            firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider());
+        });
+    </script>
     <script>
         function closeModal() {
             var modal = document.getElementById("modal-con");
@@ -693,6 +757,9 @@
             backdrop.style.display = "none"
         }
     </script>
+
+
+
     <script> /* ------------------------script for collecting data and storing to firestore dD*/
         function getUserData(userId) {
             db.collection("userData").doc(userId).get().then(function (doc) {
@@ -707,29 +774,9 @@
                 }
             });
         }
-
-/// chat GPT code here
-
-// const addUser = (userData) => {
-//   if(userData.userId){
-//     db.collection("user Data")
-//       .doc(userData.userId)
-//       .set({
-//         name: userData.name,
-//         email: userData.email,
-//       })
-//       .then(function (docRef) {
-//         console.log("Document written with ID: ", docRef.id);
-//       })
-//       .catch(function (error) {
-//         console.error("Error adding document: ", error);
-//       });
-//   }else{
-//       console.error("userData object should have userId property");
-//   }
-// }
-
     </script>
+
+
 
     <script> /*--------------script for entering or login*/
 
@@ -744,6 +791,8 @@
             document.getElementById("send-verification-div").style.display = "none";
         }
     </script>
+
+
     <script>
         function registerServiceWorker() {
             // register sw script in supporting browsers
