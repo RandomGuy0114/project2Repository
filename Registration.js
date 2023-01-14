@@ -39,13 +39,13 @@ if (signupForm !== null && signupForm !== undefined) {
     const password = document.getElementById("userPassword").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
 
-    // Maximum of 30 firstname length must not be 1 character 
-    if (firstName.length >= 30 || firstName.length <= 1) {
-      $("#errorName").text("First Name and Last Name must be at least 2 characters");
+    // Maximum of 30 firstname length must not be 1 character and dont have special characters
+    if ((firstName.length >= 30 || firstName.length <= 1) || !(/^[a-zA-Z]+$/.test(firstName))) {
+      $("#errorName").text("Invladin First Name");
 
     }
-    if (lastName.length >= 30 || lastName.length <= 1) {
-      $("#errorName").text("First Name and Last Name must be at least 2 characters");
+    if ((lastName.length >= 30 || lastName.length <= 1) || !(/^[a-zA-Z]+$/.test(lastName))) {
+      $("#errorName").text("Invalid Last Name");
 
     }
 
@@ -97,6 +97,8 @@ if (signupForm !== null && signupForm !== undefined) {
           document.getElementById("userEmail").value = "";
           document.getElementById("userPassword").value = "";
           document.getElementById("confirmPassword").value = "";
+          alert('Successfully Registered!')
+          document.querySelector('.sign_in_btn').click();
 
           // ...
         })
@@ -106,10 +108,10 @@ if (signupForm !== null && signupForm !== undefined) {
 
           // ..
         });
-    } else if (password.length <= 6 || password.length == 1) {
+    } else if (password.length < 6 || password.length == 1) {
       $("#errorPassword").text("Password must at least be 6 characters");
     }
-    else {
+    else if (confirmPassword != password) {
       $("#errorConfirmPassword").text("Passwords do not match");
     }
 
@@ -149,20 +151,16 @@ if (loginBtn !== null && loginBtn !== undefined) {
 
           })
 
-
-        // -------------------
-
-        // document.getElementById("loginEmail").value = "";
-        // document.getElementById("loginPassword").value = "";
-
-
-
-
-        // ...
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage + " di naka log in")
+        console.log(errorMessage);
+        if (errorMessage == 'Firebase: Error (auth/wrong-password).') {
+          $("#errorloginPassword").text("Email and Password do not match.");
+        }else if(errorMessage == 'Firebase: Error (auth/user-not-found).'){
+          $("#errorloginEmail").text("Email is not registered!");
+        }
+
       });
 
   })
