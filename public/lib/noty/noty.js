@@ -1,4 +1,8 @@
-/* BASAHIN NYO LANG DOCUMENTATION NG NOTY IF DI NYO NAGET GAMITIN
+/* BASAHIN NYO LANG DOCUMENTATION NG NOTY--------------->
+<!--------------ask marjo for configuration---//# sourceMappingURL=noty.min.js.map---------->
+<!--------------ask marjo for configuration---//# sourceMappingURL=noty.min.js.map---------->
+<!--------------ask marjo for configuration---//# sourceMappingURL=noty.min.js.map---------->
+<!--------------responsible for notifications pop up!------------->
   @package NOTY - Dependency-free notification library 
   @version version: 3.2.0-beta 
   @documentation Examples and Documentation - https://ned.im/noty 

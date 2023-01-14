@@ -5,6 +5,7 @@ const addUser = (userData) => {
       .set({
         name: userData.name,
         email: userData.email,
+        userId: user.uid
       })
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);
