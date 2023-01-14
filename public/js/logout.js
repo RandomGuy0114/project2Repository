@@ -6,3 +6,12 @@ function logout() {
   location.reload();
 
 }
+
+function closemodal() {
+  getUserData(user.uid);
+  successNotification("WELCOME" + user.name + "Enjoy Your Stay..");
+  document.getElementById("user-div").style.display = "none";
+  document.getElementById("user-dashboard").style.display = "none";
+  location.reload();
+
+}

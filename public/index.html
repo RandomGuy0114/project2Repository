@@ -44,6 +44,16 @@
     <!-- LOGO HERE -->
     <link rel="icon" type="image/x-icon" href="">
     <style>
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
         #loader {
             display: none;
             position: fixed;
@@ -481,6 +491,7 @@
                 </div>
             </div>
             <a id="logout" class="button shift" onclick="logout(),signOut()">Logout</a>
+            <a id="logout" class="button shift" onclick="closemodal()">Close</a>
         </div>
     </div>
     <div id="open-modal" class="modal-window">
@@ -745,6 +756,12 @@
     <!--------------ask marjo for configuration------------->
     <!--------------ask marjo for configuration------------->
     <script>
+        setTimeout(function () {
+            var userDashboard = document.getElementsById("user-div");
+            userDashboard.style.display = "none";
+        }, 5000);
+    </script>
+    <script>
         // Listen for the user to click the sign-out button
         document.getElementById('logout').addEventListener('click', function () {
             // Sign the user out
@@ -806,7 +823,7 @@
                     document.getElementById('loader').style.display = 'none';
                 }
             },
-            
+
             // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
             signInFlow: 'popup',
             signInSuccessUrl: 'https://wd29-a8133.web.app',
