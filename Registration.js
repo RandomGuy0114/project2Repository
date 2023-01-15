@@ -63,7 +63,7 @@ if (signupForm !== null && signupForm !== undefined) {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in 
-          const date = Timestamp.now();
+          const date = new Date;
           // Adding the info of the user into the database
           const user = userCredential.user;
           push(ref(db, 'Users/'), {
