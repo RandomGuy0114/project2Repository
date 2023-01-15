@@ -336,9 +336,16 @@
                         <a class="nav-link text-white" id="linkheader" href="about.html">About Us</a>
                     </li>
                 </ul>
-
+                <div class="dropdown" id="user-prof" data-email="">
+                    <button class="dropbtn fa-solid fa-user fa-xl"
+                        style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"></button>
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" href="userDashboard.html" style="color: black;">Dashboard</a>
+                        <!-- <button class="dropdown-item" id="signOutButton" style="color: black;">Logout</button> -->
+                        <a id="logout" class="button shift" onclick="logout(),signOut()">Logout</a>
+                    </div>
+                </div>
                 <form class="d-fluid m-3 hideFormBtn">
-                    <a id="user-prof" class="user-prof button shift modal-btn" href="#open-modal">User Profile</a>
                     <label id="user-log" class="modal-btn" for="modal-toggle">Sign In / Sign Up</label>
                 </form>
             </div>
@@ -560,10 +567,9 @@
     <!--------------ask marjo for configuration------------->
     <!--------------ask marjo for configuration------------->
     <script>
-        setTimeout(function () {
-            var userDashboard = document.getElementsById("user-div");
-            userDashboard.style.display = "none";
-        }, 5000);
+        window.onload = function () {
+            location.reload();
+        };
     </script>
     <script>
         // Listen for the user to click the sign-out button
