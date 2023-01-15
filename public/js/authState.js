@@ -27,10 +27,19 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("send-verification-div").style.display = "none";
         document.getElementById("user-log").style.display = "none";
         document.getElementById("user-prof").style.display = "block";
+        
         closeModal();
+      }} else {
+        // No user is signed in.
+        console.log("You are currently not logged in to any account.");
+        document.getElementById("user-div").style.display = "none";
+        document.getElementById("login-div").style.display = "block";
+        document.getElementById("registration-div").style.display = "none";
+        document.getElementById("send-verification-div").style.display = "none";
+        document.getElementById("user-log").style.display = "block";
+        document.getElementById("user-prof").style.display = "none";
       }
-    }
-  } else {
+   } else {
     // No user is signed in.
     console.log("You are currently not logged in to any account.");
     document.getElementById("user-div").style.display = "none";
@@ -40,6 +49,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("user-log").style.display = "block";
     document.getElementById("user-prof").style.display = "none";
   }
+  
 });
 
 function reg_account() {
@@ -48,3 +58,9 @@ function reg_account() {
   document.getElementById("send-verification-div").style.display = "none";
 }
 
+function closemodal() {
+  document.getElementById("user-div").style.display = "none";
+  document.getElementById("userdashboard").style.display = "block";
+  location.reload();
+
+}

@@ -4,14 +4,14 @@ function logout() {
   document.getElementById("user-prof").style.display = "none";
   document.getElementById("user-log").style.display = "block";
   location.reload();
+  firebase.auth().signOut();
+  localStorage.clear();
+  successNotification("user cache has been cleared")
 
 }
 
 function closemodal() {
-  getUserData(user.uid);
-  successNotification("WELCOME" + user.name + "Enjoy Your Stay..");
   document.getElementById("user-div").style.display = "none";
-  document.getElementById("user-dashboard").style.display = "none";
   location.reload();
 
 }

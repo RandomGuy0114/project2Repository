@@ -447,7 +447,7 @@
         </div>
       </div>
       <a id="logout" class="button shift" onclick="logout(),signOut()">Logout</a>
-      <a id="logout" class="button shift" onclick="closemodal()">Close</a>
+      <a type="button" class="button shift" onclick="closemodalinnerhtml()">Close</a>
     </div>
   </div>
   <div id="open-modal" class="modal-window">
@@ -913,12 +913,18 @@
     })
   </script>
   <script>
-    function closeModal() {
-      var modal = document.getElementById("modal-con");
-      modal.style.display = "none";
 
-      var backdrop = document.getElementById("modal-bd")
-      backdrop.style.display = "none"
+      < script >
+      function closemodalinnerhtml() {
+        successNotification("Enjoy Your Stay..");
+        document.getElementById("userdashboard").style.display = "none";
+        localStorage.setItem("modalClosed", true);
+      }
+
+    window.onload = function () {
+      if (localStorage.getItem("modalClosed")) {
+        document.getElementById("userdashboard").style.display = "none";
+      }
     }
   </script>
 

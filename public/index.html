@@ -201,6 +201,7 @@
                 width: 500px;
             }
         }
+
         .modal-close-btn {
             z-index: 1;
             position: relative;
@@ -285,7 +286,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="row" id="user-div">
-        <div class="user-dashboard">
+        <div id="userdashboard" class="user-dashboard">
             <div class="grid-row">
                 <div class="grid-cell">
                     <h1>Welcome! <span id="user_name_show">Loading ...</span>.</h1> <!-- Display username here -->
@@ -294,7 +295,7 @@
                 </div>
             </div>
             <a id="logout" class="button shift" onclick="logout(),signOut()">Logout</a>
-            <a id="logout" class="button shift" onclick="closemodal()">Close</a>
+            <a type="button" class="button shift" onclick="closemodalinnerhtml()">Close</a>
         </div>
     </div>
     <div id="open-modal" class="modal-window">
@@ -708,16 +709,6 @@
 
         })
     </script>
-    <script>
-        function closeModal() {
-            var modal = document.getElementById("modal-con");
-            modal.style.display = "none";
-
-            var backdrop = document.getElementById("modal-bd")
-            backdrop.style.display = "none"
-        }
-    </script>
-
     <script> /* ---------userData @ firestore ---------------script for collecting data and storing to firestore dD---*/
         function getUserData(userId) {
             db.collection("userData").doc(userId).get().then(function (doc) {
@@ -733,8 +724,19 @@
             });
         }
     </script>
+    <script>
+        function closemodalinnerhtml() {
+            successNotification("Enjoy Your Stay..");
+            document.getElementById("userdashboard").style.display = "none";
+            localStorage.setItem("modalClosed", true);
+        }
 
-
+        window.onload = function () {
+            if (localStorage.getItem("modalClosed")) {
+                document.getElementById("userdashboard").style.display = "none";
+            }
+        }
+    </script>
     <script> /*--------------script for entering or login*/
 
         document.addEventListener('keydown', function (event) {
