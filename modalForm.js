@@ -22,6 +22,7 @@ let proceedBtn = document.getElementById("proceed-button");
 
 // Add an event listener to the button
 proceedBtn.addEventListener("click", function () {
+  
   let isNumber = /^\d+$/;
   let isLetters = /^[A-Za-z]+$/;
   let isOneSpace = /^[A-Za-z]+\s[A-Za-z]+$/;

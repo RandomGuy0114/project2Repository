@@ -93,12 +93,12 @@ window.onload = function () {
         totalOfAll += totalPrice;
         const modal = document.querySelector('#modal');
 
-        if (modal.querySelector(`#${uid}`)){
+        if (modal.querySelector(`#${uid}`)) {
           // updating the quantity if the order is already exist.
           const kuwantiti = modal.querySelector(`#${uid}`).querySelector('#kuwantiti');
           const kwt = kuwantiti.getAttribute('data-qnt')
           const kwtt = parseInt(input.value) + parseInt(kwt);
-          kuwantiti.setAttribute('data-qnt',kwtt);
+          kuwantiti.setAttribute('data-qnt', kwtt);
           kuwantiti.innerHTML = `Qty: ${kwtt}`;
           // console.log(dtotal,kwtt);
 
@@ -107,15 +107,15 @@ window.onload = function () {
           console.log(parseInt(dtotal));
           const ddtotal = parseInt(dtotal) + parseInt(totalPrice);
           console.log(ddtotal);
-          ptotal.setAttribute('data-totall',ddtotal);
-          ptotal.innerHTML =`Total Price: ${ddtotal}`
+          ptotal.setAttribute('data-totall', ddtotal);
+          ptotal.innerHTML = `Total Price: ${ddtotal}`
 
-        }else{
+        } else {
           modal.innerHTML += `
         <div id="${uid}" class="col-12 pl-2 pr-4 mb-3">
 
         <img class="mr-3" src=${foodImage} style="width: 50px; height: 50px; float:left; border-radius:500%;">
-        <button class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
+        <button id="removeTrashBtn" class="fa-solid fa-trash" style="border:none; background-color:white; float:right"></button>
         <h4 style="font-size:medium;">${foodName}</h4>
         <h6 id="kuwantiti" style="float:left;" data-qnt="${input.value}">Qty: ${input.value}</h6>
         <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: ${value}</p><br>
@@ -125,24 +125,11 @@ window.onload = function () {
         
         </div>
         `;
-      
-        user_Checkout.innerHTML += `
-        <div id="${uid}" class="col-12 pl-2 pr-4 mb-3">
+        }
 
-        <img class="mr-3" src=${foodImage} style="width: 50px; height: 50px; float:left; border-radius:500%;">
-        <h4 style="font-size:medium;">${foodName}</h4>
-        <h6 id="kuwantiti" style="float:left;" data-qnt="${input.value}">Qty: ${input.value}</h6>
-        <p style="float:right; margin-bottom:0rem; padding-top:0rem;">Price: ${value}</p><br>
-        <p id="total" style="float:right; margin-bottom:0rem; padding-top:0rem;" data-totall="${totalPrice}">Total Price: ${totalPrice}</p><br>
-      
-        <br>
-        
-        </div>
-        `;}
 
-       
-        
-        
+
+
         console.log('nadagdagan ', totalOfAll, typeof totalOfAll);
 
         // Get the side navigation menu's total element
@@ -150,17 +137,17 @@ window.onload = function () {
         sideNavTotal.innerHTML = `Total:  ₱${totalOfAll}`;
 
 
-        
+
         const anotherDiv = document.querySelector('#checkOutTotal');
         anotherDiv.innerHTML = `₱${totalOfAll}`;
 
         const totalWith30 = totalOfAll + 30;
         const totalDiv = document.querySelector('#totalDiv');
         totalDiv.innerHTML = `₱${totalWith30}`;
-        
 
 
-        // modal.querySelector('#total').setAttribute('data-totall', totalPrice)
+
+        modal.querySelector('#total').setAttribute('data-totall', totalPrice)
 
         input.value = 0;
 
@@ -181,6 +168,12 @@ window.onload = function () {
             totalOfAll = parseInt(totalOfAll) - totalOneItemInt;
             console.log('totalOfAll: ', totalOfAll, typeof totalOfAll);
             sideNavTotal.innerHTML = `Total:  ${totalOfAll}`;
+            const anotherDiv = document.querySelector('#checkOutTotal');
+            anotherDiv.innerHTML = `₱${totalOfAll}`;
+
+            const totalWith30 = totalOfAll + 30;
+            const totalDiv = document.querySelector('#totalDiv');
+            totalDiv.innerHTML = `₱${totalWith30}`;
             parent.remove();
 
           });
@@ -191,11 +184,36 @@ window.onload = function () {
     } else if (event.target.classList.contains('closeCart')) {
       document.getElementById("mySidenav").style.width = "0";
     }
-  });
+  }
+  );
 
+  // to copy the child of #modal into user_Checkout
+  const checkOut = document.querySelector('#checkOut')
+  checkOut.addEventListener('click', () => {
 
+    const modal = document.querySelector('#modal');
+    const user_Checkout = document.querySelector('#user_Checkout')
+    const children = modal.childNodes;
+    console.log(children)
+    for (let i = 0; i < children.length; i++) {
+      user_Checkout.appendChild(children[i].cloneNode(true));
 
+    }
 
+    const trash = user_Checkout.querySelectorAll('#removeTrashBtn')
+    trash.forEach(trash => {
+      trash.remove()
+    })
+  })
+
+  // deleting the child of user_Checkout so there is no double copy.
+  document.querySelector('#btnCloseBtn').addEventListener('click', () => {
+    const user_Checkout = document.querySelector('#user_Checkout')
+    while (user_Checkout.firstChild) {
+      user_Checkout.removeChild(user_Checkout.firstChild);
+    }
+
+  })
 
 
 
