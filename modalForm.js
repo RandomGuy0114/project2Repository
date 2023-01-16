@@ -64,15 +64,15 @@ proceedBtn.addEventListener("click", function () {
     else {
       // Add the data to the "Orders" collection
       db.collection("Orders").add({
-        houseno: houseno,
-        street: street,
-        barangay: barangay,
-        city: city,
-        landmark: landmark,
-        contact: contact,
-        specialRequest: specialRequest,
-        totalInput: totalInput,
-        user: user,
+        HouseNo: houseno,
+        Street: street,
+        Barangay: barangay,
+        City: city,
+        Landmark: landmark,
+        Contact: contact,
+        SpecialRequest: specialRequest,
+        TotalPrice: totalInput,
+        Order: user,
       })
         .then(function (docRef) {
           console.log("Order added with ID: ", docRef.id);
