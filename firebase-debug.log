@@ -92,3 +92,40 @@
 [info] i  hosting: 127.0.0.1 - - [16/Jan/2023:10:37:13 +0000] "GET /404.html?_sw-precache=a4e2271d19eb1f6f93a15e1b7a4e74dd HTTP/1.1" 404 - "http://localhost:5002/service-worker.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2023:10:37:13 +0000] \"GET /404.html?_sw-precache=a4e2271d19eb1f6f93a15e1b7a4e74dd HTTP/1.1\" 404 - \"http://localhost:5002/service-worker.js\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36\""}}
 [info] i  hosting: 127.0.0.1 - - [16/Jan/2023:10:37:13 +0000] "GET /lib/noty/bootstrap-v3.css?_sw-precache=f1074e51fb47fd27359dd3280a2a62e7 HTTP/1.1" 404 - "http://localhost:5002/service-worker.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2023:10:37:13 +0000] \"GET /lib/noty/bootstrap-v3.css?_sw-precache=f1074e51fb47fd27359dd3280a2a62e7 HTTP/1.1\" 404 - \"http://localhost:5002/service-worker.js\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36\""}}
 [info] i  hosting: 127.0.0.1 - - [16/Jan/2023:10:37:13 +0000] "GET /lib/noty/bootstrap-v4.css?_sw-precache=79bdd08dc01eda3f90aa81d1ea31b42d HTTP/1.1" 404 - "http://localhost:5002/service-worker.js" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [16/Jan/2023:10:37:13 +0000] \"GET /lib/noty/bootstrap-v4.css?_sw-precache=79bdd08dc01eda3f90aa81d1ea31b42d HTTP/1.1\" 404 - \"http://localhost:5002/service-worker.js\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36\""}}
+[debug] [2023-01-16T10:42:54.007Z] ----------------------------------------------------------------------
+[debug] [2023-01-16T10:42:54.010Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve --only hosting
+[debug] [2023-01-16T10:42:54.011Z] CLI Version:   11.20.0
+[debug] [2023-01-16T10:42:54.011Z] Platform:      linux
+[debug] [2023-01-16T10:42:54.012Z] Node Version:  v19.4.0
+[debug] [2023-01-16T10:42:54.012Z] Time:          Mon Jan 16 2023 18:42:54 GMT+0800 (Philippine Standard Time)
+[debug] [2023-01-16T10:42:54.012Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-01-16T10:42:54.180Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-01-16T10:42:54.181Z] > authorizing via signed-in user (jomarneri16@gmail.com)
+[debug] [2023-01-16T10:42:54.181Z] [iam] checking project wd29-a8133 for permissions ["firebase.projects.get"]
+[debug] [2023-01-16T10:42:54.184Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/wd29-a8133:testIamPermissions [none]
+[debug] [2023-01-16T10:42:54.184Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/wd29-a8133:testIamPermissions x-goog-quota-user=projects/wd29-a8133
+[debug] [2023-01-16T10:42:54.184Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/wd29-a8133:testIamPermissions {"permissions":["firebase.projects.get"]}
+[info] Shutting down...
+[debug] [2023-01-16T10:43:00.015Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/wd29-a8133:testIamPermissions 200
+[debug] [2023-01-16T10:43:00.017Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/wd29-a8133:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2023-01-16T10:43:00.018Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/wd29-a8133 [none]
+[debug] [2023-01-16T10:43:01.539Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/wd29-a8133 200
+[debug] [2023-01-16T10:43:01.540Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/wd29-a8133 {"projectId":"wd29-a8133","projectNumber":"600682734449","displayName":"WD29","name":"projects/wd29-a8133","resources":{"hostingSite":"wd29-a8133","realtimeDatabaseInstance":"wd29-a8133-default-rtdb"},"state":"ACTIVE","etag":"1_fe0377b9-a71d-4167-bbe3-5d8c7165b7a0"}
+[debug] [2023-01-16T10:43:01.553Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/wd29-a8133/sites 
+[debug] [2023-01-16T10:43:07.205Z] Error: Timed out.
+    at Timeout._onTimeout (/usr/local/lib/node_modules/firebase-tools/lib/utils.js:253:49)
+    at listOnTimeout (node:internal/timers:564:17)
+    at process.processTimers (node:internal/timers:507:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-01-16T10:43:22.453Z] Failed to list hosting sites
+[debug] Failed to make request to https://firebasehosting.googleapis.com/v1beta1/projects/wd29-a8133/sites
+[debug] [2023-01-16T10:43:22.454Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/wd29-a8133/webApps/-/config [none]
+[debug] [2023-01-16T10:43:23.678Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/wd29-a8133/webApps/-/config 200
+[debug] [2023-01-16T10:43:23.678Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/wd29-a8133/webApps/-/config {"projectId":"wd29-a8133","databaseURL":"https://wd29-a8133-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"wd29-a8133.appspot.com","apiKey":"AIzaSyCp7jA3DrW9RCi5YFMj_fiJ-N8t-IF5M2E","authDomain":"wd29-a8133.firebaseapp.com","messagingSenderId":"600682734449"}
+[debug] [2023-01-16T10:43:23.689Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/wd29-a8133 [none]
+[debug] [2023-01-16T10:43:24.023Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/wd29-a8133 200
+[debug] [2023-01-16T10:43:24.023Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/wd29-a8133 {"projectId":"wd29-a8133","projectNumber":"600682734449","displayName":"WD29","name":"projects/wd29-a8133","resources":{"hostingSite":"wd29-a8133","realtimeDatabaseInstance":"wd29-a8133-default-rtdb"},"state":"ACTIVE","etag":"1_fe0377b9-a71d-4167-bbe3-5d8c7165b7a0"}
+[info] i  hosting[wd29-a8133]: Serving hosting files from: project2Repository {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mproject2Repository\u001b[22m"}}
+[info] ✔  hosting[wd29-a8133]: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
