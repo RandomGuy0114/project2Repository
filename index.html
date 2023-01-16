@@ -109,6 +109,16 @@
 
 
     /*-----Added by marjo---*/
+    /*avatar*/
+    .user-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    /*avatar*/
+    /*hide modal content*/
+
     #user-div {
       display: none
     }
@@ -329,7 +339,7 @@
       margin-top: 10px;
       width: 100%;
       display: none;
-    } */ 
+    } */
 
     /* FOR SIGN IN AND SIGN UP */
     /* .tabs>.table {
@@ -564,10 +574,18 @@
       </div>
     </div>
     <div class="clearfix"></div>
+<<<<<<< HEAD
     <div class="row" id="login-div" style="background-color:white;">
       <label class="modal-close-btn" for="modal-toggle" style="background-color:white;">
         <i class="fa-solid fa-xmark"
           style="width: 50px; height: 32px; font-size: x-large; margin: 5px; padding: 9px; color: rgb(8, 0, 0)"></i>
+=======
+    <div class="row" id="login-div">
+      <label class="modal-close-btn" for="modal-toggle">
+        <div class="user-avatar">
+          <img class="profile-avatar" src="path/to/avatar.jpg" alt="user Avatar">
+        </div>
+>>>>>>> 675c792 (add user avatar)
       </label>
       <div class="login-box">
         <h2 class="text-black">Login</h2>
@@ -754,7 +772,7 @@
       </div>
     </div>
   </div> -->
-<!-- 
+  <!-- 
   <nav id="head" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a id="nuku" class="navbar-brand text-light">
@@ -789,7 +807,7 @@
     </div>
   </nav> -->
   <!---------wala na kong ginalaw dito--------------------------------->
-    <!---------wala na kong ginalaw dito--------------------------------->
+  <!---------wala na kong ginalaw dito--------------------------------->
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -1134,11 +1152,11 @@
                   console.log("Document written with ID: ", docRef.id);
                   const user_name = docRef.data().name;
                   const user_email = docRef.data().email;
-                  const user_prof = docRef.data().photoURL;
-                  document.getElementById("user-prof").src = user_prof;
+                  const user_avatar = docRef.data().photoURL;
+                  document.getElementsByClassName("profile-avatar").src = user_avatar;
                   document.getElementById("user_name_show").innerHTML = user_name;
                   document.getElementById("user_email_show").innerHTML = user_email;
-                  document.getElementById("user-prof").innerHTML = user_name;
+
 
                 })
                 .catch(function (error) {
@@ -1153,8 +1171,8 @@
                     console.log("Document successfully updated!");
                     const user_name = doc.data().name;
                     const user_email = doc.data().email;
-                    const user_prof = doc.data().photoURL;
-                    document.getElementById("user-prof").src = user_prof;
+                    const user_avatar= doc.data().photoURL;
+                    document.getElementsByClassName("profile-avatar").src = user_avatar;
                     document.getElementById("user_name_show").innerHTML = user_name;
                     document.getElementById("user_email_show").innerHTML = user_email;
                   })
@@ -1179,7 +1197,6 @@
         if (doc.exists) {
           const user_name = doc.data().name;
           const user_email = doc.data().email;
-          document.getElementById("user-prof").innerHTML = user_name;
           document.getElementById("user_name_show").innerHTML = user_name;
           document.getElementById("user_email_show").innerHTML = user_email;
         } else {
