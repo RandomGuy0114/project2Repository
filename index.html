@@ -47,9 +47,6 @@
 
   <style>
     /*--------added by marjo----------------*/
-    .dropdown-content{
-      z-index: 1;
-    }
     @keyframes fadeOut {
       from {
         opacity: 1;
@@ -112,14 +109,6 @@
 
 
     /*-----Added by marjo---*/
-
-    .user-avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      overflow: hidden;
-    }
-
     #user-div {
       display: none
     }
@@ -340,7 +329,7 @@
       margin-top: 10px;
       width: 100%;
       display: none;
-    } */
+    } */ 
 
     /* FOR SIGN IN AND SIGN UP */
     /* .tabs>.table {
@@ -530,19 +519,19 @@
       <div class="login-box">
         <h2 class="text-black">Create an Account</h2>
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control" type="name" id="user_name" required="" style="border-color:black; width: 80%;">
+          <input class="form-control text-black" type="name" id="user_name" required="" style="border-color:black; width: 80%;">
           <label class="text-black">Name</label>
         </div>
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control" type="email" id="user_email" required="" style="border-color:black;  width: 80%;">
+          <input class="form-control text-black" type="email" id="user_email" required="" style="border-color:black;  width: 80%;">
           <label class="text-black">Email</label>
         </div>
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control" type="password" id="user_password" required="" style="border-color:black;  width: 80%;">
+          <input class="form-control text-black" type="password" id="user_password" required="" style="border-color:black;  width: 80%;">
           <label class="text-black">Password</label>
         </div>
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control" type="password" id="confirm_password" required="" style="border-color:black;  width: 80%;">
+          <input class="form-control text-black" type="password" id="confirm_password" required="" style="border-color:black;  width: 80%;">
           <label class="text-black">Confirm Password</label>
         </div>
         <div class="user-box">
@@ -586,11 +575,11 @@
 
 
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control" type="email" id="email_field" name="email" id="" required="" style="border-color:#000; width:80%">
+          <input class="form-control text-black" type="email" id="email_field" name="email" id="" required="" style="border-color:#000; width:80%">
           <label class="text-black">Email</label>
         </div>
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control" type="password" id="password_field" name="password" required="" style="border-color:#000; width:80%">
+          <input class="form-control text-black" type="password" id="password_field" name="password" required="" style="border-color:#000; width:80%">
           <label class="text-black">Password</label>
         </div>
         
@@ -605,7 +594,10 @@
       <a class="text-black p-2 m-2" onclick="reg_account()" >Register Here</a>
     </p>
   </div>
-        <div id="firebaseui-auth-container" class="user-box"></div>
+
+
+      
+      <div id="firebaseui-auth-container" class="user-box"></div>
       </div>
     </div>
   </div>
@@ -666,11 +658,8 @@
         <!------user profile drop down Area------->
         <!------user profile drop down Area------->
         <div class="dropdown" id="user-prof" data-email="">
-          <button class="user-avatar-btn">
-            <img class="user-avatar" src="path/to/avatar.jpg" alt="Avatar">
-          </button>
-          <!-- <button class="dropbtn fa-solid fa-user fa-xl"
-            style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"></button> -->
+          <button class="dropbtn fa-solid fa-user fa-xl"
+            style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"></button>
           <div class="dropdown-content">
             <a class="dropdown-item" href="userDashboard.html" style="color: black;">Dashboard</a>
             <!-- <button class="dropdown-item" id="signOutButton" style="color: black;">Logout</button> -->
@@ -765,7 +754,7 @@
       </div>
     </div>
   </div> -->
-  <!-- 
+<!-- 
   <nav id="head" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a id="nuku" class="navbar-brand text-light">
@@ -800,7 +789,7 @@
     </div>
   </nav> -->
   <!---------wala na kong ginalaw dito--------------------------------->
-  <!---------wala na kong ginalaw dito--------------------------------->
+    <!---------wala na kong ginalaw dito--------------------------------->
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -1111,12 +1100,11 @@
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.FacebookAuthProvider.PROVIDER_ID,
 
-
       ],
       // Terms of service url.
-      tosUrl: '<https://www.privacypolicies.com/live/ce817ce4-276a-4a46-b359-0792c060852f>',
+      tosUrl: '<your-tos-url>',
       // Privacy policy url.
-      privacyPolicyUrl: 'https://www.privacypolicies.com/live/ce817ce4-276a-4a46-b359-0792c060852f>>',
+      privacyPolicyUrl: '<your-privacy-policy-url>',
       // Facebook specific configuration
       credentialHelper: firebaseui.auth.CredentialHelper.facebook,
       facebook: {
@@ -1146,10 +1134,11 @@
                   console.log("Document written with ID: ", docRef.id);
                   const user_name = docRef.data().name;
                   const user_email = docRef.data().email;
-                  const user_avatar = docRef.data().photoURL;
-                  document.getElementsByClassName("user-avatar").src = user_avatar;
+                  const user_prof = docRef.data().photoURL;
+                  document.getElementById("user-prof").src = user_prof;
                   document.getElementById("user_name_show").innerHTML = user_name;
                   document.getElementById("user_email_show").innerHTML = user_email;
+                  document.getElementById("user-prof").innerHTML = user_name;
 
                 })
                 .catch(function (error) {
@@ -1164,8 +1153,8 @@
                     console.log("Document successfully updated!");
                     const user_name = doc.data().name;
                     const user_email = doc.data().email;
-                    const user_avatar = doc.data().photoURL;
-                    document.getElementById("user-avatar").src = user_avatar;
+                    const user_prof = doc.data().photoURL;
+                    document.getElementById("user-prof").src = user_prof;
                     document.getElementById("user_name_show").innerHTML = user_name;
                     document.getElementById("user_email_show").innerHTML = user_email;
                   })
@@ -1190,6 +1179,7 @@
         if (doc.exists) {
           const user_name = doc.data().name;
           const user_email = doc.data().email;
+          document.getElementById("user-prof").innerHTML = user_name;
           document.getElementById("user_name_show").innerHTML = user_name;
           document.getElementById("user_email_show").innerHTML = user_email;
         } else {
