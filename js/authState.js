@@ -26,9 +26,10 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("registration-div").style.display = "none";
         document.getElementById("send-verification-div").style.display = "none";
         document.getElementById("user-log").style.display = "none";
+        document.getElementById("user-profile").style.display = "block";
         document.getElementById("user-prof").style.display = "block";
-        
-        closeModal();
+        document.getElementsByClassName("dropdown").style.display = "block";
+
       }} else {
         // No user is signed in.
         console.log("You are currently not logged in to any account.");
@@ -38,6 +39,9 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("send-verification-div").style.display = "none";
         document.getElementById("user-log").style.display = "block";
         document.getElementById("user-prof").style.display = "none";
+        document.getElementById("user-profile").style.display = "none";
+        document.getElementsByClassName("dropdown").style.display = "none";
+        
       }
    } else {
     // No user is signed in.
@@ -47,7 +51,9 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("registration-div").style.display = "none";
     document.getElementById("send-verification-div").style.display = "none";
     document.getElementById("user-log").style.display = "block";
+    document.getElementById("user-profile").style.display = "none";
     document.getElementById("user-prof").style.display = "none";
+    document.getElementsByClassName("dropdown").style.display = "none";
   }
   
 });
@@ -56,11 +62,4 @@ function reg_account() {
   document.getElementById("registration-div").style.display = "block";
   document.getElementById("login-div").style.display = "none";
   document.getElementById("send-verification-div").style.display = "none";
-}
-
-function closemodal() {
-  document.getElementById("user-div").style.display = "none";
-  document.getElementById("userdashboard").style.display = "block";
-  location.reload();
-
 }

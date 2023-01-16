@@ -329,7 +329,7 @@
       margin-top: 10px;
       width: 100%;
       display: none;
-    } */ 
+    } */
 
     /* FOR SIGN IN AND SIGN UP */
     /* .tabs>.table {
@@ -519,34 +519,39 @@
       <div class="login-box">
         <h2 class="text-black">Create an Account</h2>
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="name" id="user_name" required="" style="border-color:black; width: 80%;">
+          <input class="form-control text-black" type="name" id="user_name" required=""
+            style="border-color:black; width: 80%;">
           <label class="text-black">Name</label>
         </div>
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="email" id="user_email" required="" style="border-color:black;  width: 80%;">
+          <input class="form-control text-black" type="email" id="user_email" required=""
+            style="border-color:black;  width: 80%;">
           <label class="text-black">Email</label>
         </div>
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="password" id="user_password" required="" style="border-color:black;  width: 80%;">
+          <input class="form-control text-black" type="password" id="user_password" required=""
+            style="border-color:black;  width: 80%;">
           <label class="text-black">Password</label>
         </div>
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="password" id="confirm_password" required="" style="border-color:black;  width: 80%;">
+          <input class="form-control text-black" type="password" id="confirm_password" required=""
+            style="border-color:black;  width: 80%;">
           <label class="text-black">Confirm Password</label>
         </div>
         <div class="user-box">
           <!-- <a class="button" onclick="myFunction_reload()" class="btn btn-primary float-right">Login</a> -->
           <!-- <a class="button shift" onclick="registration()" class="btn btn-primary">Register</a> -->
           <div class="text-center">
-          <button style="background-color:rgb(212, 6, 6); border-color: black; width: 35%;" class="btn text-white p-2 m-2" onclick="registration()">Register</button>
-        </div>
+            <button style="background-color:rgb(212, 6, 6); border-color: black; width: 35%;"
+              class="btn text-white p-2 m-2" onclick="registration()">Register</button>
+          </div>
           <div class="text-center pt-2">
             <p class="text-black">Already have an account?
-          <!-- <a class="button" onclick="reg_account()">Register</a> -->
-          <a class="text-black p-2 m-2" onclick="myFunction_reload()">Login Here</a>
-        </p>
-      </div>
-      
+              <!-- <a class="button" onclick="reg_account()">Register</a> -->
+              <a class="text-black p-2 m-2" onclick="myFunction_reload()">Login Here</a>
+            </p>
+          </div>
+
 
 
         </div>
@@ -575,29 +580,33 @@
 
 
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="email" id="email_field" name="email" id="" required="" style="border-color:#000; width:80%">
+          <input class="form-control text-black" type="email" id="email_field" name="email" id="" required=""
+            style="border-color:#000; width:80%">
           <label class="text-black">Email</label>
         </div>
         <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="password" id="password_field" name="password" required="" style="border-color:#000; width:80%">
+          <input class="form-control text-black" type="password" id="password_field" name="password" required=""
+            style="border-color:#000; width:80%">
           <label class="text-black">Password</label>
         </div>
-        
+
         <div class="text-center">
-        <!-- <a class="button shift" onclick="login()" onkeydown="if (event.key === 'Enter') login()">Confirm</a> -->
-        <button class="btn text-white p-2 m-2" style="background-color:rgb(212, 6, 6); border-color: black; width: 35%;" onclick="login()" onkeydown="if (event.key === 'Enter') login()">Login</button>
-      </div>
+          <!-- <a class="button shift" onclick="login()" onkeydown="if (event.key === 'Enter') login()">Confirm</a> -->
+          <button class="btn text-white p-2 m-2"
+            style="background-color:rgb(212, 6, 6); border-color: black; width: 35%;" onclick="login()"
+            onkeydown="if (event.key === 'Enter') login()">Login</button>
+        </div>
 
-      <div class="text-center pb-2">
-        <p>No account yet?
-      <!-- <a class="button" onclick="reg_account()">Register</a> -->
-      <a class="text-black p-2 m-2" onclick="reg_account()" >Register Here</a>
-    </p>
-  </div>
+        <div class="text-center pb-2">
+          <p>No account yet?
+            <!-- <a class="button" onclick="reg_account()">Register</a> -->
+            <a class="text-black p-2 m-2" onclick="reg_account()">Register Here</a>
+          </p>
+        </div>
 
 
-      
-      <div id="firebaseui-auth-container" class="user-box"></div>
+
+        <div id="firebaseui-auth-container" class="user-box"></div>
       </div>
     </div>
   </div>
@@ -655,11 +664,11 @@
           </li>
         </ul>
         <!------user profile drop down Area------->
+        <!------ ID user-prof is used for name-- change it to class---->
         <!------user profile drop down Area------->
-        <!------user profile drop down Area------->
-        <div class="dropdown" id="user-prof" data-email="">
-          <button class="dropbtn fa-solid fa-user fa-xl"
-            style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"></button>
+        <h5 id="user-prof" style="color: rgb(255, 255, 255); font-weight: bolder;"></h5>
+        <div class="dropdown" id="profileDropdown" data-email="">
+          <button><img style="border-radius: 100%; background-color: black; height: 50px; width: 55px;" id="user-profile" src="" alt=""></button>
           <div class="dropdown-content">
             <a class="dropdown-item" href="userDashboard.html" style="color: black;">Dashboard</a>
             <!-- <button class="dropdown-item" id="signOutButton" style="color: black;">Logout</button> -->
@@ -754,7 +763,7 @@
       </div>
     </div>
   </div> -->
-<!-- 
+  <!-- 
   <nav id="head" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a id="nuku" class="navbar-brand text-light">
@@ -789,7 +798,7 @@
     </div>
   </nav> -->
   <!---------wala na kong ginalaw dito--------------------------------->
-    <!---------wala na kong ginalaw dito--------------------------------->
+  <!---------wala na kong ginalaw dito--------------------------------->
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -1135,7 +1144,7 @@
                   const user_name = docRef.data().name;
                   const user_email = docRef.data().email;
                   const user_prof = docRef.data().photoURL;
-                  document.getElementById("user-prof").src = user_prof;
+                  document.getElementById("user-profile").src = user_prof;
                   document.getElementById("user_name_show").innerHTML = user_name;
                   document.getElementById("user_email_show").innerHTML = user_email;
                   document.getElementById("user-prof").innerHTML = user_name;
@@ -1154,7 +1163,7 @@
                     const user_name = doc.data().name;
                     const user_email = doc.data().email;
                     const user_prof = doc.data().photoURL;
-                    document.getElementById("user-prof").src = user_prof;
+                    document.getElementById("user-profile").src = user_prof;
                     document.getElementById("user_name_show").innerHTML = user_name;
                     document.getElementById("user_email_show").innerHTML = user_email;
                   })
@@ -1174,7 +1183,29 @@
     })
   </script>
   <script> /* ---------userData @ firestore ---------------script for collecting data and storing to firestore dD---*/
-    function getUserData(userId) {
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        // User is signed in.
+        var userData = {
+          photoURL: user.photoURL,
+          name: user.displayName,
+          email: user.email
+        }
+
+        firebase.firestore().collection("userData").doc(user.uid).set(userData)
+          .then(function () {
+            console.log("User data added to Firestore with ID: ", user.uid);
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
+      } else {
+        // User is signed out.
+        // ...
+      }
+    });
+
+        function getUserData(userId) {
       db.collection("userData").doc(userId).get().then(function (doc) {
         if (doc.exists) {
           const user_name = doc.data().name;
@@ -1190,13 +1221,22 @@
   </script>
   <script>
     function closemodalinnerhtml() {
+      var modalClosedCount = localStorage.getItem("modalClosedCount") || 0;
+
+      if (modalClosedCount >= 1) {
+        alert("Modal can only be closed 3 times. Please refresh the page to try again.");
+        return;
+      }
+
       successNotification("Enjoy Your Stay..");
       document.getElementById("userdashboard").style.display = "none";
-      localStorage.setItem("modalClosed", true);
+      localStorage.setItem("modalClosedCount", ++modalClosedCount);
     }
 
     window.onload = function () {
-      if (localStorage.getItem("modalClosed")) {
+      var modalClosedCount = localStorage.getItem("modalClosedCount") || 0;
+
+      if (modalClosedCount >= 1) {
         document.getElementById("userdashboard").style.display = "none";
       }
     }
