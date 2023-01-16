@@ -32,7 +32,7 @@ proceedBtn.addEventListener("click", function () {
   let paymentMethod = document.querySelector('input[name="flexRadioDefault"]:checked').value;
   let specialRequest = document.getElementById("specialRequest").value;
   let totalInput = document.getElementById("totalDiv").innerText;
-  let user = document.getElementById("user_Checkout").innerText;
+  let order = document.getElementById("user_Checkout").innerText;
 
   // check if may laman ung contact
   if (!contact || !houseno || !street || !barangay || !city || !landmark || !specialRequest || !paymentMethod) {
@@ -44,23 +44,23 @@ proceedBtn.addEventListener("click", function () {
   else {
 
     let barangay = document.getElementById("barangay").value;
-  if (!isLetters.test(barangay) || !isOneSpace.test(barangay)) {
+  if (!isLetters.test(barangay) && !isOneSpace.test(barangay)) {
       alert("Barangay: use letters and 1 space only");
       return;
     }
     let city = document.getElementById("city").value;
-    if (!isLetters.test(city) || !isOneSpace.test(city)) {
+    if (!isLetters.test(city) && !isOneSpace.test(city)) {
       alert("City: use letters and 1 space only");
       return;
     }   
     let landmark = document.getElementById("landmark").value;
-    if (!isLetters.test(landmark) || !isOneSpace.test(landmark)) {
+    if (!isLetters.test(landmark) && !isOneSpace.test(landmark)) {
       alert("Landmark: use letters and 1 space only");
       return;
     }
 
     let street = document.getElementById("street").value;
-    if (!isLetters.test(street) || !isOneSpace.test(street)) {
+    if (!isLetters.test(street) && !isOneSpace.test(street)) {
       alert("Street: use letters and 1 space only");
       return;
     }
@@ -81,7 +81,7 @@ proceedBtn.addEventListener("click", function () {
         Payment: paymentMethod,
         SpecialRequest: specialRequest,
         TotalPrice: totalInput,
-        Order: user,
+        Order: order,
       })
         .then(function (docRef) {
           console.log("Order added with ID: ", docRef.id);
