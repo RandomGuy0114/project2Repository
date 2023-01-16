@@ -20,6 +20,7 @@ let proceedBtn = document.getElementById("proceed-button");
 proceedBtn.addEventListener("click", function () {
   let isNumber = /^\d+$/;
   let isLetters = /^[A-Za-z]+$/;
+  let isOneSpace = /^[A-Za-z]+\s[A-Za-z]+$/;
 
   // Get the data from the form inputs
   let houseno = document.getElementById("houseno").value;
@@ -28,12 +29,13 @@ proceedBtn.addEventListener("click", function () {
   let city = document.getElementById("city").value;
   let landmark = document.getElementById("landmark").value;
   let contact = document.getElementById("contact").value;
+  let paymentMethod = document.querySelector('input[name="flexRadioDefault"]:checked').value;
   let specialRequest = document.getElementById("specialRequest").value;
   let totalInput = document.getElementById("totalDiv").innerText;
   let user = document.getElementById("user_Checkout").innerText;
 
   // check if may laman ung contact
-  if (!contact || !houseno || !street || !barangay || !city || !landmark || !specialRequest) {
+  if (!contact || !houseno || !street || !barangay || !city || !landmark || !specialRequest || !paymentMethod) {
     $('.alert-danger').show();
     setTimeout(function () {
       $('.alert-danger').hide();
@@ -42,18 +44,24 @@ proceedBtn.addEventListener("click", function () {
   else {
 
     let barangay = document.getElementById("barangay").value;
-    if (!isLetters.test(barangay)) {
-      alert("Barangay: use letters only");
+  if (!isLetters.test(barangay) || !isOneSpace.test(barangay)) {
+      alert("Barangay: use letters and 1 space only");
       return;
     }
     let city = document.getElementById("city").value;
-    if (!isLetters.test(city)) {
-      alert("City: use letters only");
+    if (!isLetters.test(city) || !isOneSpace.test(city)) {
+      alert("City: use letters and 1 space only");
       return;
     }   
     let landmark = document.getElementById("landmark").value;
-    if (!isLetters.test(landmark)) {
-      alert("Landmark: use letters only");
+    if (!isLetters.test(landmark) || !isOneSpace.test(landmark)) {
+      alert("Landmark: use letters and 1 space only");
+      return;
+    }
+
+    let street = document.getElementById("street").value;
+    if (!isLetters.test(street) || !isOneSpace.test(street)) {
+      alert("Street: use letters and 1 space only");
       return;
     }
     //check kung ang first two letters ay 09 at 11 characters
@@ -70,6 +78,7 @@ proceedBtn.addEventListener("click", function () {
         City: city,
         Landmark: landmark,
         Contact: contact,
+        Payment: paymentMethod,
         SpecialRequest: specialRequest,
         TotalPrice: totalInput,
         Order: user,
