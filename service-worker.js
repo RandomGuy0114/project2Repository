@@ -36,7 +36,7 @@ var precacheConfig = [
   ["lib/noty/noty.css", "689ad4617057f2b018e424778512f494"], 
   ["lib/noty/noty.js", "2296240b3842cbb3410c2104925f0db4"], 
   ["site.webmanifest", "f59a06063fc85c755fa97dee38dfbe56"]];
-var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
+var cacheName = 'ichiraku-pre-cache' + (self.registration ? self.registration.scope : '');
 
 
 var ignoreUrlParametersMatching = [/^utm_/];
