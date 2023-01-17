@@ -16,8 +16,6 @@
   <link rel="stylesheet" href="./css/style.css">
   <!-- Noty -->
   <!-- Firebase Core -->
-  <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
   <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
   <!--    ADDED BY MARJO___________-->
@@ -785,7 +783,6 @@
 <script type="text/javascript" src="./js/register.js"></script>
 <script type="text/javascript" src="./js/sendVerification.js"></script>
 <script type="text/javascript" src="./js/authState.js"></script>
-<script type="text/javascript" src="./js/fblogin.js"></script>
 
 <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
 
@@ -838,33 +835,6 @@
 <!-------------google login---------------------------------------------------------->
 
 <script>
- window.fbAsyncInit = function () {
-   FB.init({
-     appId: '587563956539534',
-     cookie: true,
-     xfbml: true,
-     version: 'v15.0'
-   });
-   FB.AppEvents.logPageView();
- };
- // Redirect the user to the Facebook Login Dialog
- FB.login(function (response) {
-   // Handle the response
- }, { scope: 'public_profile,email' });
-
- FB.api('/me', { fields: 'name,email,picture' }, function (response) {
-   console.log(response);
-   //response.picture.data.url contains the user's profile picture
- });
-
- (function (d, s, id) {
-   var js, fjs = d.getElementsByTagName(s)[0];
-   if (d.getElementById(id)) { return; }
-   js = d.createElement(s); js.id = id;
-   js.src = "https://connect.facebook.net/en_US/sdk.js";
-   fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
-
  var ui = new firebaseui.auth.AuthUI(firebase.auth());
  var uiConfig = {
    callbacks: {
@@ -883,23 +853,16 @@
 
    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
    signInFlow: 'popup',
-   signInSuccessUrl: 'https://wd29-a8133.web.app',
+   signInSuccessUrl: 'https://ichiraku-randomguy0114.vercel.app',
    signInOptions: [
      // Leave the lines as is for the providers you want to offer your users.
      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
 
    ],
    // Terms of service url.
    tosUrl: '<your-tos-url>',
    // Privacy policy url.
    privacyPolicyUrl: '<your-privacy-policy-url>',
-   // Facebook specific configuration
-   credentialHelper: firebaseui.auth.CredentialHelper.facebook,
-   facebook: {
-     appId: '587563956539534',
-     scope: 'name,email',
-   }
  };
 
  // The start method will wait until the DOM is loaded.

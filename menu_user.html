@@ -1213,7 +1213,6 @@
  <script type="text/javascript" src="./js/register.js"></script>
  <script type="text/javascript" src="./js/sendVerification.js"></script>
  <script type="text/javascript" src="./js/authState.js"></script>
- <script type="text/javascript" src="./js/fblogin.js"></script>
 
  <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
 
@@ -1232,252 +1231,218 @@
  <!--------------ask marjo for configuration------------->
  <!--------------ask marjo for configuration------------->
  <script>
-   window.onload = function () {
-     location.reload();
-   };
+  window.onload = function () {
+    location.reload();
+  };
  </script>
  <script>
-   // Listen for the user to click the sign-out button
-   document.getElementById('logout').addEventListener('click', function () {
-     // Sign the user out
-     firebase.auth().signOut().then(function () {
-       // Sign-out successful.
-     }).catch(function (error) {
-       // An error happened.
-       console.error(error);
-     });
-   });
-
-   function signOut() {
-     var provider = new firebase.auth.GoogleAuthProvider();
-     firebase.auth().signOut().then(function () {
-       // Sign-out successful.
-       console.log("User signed out successfully!");
-     }).catch(function (error) {
-       // An error happened.
-       console.error("Error signing out: ", error);
-     });
-   }
-   document.getElementById("logout").addEventListener("click", signOut);
+  // Listen for the user to click the sign-out button
+  document.getElementById('logout').addEventListener('click', function () {
+    // Sign the user out
+    firebase.auth().signOut().then(function () {
+      // Sign-out successful.
+    }).catch(function (error) {
+      // An error happened.
+      console.error(error);
+    });
+  });
+ 
+  function signOut() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signOut().then(function () {
+      // Sign-out successful.
+      console.log("User signed out successfully!");
+    }).catch(function (error) {
+      // An error happened.
+      console.error("Error signing out: ", error);
+    });
+  }
+  document.getElementById("logout").addEventListener("click", signOut);
  </script>
-
+ 
  <!-------------facebook login-----------Ask marjo if mag aad kayo ng page sa domain------------------------------------------------>
-
+ 
  <!-------------google login---------------------------------------------------------->
-
+ 
  <script>
-   window.fbAsyncInit = function () {
-     FB.init({
-       appId: '587563956539534',
-       cookie: true,
-       xfbml: true,
-       version: 'v15.0'
-     });
-     FB.AppEvents.logPageView();
-   };
-   // Redirect the user to the Facebook Login Dialog
-   FB.login(function (response) {
-     // Handle the response
-   }, { scope: 'public_profile,email' });
-
-   FB.api('/me', { fields: 'name,email,picture' }, function (response) {
-     console.log(response);
-     //response.picture.data.url contains the user's profile picture
-   });
-
-   (function (d, s, id) {
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) { return; }
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-
-   var ui = new firebaseui.auth.AuthUI(firebase.auth());
-   var uiConfig = {
-     callbacks: {
-       signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-         // User successfully signed in.
-         // Return type determines whether we continue the redirect automatically
-         // or whether we leave that to developer to handle.
-         return true;
-       },
-       uiShown: function () {
-         // The widget is rendered.
-         // Hide the loader.
-         document.getElementById('loader').style.display = 'none';
-       }
-     },
-
-     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-     signInFlow: 'popup',
-     signInSuccessUrl: 'https://wd29-a8133.web.app',
-     signInOptions: [
-       // Leave the lines as is for the providers you want to offer your users.
-       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-
-     ],
-     // Terms of service url.
-     tosUrl: '<your-tos-url>',
-     // Privacy policy url.
-     privacyPolicyUrl: '<your-privacy-policy-url>',
-     // Facebook specific configuration
-     credentialHelper: firebaseui.auth.CredentialHelper.facebook,
-     facebook: {
-       appId: '587563956539534',
-       scope: 'name,email',
-     }
-   };
-
-   // The start method will wait until the DOM is loaded.
-   ui.start('#firebaseui-auth-container', uiConfig);
-   /*----------------getting user data from google-------------*/
-   firebase.auth().onAuthStateChanged(function (user) {
-     if (user) {
-       // User is signed in.
-       var userData = {
-         userId: user.uid,
-         photoURL: user.photoURL,
-         name: user.displayName,
-         email: user.email
-       }
-       firebase.firestore().collection("userData").where("userId", "==", user.uid).get()
-         .then(function (querySnapshot) {
-           if (querySnapshot.empty) {
-             // No matching documents, add a new document to the collection
-             firebase.firestore().collection("userData").add(userData)
-               .then(function (docRef) {
-                 console.log("Document written with ID: ", docRef.id);
-                 const user_name = docRef.data().name;
-                 const user_email = docRef.data().email;
-                 const user_prof = docRef.data().photoURL;
-                 document.getElementById("user-profile").src = user_prof;
-                 document.getElementById("user_name_show").innerHTML = user_name;
-                 document.getElementById("user_email_show").innerHTML = user_email;
-                 document.getElementById("user-prof").innerHTML = user_name;
-
-               })
-               .catch(function (error) {
-                 console.error("Error adding document: ", error);
-               });
-
-           } else {
-             querySnapshot.forEach(function (doc) {
-               // Document exists, update the missing fields
-               doc.ref.update(userData)
-                 .then(function () {
-                   console.log("Document successfully updated!");
-                   const user_name = doc.data().name;
-                   const user_email = doc.data().email;
-                   const user_prof = doc.data().photoURL;
-                   document.getElementById("user-profile").src = user_prof;
-                   document.getElementById("user_name_show").innerHTML = user_name;
-                   document.getElementById("user_email_show").innerHTML = user_email;
-                 })
-                 .catch(function (error) {
-                   console.error("Error updating document: ", error);
-                 });
-             });
-           }
-         })
-         .catch(function (error) {
-           console.log("Error getting documents: ", error);
-         });
-     } else {
-       // User is signed out.
-     }
-
-   })
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  var uiConfig = {
+    callbacks: {
+      signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+        // User successfully signed in.
+        // Return type determines whether we continue the redirect automatically
+        // or whether we leave that to developer to handle.
+        return true;
+      },
+      uiShown: function () {
+        // The widget is rendered.
+        // Hide the loader.
+        document.getElementById('loader').style.display = 'none';
+      }
+    },
+ 
+    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    signInFlow: 'popup',
+    signInSuccessUrl: 'https://ichiraku-randomguy0114.vercel.app',
+    signInOptions: [
+      // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+ 
+    ],
+    // Terms of service url.
+    tosUrl: '<your-tos-url>',
+    // Privacy policy url.
+    privacyPolicyUrl: '<your-privacy-policy-url>',
+  };
+ 
+  // The start method will wait until the DOM is loaded.
+  ui.start('#firebaseui-auth-container', uiConfig);
+  /*----------------getting user data from google-------------*/
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // User is signed in.
+      var userData = {
+        userId: user.uid,
+        photoURL: user.photoURL,
+        name: user.displayName,
+        email: user.email
+      }
+      firebase.firestore().collection("userData").where("userId", "==", user.uid).get()
+        .then(function (querySnapshot) {
+          if (querySnapshot.empty) {
+            // No matching documents, add a new document to the collection
+            firebase.firestore().collection("userData").add(userData)
+              .then(function (docRef) {
+                console.log("Document written with ID: ", docRef.id);
+                const user_name = docRef.data().name;
+                const user_email = docRef.data().email;
+                const user_prof = docRef.data().photoURL;
+                document.getElementById("user-profile").src = user_prof;
+                document.getElementById("user_name_show").innerHTML = user_name;
+                document.getElementById("user_email_show").innerHTML = user_email;
+                document.getElementById("user-prof").innerHTML = user_name;
+ 
+              })
+              .catch(function (error) {
+                console.error("Error adding document: ", error);
+              });
+ 
+          } else {
+            querySnapshot.forEach(function (doc) {
+              // Document exists, update the missing fields
+              doc.ref.update(userData)
+                .then(function () {
+                  console.log("Document successfully updated!");
+                  const user_name = doc.data().name;
+                  const user_email = doc.data().email;
+                  const user_prof = doc.data().photoURL;
+                  document.getElementById("user-profile").src = user_prof;
+                  document.getElementById("user_name_show").innerHTML = user_name;
+                  document.getElementById("user_email_show").innerHTML = user_email;
+                })
+                .catch(function (error) {
+                  console.error("Error updating document: ", error);
+                });
+            });
+          }
+        })
+        .catch(function (error) {
+          console.log("Error getting documents: ", error);
+        });
+    } else {
+      // User is signed out.
+    }
+ 
+  })
  </script>
  <script> /* ---------userData @ firestore ---------------script for collecting data and storing to firestore dD---*/
-   firebase.auth().onAuthStateChanged(function (user) {
-     if (user) {
-       // User is signed in.
-       var userData = {
-         photoURL: user.photoURL,
-         name: user.displayName,
-         email: user.email
-       }
-
-       firebase.firestore().collection("userData").doc(user.uid).set(userData)
-         .then(function () {
-           console.log("User data added to Firestore with ID: ", user.uid);
-         })
-         .catch(function (error) {
-           console.error("Error adding document: ", error);
-         });
-     } else {
-       // User is signed out.
-       // ...
-     }
-   });
-
-   function getUserData(userId) {
-     db.collection("userData").doc(userId).get().then(function (doc) {
-       if (doc.exists) {
-         const user_name = doc.data().name;
-         const user_email = doc.data().email;
-         document.getElementById("user-prof").innerHTML = user_name;
-         document.getElementById("user_name_show").innerHTML = user_name;
-         document.getElementById("user_email_show").innerHTML = user_email;
-       } else {
-         console.log("No such document!");
-       }
-     });
-   }
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // User is signed in.
+      var userData = {
+        photoURL: user.photoURL,
+        name: user.displayName,
+        email: user.email
+      }
+ 
+      firebase.firestore().collection("userData").doc(user.uid).set(userData)
+        .then(function () {
+          console.log("User data added to Firestore with ID: ", user.uid);
+        })
+        .catch(function (error) {
+          console.error("Error adding document: ", error);
+        });
+    } else {
+      // User is signed out.
+      // ...
+    }
+  });
+ 
+  function getUserData(userId) {
+    db.collection("userData").doc(userId).get().then(function (doc) {
+      if (doc.exists) {
+        const user_name = doc.data().name;
+        const user_email = doc.data().email;
+        document.getElementById("user-prof").innerHTML = user_name;
+        document.getElementById("user_name_show").innerHTML = user_name;
+        document.getElementById("user_email_show").innerHTML = user_email;
+      } else {
+        console.log("No such document!");
+      }
+    });
+  }
  </script>
  <script>
-   function closemodalinnerhtml() {
-     var modalClosedCount = localStorage.getItem("modalClosedCount") || 0;
-
-     if (modalClosedCount >= 1) {
-       alert("Modal can only be closed 3 times. Please refresh the page to try again.");
-       return;
-     }
-
-     successNotification("Enjoy Your Stay..");
-     document.getElementById("userdashboard").style.display = "none";
-     localStorage.setItem("modalClosedCount", ++modalClosedCount);
-   }
-
-   window.onload = function () {
-     var modalClosedCount = localStorage.getItem("modalClosedCount") || 0;
-
-     if (modalClosedCount >= 1) {
-       document.getElementById("userdashboard").style.display = "none";
-     }
-   }
+  function closemodalinnerhtml() {
+    var modalClosedCount = localStorage.getItem("modalClosedCount") || 0;
+ 
+    if (modalClosedCount >= 1) {
+      alert("Modal can only be closed 3 times. Please refresh the page to try again.");
+      return;
+    }
+ 
+    successNotification("Enjoy Your Stay..");
+    document.getElementById("userdashboard").style.display = "none";
+    localStorage.setItem("modalClosedCount", ++modalClosedCount);
+  }
+ 
+  window.onload = function () {
+    var modalClosedCount = localStorage.getItem("modalClosedCount") || 0;
+ 
+    if (modalClosedCount >= 1) {
+      document.getElementById("userdashboard").style.display = "none";
+    }
+  }
  </script>
  <script> /*--------------script for entering or login*/
-
-   document.addEventListener('keydown', function (event) {
-     if (event.key === 'Enter') {
-       login();
-     }
-   });
-   function myFunction_reload() {
-     document.getElementById("registration-div").style.display = "none";
-     document.getElementById("login-div").style.display = "block";
-     document.getElementById("send-verification-div").style.display = "none";
-   }
+ 
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      login();
+    }
+  });
+  function myFunction_reload() {
+    document.getElementById("registration-div").style.display = "none";
+    document.getElementById("login-div").style.display = "block";
+    document.getElementById("send-verification-div").style.display = "none";
+  }
  </script>
  <!--------------ask marjo for configuration------------->
  <script>
-   function registerServiceWorker() {
-     // register sw script in supporting browsers
-     if ('serviceWorker' in navigator) {
-       navigator.serviceWorker.register('service-worker.js', {
-         scope: '/'
-       }).then(() => {
-         console.log('Service Worker registered successfully.');
-       }).catch(error => {
-         console.log('Service Worker registration failed:', error);
-       });
-     }
-   }
-   registerServiceWorker();
+  function registerServiceWorker() {
+    // register sw script in supporting browsers
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js', {
+        scope: '/'
+      }).then(() => {
+        console.log('Service Worker registered successfully.');
+      }).catch(error => {
+        console.log('Service Worker registration failed:', error);
+      });
+    }
+  }
+  registerServiceWorker();
  </script>
-</body>
-
-</html>
+ </body>
+ 
+ </html>
