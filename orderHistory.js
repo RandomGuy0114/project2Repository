@@ -15,9 +15,11 @@ firebase.initializeApp(firebaseConfig);
 // Get a reference to the Firestore database
 let db = firebase.firestore();
 
+let ordersRef = db.collection("Orders").doc("orderId");
+let orderTicketRef = ordersRef.collection("OrderTicket");
 let orderList = document.getElementById("orderlist");
 
-db.collection("Orders").onSnapshot(function (snapshot) {
+orderTicketRef.onSnapshot(function (snapshot) {
   let changes = snapshot.docChanges();
   changes.forEach(function (change) {
     if (change.type === "added") {
