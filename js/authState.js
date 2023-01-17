@@ -20,7 +20,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // User is logged in
         getUserData(user.uid);
         console.log("User is logged in.");
-        successNotification("Welcome, " + user.user_name + "!" + email_id);
+        successNotification("Welcome, " + "!" + email_id);
         document.getElementById("user-div").style.display = "block";
         document.getElementById("login-div").style.display = "none";
         document.getElementById("registration-div").style.display = "none";
@@ -28,8 +28,8 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("user-log").style.display = "none";
         document.getElementById("user-profile").style.display = "block";
         document.getElementById("user-prof").style.display = "block";
-        document.getElementsById("profileDropdown").style.display = "block";
-        document.getElementsById("profle-btn").style.display = "block";
+        document.getElementById("profileDropdown").style.display = "block";
+        document.getElementById("profle-btn").style.display = "block";
 
       }} else {
         // No user is signed in.
@@ -41,8 +41,8 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("user-log").style.display = "block";
         document.getElementById("user-prof").style.display = "none";
         document.getElementById("user-profile").style.display = "none";
-        document.getElementsById("profileDropdown").style.display = "none";
-        document.getElementsById("profle-btn").style.display = "none";
+        document.getElementById("profileDropdown").style.display = "none";
+        document.getElementById("profle-btn").style.display = "none";
         
       }
    } else {
@@ -56,7 +56,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("user-profile").style.display = "none";
     document.getElementById("user-prof").style.display = "none";
     document.getElementById("profileDropdown").style.display = "none";
-    document.getElementsById("profle-btn").style.display = "none";
+    document.getElementById("profle-btn").style.display = "none";
   }
   
 });
