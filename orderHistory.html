@@ -215,133 +215,6 @@
 </head>
 
 <body>
-  <!-- added ni marjo -------------ito yung bagong login system-------
-  gumagamit padin ng original modal inupdate ko lang yung content tapos nag add additional feature -->
-  <div id="loader">Loading...</div>
-  <!-- SIGN IN SIGN UP MODAL -->
-  <input id="modal-toggle" type="checkbox">
-  <label id="modal-bd" class="modal-backdrop " for="modal-toggle"></label>
-  <div id="modal-con" class="modal-content" style="height:95%;">
-    <div class="row" id="registration-div" style="background-color:white;">
-      <label class="modal-close-btn" for="modal-toggle" style="background-color:white;">
-        <i class="fa-solid fa-xmark"
-          style="width: 50px; height: 32px; font-size: x-large; margin: 5px; padding: 9px; color: rgb(2, 0, 0)"></i>
-      </label>
-      <div class="login-box">
-        <h2 class="text-black">Create an Account</h2>
-        <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="name" id="user_name" required=""
-            style="border-color:black; width: 80%;">
-          <label class="text-black">Name</label>
-        </div>
-        <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="email" id="user_email" required=""
-            style="border-color:black;  width: 80%;">
-          <label class="text-black">Email</label>
-        </div>
-        <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="password" id="user_password" required=""
-            style="border-color:black;  width: 80%;">
-          <label class="text-black">Password</label>
-        </div>
-        <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="password" id="confirm_password" required=""
-            style="border-color:black;  width: 80%;">
-          <label class="text-black">Confirm Password</label>
-        </div>
-        <div class="user-box">
-          <!-- <a class="button" onclick="myFunction_reload()" class="btn btn-primary float-right">Login</a> -->
-          <!-- <a class="button shift" onclick="registration()" class="btn btn-primary">Register</a> -->
-          <div class="text-center">
-            <button style="background-color:rgb(212, 6, 6); border-color: black; width: 35%;"
-              class="btn text-white p-2 m-2" onclick="registration()">Register</button>
-          </div>
-          <div class="text-center pt-2">
-            <p class="text-black">Already have an account?
-              <!-- <a class="button" onclick="reg_account()">Register</a> -->
-              <a class="text-black p-2 m-2" onclick="myFunction_reload()">Login Here</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="row" id="send-verification-div">
-      <div class="confirmation-box">
-        <h2>Confirm Email</h2>
-        <div class="user-box">
-          <div id="user_para"></div>
-          <p>To continue, please check your email and verify your account.</p>
-          <a class="button shift" onclick="logout()">Confirm</a>
-        </div>
-      </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="row" id="login-div" style="background-color:white;">
-      <label class="modal-close-btn" for="modal-toggle" style="background-color:white;">
-        <i class="fa-solid fa-xmark"
-          style="width: 50px; height: 32px; font-size: x-large; margin: 5px; padding: 9px; color: rgb(8, 0, 0)"></i>
-      </label>
-      <div class="login-box">
-        <h2 class="text-black">Login</h2>
-        <div class="parent" style="display: flex; justify-content: center;"></div>
-
-
-        <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="email" id="email_field" name="email" id="" required=""
-            style="border-color:#000; width:80%">
-          <label class="text-black">Email</label>
-        </div>
-        <div class="user-box" style="margin-left:15%">
-          <input class="form-control text-black" type="password" id="password_field" name="password" required=""
-            style="border-color:#000; width:80%">
-          <label class="text-black">Password</label>
-        </div>
-
-        <div class="text-center">
-          <!-- <a class="button shift" onclick="login()" onkeydown="if (event.key === 'Enter') login()">Confirm</a> -->
-          <button class="btn text-white p-2 m-2"
-            style="background-color:rgb(212, 6, 6); border-color: black; width: 35%;" onclick="login()"
-            onkeydown="if (event.key === 'Enter') login()">Login</button>
-        </div>
-
-        <div class="text-center pb-2">
-          <p>No account yet?
-            <!-- <a class="button" onclick="reg_account()">Register</a> -->
-            <a class="text-black p-2 m-2" onclick="reg_account()">Register Here</a>
-          </p>
-        </div>
-        <div id="firebaseui-auth-container" class="facebook-login"></div>
-      </div>
-    </div>
-  </div>
-  </div>
-  <div class="clearfix"></div>
-  <div class="row" id="user-div">
-    <div id="userdashboard" class="user-dashboard">
-      <div class="grid-row">
-        <div class="grid-cell">
-          <h1>Welcome! <span id="user_name_show">Loading ...</span>.</h1> <!-- Display username here -->
-          <p>You are currently logged in using Email :</span><span id="user_email_show">Loading ...</span>.
-          </p>
-        </div>
-      </div>
-      <a id="logout" class="button shift" onclick="logout(),signOut()">Logout</a>
-      <a type="button" class="button shift" onclick="closemodalinnerhtml()">Close</a>
-    </div>
-  </div>
-  <div id="open-modal" class="modal-window">
-    <div>
-      <div class="login-box">
-        <a href="#" title="Close" class="modal-close">Close</a>
-        <h1>Settings</h1>
-        <div class="user-box">
-          <a class="button shift" id="" onclick=""></a>
-          <!-- Save Information-->
-        </div>
-      </div>
-    </div>
-  </div>
   <nav id="head" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a id="nuku" class="navbar-brand text-light">
@@ -380,9 +253,6 @@
             <a class="dropdown-item" id="logout" class="button shift" onclick="logout(),signOut()">Logout</a>
           </div>
         </div>
-        <form class="d-fluid m-3 hideFormBtn">
-          <label id="user-log" class="modal-btn" for="modal-toggle">Sign In / Sign Up</label>
-        </form>
       </div>
     </div>
   </nav> 
@@ -509,7 +379,6 @@
 
  <!--------------wag muna galawin...------------->
  <!--------------ask marjo for configuration------------->
- <!--------------ask marjo for configuration------------->
  <script>
    window.onload = function () {
      location.reload();
@@ -539,39 +408,8 @@
    }
    document.getElementById("logout").addEventListener("click", signOut);
  </script>
-
- <!-------------facebook login-----------Ask marjo if mag aad kayo ng page sa domain------------------------------------------------>
-
  <!-------------google login---------------------------------------------------------->
-
  <script>
-   window.fbAsyncInit = function () {
-     FB.init({
-       appId: '587563956539534',
-       cookie: true,
-       xfbml: true,
-       version: 'v15.0'
-     });
-     FB.AppEvents.logPageView();
-   };
-   // Redirect the user to the Facebook Login Dialog
-   FB.login(function (response) {
-     // Handle the response
-   }, { scope: 'public_profile,email' });
-
-   FB.api('/me', { fields: 'name,email,picture' }, function (response) {
-     console.log(response);
-     //response.picture.data.url contains the user's profile picture
-   });
-
-   (function (d, s, id) {
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) { return; }
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-
    var ui = new firebaseui.auth.AuthUI(firebase.auth());
    var uiConfig = {
      callbacks: {
@@ -594,7 +432,6 @@
      signInOptions: [
        // Leave the lines as is for the providers you want to offer your users.
        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
 
      ],
      // Terms of service url.
