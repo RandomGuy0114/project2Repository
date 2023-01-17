@@ -120,13 +120,18 @@ firebase.auth().onAuthStateChanged(function(user){
         UserEmail: userEmail,
         UserId: userId,
       })
-      .then(function (docRef) {
-        console.log("Order added with ID: ", docRef.id);
-        let orderNo = "Order No. " + docRef.id;
-        window.location.href = "success.html?orderNo=" + orderNo;
+      .then(function () {
+        console.log("Order added with ID: ");
+        $("#exampleModalToggle2").modal("show");
+        $("#exampleModalToggle").modal("hide");
+        setTimeout(function () {
+          $("#exampleModalToggle2").hide();
+          redirect();
+        }, 3000);
       })
       .catch(function (error) {
-        console.error("Error adding order: ", error);
+        console.error("Error adding Order: ", error);
+        $("#exampleModalToggle2").modal("hide");
       });
   } else {
     // User is not signed in
@@ -144,6 +149,9 @@ function errorNotification(message)
 alert(message);
 }}})
 
+function redirect() {
+  window.location.href = "userDashboard.html";
+}
 
 // // Get a reference to the Firestore database
 // firebase.initializeApp(firebaseConfig);
