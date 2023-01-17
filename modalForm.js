@@ -52,23 +52,35 @@ firebase.auth().onAuthStateChanged(function(user){
   } else {
     let barangay = document.getElementById("barangay").value;
     if (!isLetters.test(barangay) && !isOneSpace.test(barangay)) {
-      alert("Barangay: use letters and 1 space only");
+      $('#incBarangay').show();
+      setTimeout(function(){
+        $('#incBarangay').hide();
+      }, 3000);
       return;
     }
     let city = document.getElementById("city").value;
     if (!isLetters.test(city) && !isOneSpace.test(city)) {
-      alert("City: use letters and 1 space only");
+      $('#incCity').show();
+      setTimeout(function(){
+        $('#incCity').hide();
+      }, 3000);
       return;
     }
     let landmark = document.getElementById("landmark").value;
     if (!isLetters.test(landmark) && !isOneSpace.test(landmark)) {
-      alert("Landmark: use letters and 1 space only");
+      $('#incLandmark').show();
+      setTimeout(function(){
+        $('#incLandmark').hide();
+      }, 3000);
       return;
     }
 
     let street = document.getElementById("street").value;
     if (!isLetters.test(street) && !isOneSpace.test(street)) {
-      alert("Street: use letters and 1 space only");
+      $('#incStreet').show();
+      setTimeout(function(){
+        $('#incStreet').hide();
+      }, 3000);
       return;
     }
     //check kung ang first two letters ay 09 at 11 characters
@@ -77,9 +89,11 @@ firebase.auth().onAuthStateChanged(function(user){
       !contact.startsWith("09") ||
       contact.length !== 11
     ) {
-      alert(
-        "Invalid contact number. Please enter a valid 11-digit mobile number starting with 09.");
-        return;
+      $('#incNumber').show();
+      setTimeout(function(){
+        $('#incNumber').hide();
+      }, 3000);
+      return;
         } else {
         // Check if the user is signed in
         firebase.auth().onAuthStateChanged(function (user) {

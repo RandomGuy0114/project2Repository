@@ -488,6 +488,13 @@
 
 <body>
   <div class="alert alert-danger" role="alert" style="display:none">Please fill out all fields!</div>
+  <div id="incomplete" class="alert alert-danger" role="alert" style="display:none">Please fill out all fields!</div>
+  <div id="incBarangay" class="alert alert-danger" role="alert" style="display:none">City: use letters and 1 space only</div>
+  <div id="incCity" class="alert alert-danger" role="alert" style="display:none">City: use letters and 1 space only</div>
+  <div id="incLandmark" class="alert alert-danger" role="alert" style="display:none">Landmark: use letters and 1 space only</div>
+  <div id="incStreet" class="alert alert-danger" role="alert" style="display:none">Street: use letters and 1 space only</div>
+  <div id="incNumber" class="alert alert-danger" role="alert" style="display:none">Invalid contact number. Please enter a valid 11-digit mobile number starting with 09.</div>
+
 
 <!-- MODAL START -->
   <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -791,8 +798,8 @@
         <!------user profile drop down Area------->
         <h5 id="user-prof" style="color: rgb(255, 255, 255); font-weight: bolder;"></h5>
         <div class="dropdown" id="profileDropdown" data-email="">
-          <button id="profle-btn"><img style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"
-              id="user-profile" src="" alt=""></button>
+          <button style="border-radius: 150%;"><img style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"
+            id="user-profile" src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt=""></button>
           <div class="dropdown-content">
             <a class="dropdown-item" href="userDashboard.html" style="color: black;">Dashboard</a>
             <!-- <button class="dropdown-item" id="signOutButton" style="color: black;">Logout</button> -->
