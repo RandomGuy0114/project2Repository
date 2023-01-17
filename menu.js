@@ -39,8 +39,6 @@ window.onload = function () {
 
         document.getElementById("mySidenav").style.width = "250px";
 
-
-
         // Get the value of the data-value attribute
         const container = event.target.parentNode.parentNode;
 
@@ -100,7 +98,6 @@ window.onload = function () {
           const kwtt = parseInt(input.value) + parseInt(kwt);
           kuwantiti.setAttribute('data-qnt', kwtt);
           kuwantiti.innerHTML = `Qty: ${kwtt}`;
-          // console.log(dtotal,kwtt);
 
           const ptotal = modal.querySelector(`#${uid}`).querySelector('#total');
           const dtotal = ptotal.getAttribute('data-totall');
@@ -127,16 +124,11 @@ window.onload = function () {
         `;
         }
 
-
-
-
         console.log('nadagdagan ', totalOfAll, typeof totalOfAll);
 
         // Get the side navigation menu's total element
         const sideNavTotal = document.querySelector('#mySidenav').childNodes[7].childNodes[1];
         sideNavTotal.innerHTML = `Total:  ₱${totalOfAll}`;
-
-
 
         const anotherDiv = document.querySelector('#checkOutTotal');
         anotherDiv.innerHTML = `₱${totalOfAll}`;
@@ -145,15 +137,11 @@ window.onload = function () {
         const totalDiv = document.querySelector('#totalDiv');
         totalDiv.innerHTML = `₱${totalWith30}`;
 
-
-
         modal.querySelector('#total').setAttribute('data-totall', totalPrice)
 
         input.value = 0;
 
         modal.style.display = "block";
-
-
 
         // Get a list of all the trash button elements
         const trashButtons = modal.querySelectorAll('.fa-trash');
@@ -214,24 +202,5 @@ window.onload = function () {
     }
 
   })
-
-
-
-  // getting all of the total of orders.
-  // modal.querySelector('#total').setAttribute('data-totall', totalPrice)
-  // const totalSaIsangItem = modal.querySelector('#total').dataset.totall;
-  // console.log(totalSaIsangItem);
-  // const sideNavTotal = document.querySelector('#mySidenav').childNodes[7].childNodes[1];
-  // console.log(sideNavTotal);
-
-
-
-  // const totalValues = modal.querySelectorAll('#total');
-  // totalValues.forEach((totalvalue)=>{
-  //   totalLast += parseInt(totalvalue.dataset.totall);
-  //   totalLast += isNaN(value) ? 0 : value;
-  // });
-  // sideNavTotal.innerHTML = `Total: ${totalLast}`
-  // kada pindut sa addToCart yung input quantity maging 0.
 
 }
