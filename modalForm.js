@@ -1,4 +1,3 @@
-firebase.initializeApp(firebaseConfig);
 let db = firebase.firestore();
 let ordersRef = db.collection("Orders").doc("orderId");
 let orderTicketRef = ordersRef.collection("OrderTicket");
