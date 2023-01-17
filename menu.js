@@ -147,12 +147,12 @@ document.addEventListener('click', (event) => {
       const sideNavTotal = document.querySelector('#mySidenav').childNodes[7].childNodes[1];
       sideNavTotal.innerHTML = `Total:  ₱${totalOfAll}`;
 
-      // const anotherDiv = document.querySelector('#checkOutTotal');
-      // anotherDiv.innerHTML = `₱${totalOfAll}`;
+      const anotherDiv = document.querySelector('#checkOutTotal');
+      anotherDiv.innerHTML = `₱${totalOfAll}`;
 
-      // const totalWith30 = totalOfAll + 30;
-      // const totalDiv = document.querySelector('#totalDiv');
-      // totalDiv.innerHTML = `₱${totalWith30}`;
+      const totalWith30 = totalOfAll + 30;
+      const totalDiv = document.querySelector('#totalDiv');
+      totalDiv.innerHTML = `₱${totalWith30}`;
 
      
 
@@ -178,12 +178,12 @@ document.addEventListener('click', (event) => {
           sideNavTotal.innerHTML = `Total:  ${totalOfAll}`;
 
           // --------Code ni ms rica para sa check out----------
-          // const anotherDiv = document.querySelector('#checkOutTotal');
-          // anotherDiv.innerHTML = `₱${totalOfAll}`;
+          const anotherDiv = document.querySelector('#checkOutTotal');
+          anotherDiv.innerHTML = `₱${totalOfAll}`;
 
-          // const totalWith30 = totalOfAll + 30;
-          // const totalDiv = document.querySelector('#totalDiv');
-          // totalDiv.innerHTML = `₱${totalWith30}`;
+          const totalWith30 = totalOfAll + 30;
+          const totalDiv = document.querySelector('#totalDiv');
+          totalDiv.innerHTML = `₱${totalWith30}`;
           parent.remove();
 
         });
