@@ -215,6 +215,7 @@
 </head>
 
 <body>
+
   <nav id="head" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <a id="nuku" class="navbar-brand text-light">
@@ -379,76 +380,8 @@
 
  <!--------------wag muna galawin...------------->
  <!--------------ask marjo for configuration------------->
- <script>
-   window.onload = function () {
-     location.reload();
-   };
- </script>
- <script>
-   // Listen for the user to click the sign-out button
-   document.getElementById('logout').addEventListener('click', function () {
-     // Sign the user out
-     firebase.auth().signOut().then(function () {
-       // Sign-out successful.
-     }).catch(function (error) {
-       // An error happened.
-       console.error(error);
-     });
-   });
-
-   function signOut() {
-     var provider = new firebase.auth.GoogleAuthProvider();
-     firebase.auth().signOut().then(function () {
-       // Sign-out successful.
-       console.log("User signed out successfully!");
-     }).catch(function (error) {
-       // An error happened.
-       console.error("Error signing out: ", error);
-     });
-   }
-   document.getElementById("logout").addEventListener("click", signOut);
- </script>
  <!-------------google login---------------------------------------------------------->
  <script>
-   var ui = new firebaseui.auth.AuthUI(firebase.auth());
-   var uiConfig = {
-     callbacks: {
-       signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-         // User successfully signed in.
-         // Return type determines whether we continue the redirect automatically
-         // or whether we leave that to developer to handle.
-         return true;
-       },
-       uiShown: function () {
-         // The widget is rendered.
-         // Hide the loader.
-         document.getElementById('loader').style.display = 'none';
-       }
-     },
-
-     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-     signInFlow: 'popup',
-     signInSuccessUrl: 'https://wd29-a8133.web.app',
-     signInOptions: [
-       // Leave the lines as is for the providers you want to offer your users.
-       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-
-     ],
-     // Terms of service url.
-     tosUrl: '<your-tos-url>',
-     // Privacy policy url.
-     privacyPolicyUrl: '<your-privacy-policy-url>',
-     // Facebook specific configuration
-     credentialHelper: firebaseui.auth.CredentialHelper.facebook,
-     facebook: {
-       appId: '587563956539534',
-       scope: 'name,email',
-     }
-   };
-
-   // The start method will wait until the DOM is loaded.
-   ui.start('#firebaseui-auth-container', uiConfig);
-   /*----------------getting user data from google-------------*/
    firebase.auth().onAuthStateChanged(function (user) {
      if (user) {
        // User is signed in.
