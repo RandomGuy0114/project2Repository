@@ -109,14 +109,7 @@
 
 
     /*-----Added by marjo---*/
-    #send-verification-div
-    #registration-div 
-    #login-div
-    #profle-btn
-    #navbarNav
-    #user-profile
-    #profileDropdown
-    #user-div {
+    #send-verification-div #registration-div #login-div #profle-btn #navbarNav #user-profile #profileDropdown #user-div {
       display: none
     }
 
@@ -211,10 +204,30 @@
       background-color: rgb(49, 7, 7);
       color: #fafafa;
     }
+
+    .loading-bg {
+      position: fixed;
+      z-index: 999;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, .8);
+    }
+
+    .loading-spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 75px;
+      height: 75px;
+    }
   </style>
 </head>
 
-<body>
+<body class="loading loading-bg">
+  <img class="loading-spinner" src="spinner.gif" alt="Loading...">
   <!-- added ni marjo -------------ito yung bagong login system-------
   gumagamit padin ng original modal inupdate ko lang yung content tapos nag add additional feature -->
   <div id="loader">Loading...</div>
@@ -386,125 +399,7 @@
         </form>
       </div>
     </div>
-  </nav> 
-  <!------------ito yung original login system-------------------------------------->
-  <!-- SIGN IN SIGN UP MODAL
-  <input id="modal-toggle" type="checkbox">
-  <label class="modal-backdrop " for="modal-toggle"></label>
-  <div class="modal-content">
-    <div style="background-color: rgb(18,18,18);">
-      <label class="modal-close-btn" for="modal-toggle">
-        <i class="fa-solid fa-xmark"></i> -->
-  <!-- <svg width="30" height="40">
-          <line x1="10" y1="10" x2="40" y2="40"/>
-          <line x1="40" y1="10" x2="10" y2="40"/>
-        </svg> -->
-  <!-- </label>
-    </div>
-
-    <div class="tabs mt-0" style="background-color: rgb(255, 255, 255);"> -->
-  <!--  LOG IN  -->
-  <!-- 
-      <input class="radio" id="tab-1" name="tabs-name" type="radio" checked>
-      <label for="tab-1" class="table sign_in_btn"><span>Sign in</span></label>
-      <div class="tabs-content mt-3 pl-5 pr-5">
-        <form action="">
-
-          <input type="email" onclick="clearErrorloginEmail()" id="loginEmail" placeholder="Email" required>
-          <span id="errorloginEmail" style="color: red" height="auto"></span>
-          <input type="password" onclick="clearErrorloginPassword()" id="loginPassword" placeholder="Password" required>
-          <span id="errorloginPassword" style="color: red" height="auto"></span>
-          <center><button type="button" id="loginBtn" class="btn btn-outline-dark col-5 text-white"
-              style="background-color:rgb(197,0,0);">Sign in</button></center>
-        </form>
-
-
-        <form class="forgot-password" action="">
-          <input id="forgot-password-toggle" type="checkbox">
-          <label for="forgot-password-toggle">forgot password?</label>
-          <div class="forgot-password-content pl-5 pr-5">
-            <input type="email" placeholder="enter your email" required>
-            <input type="submit" value="go">
-          </div>
-        </form>
-        <h6 align="center" class="mt-4">Or use a social network:</h6>
-        <div class="login_socnet" style="text-align: center;">
-          <a href="" class="fa-brands fa-square-facebook me-0" aria-hidden="true"></a>
-          <a href="" class="fa-brands fa-square-google-plus me-0" aria-hidden="true"></a>
-        </div>
-      </div> -->
-
-  <!--  SIGN UP  -->
-  <!-- <input class="radio" id="tab-2" name="tabs-name" type="radio">
-      <label for="tab-2" class="table"><span>Sign up</span></label>
-      <div class="tabs-content pl-5 pr-5">
-        <form action="">
-          <div class="input-group">
-            <input onclick="clearErrorName()" type="text" placeholder="First Name" class="form-control"
-              id="userfirstName" required>
-            <input onclick="clearErrorName()" type="text" placeholder="Last Name" class="form-control" id="userlastName"
-              required>
-          </div><span id="errorName" style="color: red" height="auto"></span>
-          <input onclick="clearErrorEmail()" type="email" placeholder="Email" class="form-control" id="userEmail"
-            required>
-          <span id="errorEmail" style="color: red;"></span>
-          <input onclick="clearErrorPassword()" type="password" placeholder="Password" class="form-control"
-            id="userPassword" required>
-          <span id="errorPassword" style="color: red;"></span>
-          <input onclick="clearErrorConfirmPassword()" type="password" placeholder="Confirm password"
-            class="form-control" id="confirmPassword" required>
-          <span id="errorConfirmPassword" style="color: red;"></span>
-          <center><button type="button" class="btn btn-outline-dark col-5 text-white mb-5"
-              style="background-color:rgb(197,0,0);" id="signupForm">Sign Up</button></center>
-
-
-          <h6 align="center">Or use a social network:</h6>
-          <div class="login_socnet" style="text-align: center;">
-            <a href="" class="fa-brands fa-square-facebook me-0" aria-hidden="true"></a>
-            <a href="" class="fa-brands fa-square-google-plus me-0" aria-hidden="true"></a>
-          </div>
-
-
-        </form>
-      </div>
-    </div>
-  </div> -->
-  <!-- 
-  <nav id="head" class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <a id="nuku" class="navbar-brand text-light">
-        <img id="logo" src="img/images/logo.png" alt="Ichiraku Logo">
-        Ichiraku
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item pe-5">
-            <a class="nav-link active text-white" id="linkheader" aria-current="page" href="">Home</a>
-          </li>
-          <li class="nav-item pe-5">
-            <a class="nav-link text-white" id="linkheader" href="menu.html">Menu</a>
-          </li>
-          <li class="nav-item pe-5">
-            <a class="nav-link text-white" id="linkheader" href="contact.html">Contact Us</a>
-          </li>
-          <li class="nav-item pe-5">
-            <a class="nav-link text-white" id="linkheader" href="about.html">About Us</a>
-          </li>
-        </ul>
-
-        <form class="d-fluid m-3 hideFormBtn">
-          <label class="modal-btn" for="modal-toggle">Sign In / Sign Up</label>
-        </form>
-      </div>
-    </div>
-  </nav> -->
-  <!---------wala na kong ginalaw dito--------------------------------->
-  <!---------wala na kong ginalaw dito--------------------------------->
+  </nav>
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" style="z-index:0;">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -710,6 +605,11 @@
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
   <!-- Noty -->
+  <script>
+    setTimeout(function () {
+      document.querySelector("body").classList.remove("loading-bg");
+    }, 5000);
+  </script>
   <!--------------ask marjo for configuration------------->
   <link href="lib/noty/noty.css" rel="stylesheet">
   <link href="lib/noty/nest.css" rel="stylesheet">
@@ -739,12 +639,13 @@
   <!--------------wag muna galawin...------------->
   <!--------------ask marjo for configuration------------->
   <!--------------ask marjo for configuration------------->
-  <script>
+
+  <!-- <script>
     window.onload = function () {
       location.reload();
     };
-   </script>
-   <script>
+  </script> -->
+  <script>
     // Listen for the user to click the sign-out button
     document.getElementById('logout').addEventListener('click', function () {
       // Sign the user out
@@ -755,7 +656,7 @@
         console.error(error);
       });
     });
-   
+
     function signOut() {
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signOut().then(function () {
@@ -767,13 +668,11 @@
       });
     }
     document.getElementById("logout").addEventListener("click", signOut);
-   </script>
-   
-   <!-------------facebook login-----------Ask marjo if mag aad kayo ng page sa domain------------------------------------------------>
-   
-   <!-------------google login---------------------------------------------------------->
-   
-   <script>
+  </script>
+
+  <!-------------facebook login-----------Ask marjo if mag aad kayo ng page sa domain------------------------------------------------>
+  <!-------------google login---------------------------------------------------------->
+  <script>
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     var uiConfig = {
       callbacks: {
@@ -789,21 +688,21 @@
           document.getElementById('loader').style.display = 'none';
         }
       },
-   
+
       // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
       signInFlow: 'popup',
       signInSuccessUrl: 'https://ichiraku-randomguy0114.vercel.app',
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-   
+
       ],
       // Terms of service url.
       tosUrl: '<your-tos-url>',
       // Privacy policy url.
       privacyPolicyUrl: '<your-privacy-policy-url>',
     };
-   
+
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
     /*----------------getting user data from google-------------*/
@@ -830,12 +729,12 @@
                   document.getElementById("user_name_show").innerHTML = user_name;
                   document.getElementById("user_email_show").innerHTML = user_email;
                   document.getElementById("user-prof").innerHTML = user_name;
-   
+
                 })
                 .catch(function (error) {
                   console.error("Error adding document: ", error);
                 });
-   
+
             } else {
               querySnapshot.forEach(function (doc) {
                 // Document exists, update the missing fields
@@ -861,10 +760,10 @@
       } else {
         // User is signed out.
       }
-   
+
     })
-   </script>
-   <script> /* ---------userData @ firestore ---------------script for collecting data and storing to firestore dD---*/
+  </script>
+  <script> /* ---------userData @ firestore ---------------script for collecting data and storing to firestore dD---*/
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         // User is signed in.
@@ -873,7 +772,7 @@
           name: user.displayName,
           email: user.email
         }
-   
+
         firebase.firestore().collection("userData").doc(user.uid).set(userData)
           .then(function () {
             console.log("User data added to Firestore with ID: ", user.uid);
@@ -886,7 +785,7 @@
         // ...
       }
     });
-   
+
     function getUserData(userId) {
       db.collection("userData").doc(userId).get().then(function (doc) {
         if (doc.exists) {
@@ -900,31 +799,31 @@
         }
       });
     }
-   </script>
-   <script>
+  </script>
+  <script>
     function closemodalinnerhtml() {
       var modalClosedCount = localStorage.getItem("modalClosedCount") || 0;
-   
+
       if (modalClosedCount >= 1) {
         alert("Modal can only be closed 3 times. Please refresh the page to try again.");
         return;
       }
-   
+
       successNotification("Enjoy Your Stay..");
       document.getElementById("userdashboard").style.display = "none";
       localStorage.setItem("modalClosedCount", ++modalClosedCount);
     }
-   
+
     window.onload = function () {
       var modalClosedCount = localStorage.getItem("modalClosedCount") || 0;
-   
+
       if (modalClosedCount >= 1) {
         document.getElementById("userdashboard").style.display = "none";
       }
     }
-   </script>
-   <script> /*--------------script for entering or login*/
-   
+  </script>
+  <script> /*--------------script for entering or login*/
+
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Enter') {
         login();
@@ -935,9 +834,9 @@
       document.getElementById("login-div").style.display = "block";
       document.getElementById("send-verification-div").style.display = "none";
     }
-   </script>
-   <!--------------ask marjo for configuration------------->
-   <script>
+  </script>
+  <!--------------ask marjo for configuration------------->
+  <script>
     function registerServiceWorker() {
       // register sw script in supporting browsers
       if ('serviceWorker' in navigator) {
@@ -951,7 +850,7 @@
       }
     }
     registerServiceWorker();
-   </script>
-   </body>
-   
-   </html>
+  </script>
+</body>
+
+</html>
