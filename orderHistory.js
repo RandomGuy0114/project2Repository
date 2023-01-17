@@ -9,7 +9,7 @@ orderTicketRef.onSnapshot(function (snapshot) {
       let orderData = change.doc.data()
       // ChatGPT moments
       let newOrder = document.createElement("div");
-      newOrder.classList.add("card", "col-lg-4", "col-md-6", "col-sm-12", "col-xs-12");
+      newOrder.classList.add("card", "col-lg-3", "col-md-6", "col-sm-12", "col-xs-12", "m-5", "p-3");
       // idisplay ung data sa modal nato
       newOrder.innerHTML = `
         <div class="card-body">
