@@ -215,291 +215,6 @@
       background-color: rgb(49, 7, 7);
       color: #fafafa;
     }
-
-    /*----login system ends here*/
-    /* SIGN IN/SIGN UP MODAL */
-    /* Button settings */
-    /* .modal-btn {
-      color: #ffffff;
-      font-weight: bold;
-      outline: solid #000000 1vw;
-      cursor: pointer;
-      border-radius: 5%;
-      background-color: #000000;
-    }
-
-    #modal-toggle {
-      display: none;
-    }
-
-    .modal-content,
-    .modal-backdrop {
-      opacity: 0;
-      position: fixed;
-      z-index: -1;
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .modal-content {
-      padding-top: 0px;
-      margin-top: 0px;
-      border-radius: 2%;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      left: 0;
-      right: 0;
-      height: 620px;
-      width: 480px;
-      transform: translateX(5%);
-    }
-
-    .modal-backdrop {
-      left: 0;
-      top: 0;
-      height: 100%;
-      height: 100vh;
-      width: 100%;
-      width: 100vw;
-    }
-
-    #modal-toggle:checked~.modal-backdrop {
-      opacity: 1;
-      background-color: rgba(15, 12, 12, 0.534);
-      z-index: 998;
-      transform: scale(1);
-    }
-
-    #modal-toggle:checked~.modal-content {
-      opacity: 1;
-      background-color: #fff;
-      overflow-y: auto;
-      overflow-x: hidden;
-      pointer-events: auto;
-      cursor: auto;
-      z-index: 999;
-      transform: translateX(0%);
-    }
-
-    @media (max-width: 600px) {
-      #modal-toggle:checked~.modal-backdrop {
-        opacity: 0;
-      }
-
-      .modal-content {
-        top: 0;
-        left: 0;
-        height: 600px;
-        width: 500px;
-      }
-    }
-
-
-    /*FUNCTIONALITY .tabs */
-    /* .tabs {
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: flex;
-      flex-wrap: wrap;
-      margin: 10px 0;
-    }
-
-    .tabs>.radio {
-      display: none;
-    }
-
-    .tabs>.radio:checked+.table+.tabs-content {
-      display: block;
-    }
-
-    .tabs>.table {
-      order: -1;
-      flex-basis: 50%;
-      flex-shrink: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .tabs .tabs-content {
-      margin-top: 10px;
-      width: 100%;
-      display: none;
-    } */
-
-    /* FOR SIGN IN AND SIGN UP */
-    /* .tabs>.table {
-      padding: 20px 0;
-      text-align: center;
-      border-bottom: solid rgb(18, 18, 18) 5px;
-      color: #fafafa;
-      cursor: pointer;
-      background: rgb(18, 18, 18);
-      ;
-    }
-
-    .tabs>.table span {
-      font-weight: 600;
-    }
-
-    .tabs>.table:hover {
-      color: rgb(255, 255, 255);
-      background: rgb(197, 0, 0);
-    }
-
-    .tabs>.radio:checked+.table {
-      color: rgb(255, 255, 255);
-      background: rgb(197, 0, 0);
-      cursor: auto;
-    }
-
-    /* click transition 
-    .tabs>.radio:checked+.table span {
-      display: inline-block;
-      font-weight: 500;
-      transform: scale(1.2);
-      transition: 0.1s;
-    } */
-
-    /* style for login & sign up  */
-    /* .tabs>.tabs-content .login_socnet {
-      display: -webkit-flex;
-    }
-
-    .tabs>.tabs-content .login_socnet a {
-      margin: 20px;
-      margin-bottom: 0;
-      width: 50%;
-      font-size: 60px;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    .tabs>.tabs-content .login_socnet a:hover {
-      transform: scale(1.1);
-      filter: drop-shadow(1px 3px 2px rgba(0, 0, 0, 0.2));
-    }
-
-    .tabs>.tabs-content .login_socnet .fa-square-google-plus {
-      color: #000000;
-      padding: 0;
-      margin: 1px;
-    }
-
-    .tabs>.tabs-content .login_socnet .fa-square-facebook {
-      color: #000000;
-      padding: 0;
-      margin: 1px;
-    }
-
-    .tabs>.tabs-content form {
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: flex;
-      -webkit-flex-direction: column;
-      -moz-flex-direction: column;
-      -ms-flex-direction: column;
-      -o-flex-direction: column;
-      flex-direction: column;
-    }
-
-    .tabs>.tabs-content form input {
-      padding: 0px;
-      margin: 15px 0;
-      border: none;
-      border-bottom: solid 1px #000a09;
-      font-size: 18px;
-      letter-spacing: 1px;
-      transition: 0.1s;
-    }
-
-    .tabs>.tabs-content form input:focus {
-      transform: translateX(10px);
-      outline: none;
-    }
-
-    .tabs>.tabs-content input[type="submit"] {
-      padding: 15px;
-      width: 80%;
-      background: rgb(18, 18, 18);
-      ;
-      color: #fff;
-      border: none;
-      font-size: 18px;
-      cursor: pointer;
-      border-radius: 5%;
-      align-items: center;
-
-    }
-
-    .tabs>.tabs-content input[type="submit"]:focus {
-      transform: none;
-    }
-
-    .tabs>.tabs-content .forgot-password label {
-      width: 50%;
-      color: rgb(18, 18, 18);
-      ;
-      text-decoration: none;
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-    .tabs>.tabs-content .forgot-password label:hover {
-      text-decoration: underline;
-      cursor: pointer;
-    }
-
-    .forgot-password #forgot-password-toggle {
-      display: none;
-    }
-
-    .forgot-password .forgot-password-content {
-      height: 0;
-      width: 0;
-      opacity: 0;
-      visibility: hidden;
-      overflow: hidden;
-      cursor: pointer;
-      transition: opacity 0.2s ease-in;
-    }
-
-    .forgot-password .forgot-password-content input[type="email"] {
-      width: 80%;
-      margin-right: 0px;
-      border-right: none;
-    }
-
-    .forgot-password .forgot-password-content input[type="submit"] {
-      width: 20%;
-      margin-left: 0px;
-    }
-
-    .forgot-password #forgot-password-toggle:checked~.forgot-password-content {
-      display: flex;
-      opacity: 1;
-      width: 100%;
-      height: 100%;
-      z-index: 999;
-      pointer-events: auto;
-      cursor: auto;
-      visibility: visible;
-    } */
-
-    /* .modal-close-btn {
-      margin-left: 450px;
-      margin-top: 0px;
-      display: inline-block;
-      cursor: pointer;
-      background-color: rgb(18, 18, 18);
-      color: #fafafa;
-    } */
   </style>
 </head>
 
@@ -603,10 +318,7 @@
             <a class="text-black p-2 m-2" onclick="reg_account()">Register Here</a>
           </p>
         </div>
-
-
-
-        <div id="firebaseui-auth-container" class="user-box"></div>
+        <div id="firebaseui-auth-container" class="facebook-login"></div>
       </div>
     </div>
   </div>
@@ -668,7 +380,8 @@
         <!------user profile drop down Area------->
         <h5 id="user-prof" style="color: rgb(255, 255, 255); font-weight: bolder;"></h5>
         <div class="dropdown" id="profileDropdown" data-email="">
-          <button><img style="border-radius: 100%; background-color: black; height: 50px; width: 55px;" id="user-profile" src="" alt=""></button>
+          <button><img style="border-radius: 100%; background-color: black; height: 50px; width: 55px;"
+              id="user-profile" src="" alt=""></button>
           <div class="dropdown-content">
             <a class="dropdown-item" href="userDashboard.html" style="color: black;">Dashboard</a>
             <!-- <button class="dropdown-item" id="signOutButton" style="color: black;">Logout</button> -->
@@ -1016,6 +729,7 @@
   <script type="text/javascript" src="./js/register.js"></script>
   <script type="text/javascript" src="./js/sendVerification.js"></script>
   <script type="text/javascript" src="./js/authState.js"></script>
+  <script type="text/javascript" src="./js/fblogin.js"></script>
 
   <script src="https://kit.fontawesome.com/892c818641.js" crossorigin="anonymous"></script>
 
@@ -1071,11 +785,21 @@
     window.fbAsyncInit = function () {
       FB.init({
         appId: '587563956539534',
+        cookie: true,
         xfbml: true,
         version: 'v15.0'
       });
       FB.AppEvents.logPageView();
     };
+    // Redirect the user to the Facebook Login Dialog
+    FB.login(function (response) {
+      // Handle the response
+    }, { scope: 'public_profile,email' });
+
+    FB.api('/me', { fields: 'name,email,picture' }, function (response) {
+      console.log(response);
+      //response.picture.data.url contains the user's profile picture
+    });
 
     (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -1205,7 +929,7 @@
       }
     });
 
-        function getUserData(userId) {
+    function getUserData(userId) {
       db.collection("userData").doc(userId).get().then(function (doc) {
         if (doc.exists) {
           const user_name = doc.data().name;
