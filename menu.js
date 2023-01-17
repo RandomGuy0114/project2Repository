@@ -1,5 +1,5 @@
 let totalOfAll = 0;
-window.onload = function () {
+
 
 
   // for customer choices of quantity.
@@ -203,4 +203,4 @@ window.onload = function () {
 
   })
 
-}
+
