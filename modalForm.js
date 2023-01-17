@@ -16,7 +16,7 @@ firebase.auth().onAuthStateChanged(function(user){
     // Add the user's name, email, and ID to the order data
     // before adding it to the "Orders" collection
   
-    proceedBtn.addEventListener("click"), function () {
+    proceedBtn.addEventListener("click", function () {
     let isNumber = /^\d+$/;
     let isLetters = /^[A-Za-z]+$/;
     let isOneSpace = /^[A-Za-z]+\s[A-Za-z]+$/;
@@ -121,7 +121,7 @@ firebase.auth().onAuthStateChanged(function(user){
 });
 }
 }
-};
+    });
 
 // Function to display error notification
 function errorNotification(message) 
