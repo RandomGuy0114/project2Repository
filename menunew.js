@@ -1,4 +1,4 @@
-let totalOfAll = 0;
+
 window.onload = function () {
 
 
@@ -26,7 +26,7 @@ window.onload = function () {
 
 
   // functions for clicking the menu buttons.
-
+  let totalOfAll = 0;
   document.addEventListener('click', (event) => {
     if (event.target.classList.contains('addToCart')) {
       // Find the parent element of the clicked button
@@ -91,26 +91,28 @@ window.onload = function () {
         }
         const totalPrice = parseInt(value) * input.value;
         totalOfAll += totalPrice;
-        const modal = document.querySelector('#modal');
 
-        if (modal.querySelector(`#${uid}`)){
+
+        const modal = document.querySelector('#modal');
+        if (modal.querySelector(`#${uid}`)) {
           // updating the quantity if the order is already exist.
           const kuwantiti = modal.querySelector(`#${uid}`).querySelector('#kuwantiti');
           const kwt = kuwantiti.getAttribute('data-qnt')
           const kwtt = parseInt(input.value) + parseInt(kwt);
-          kuwantiti.setAttribute('data-qnt',kwtt);
+          kuwantiti.setAttribute('data-qnt', kwtt);
           kuwantiti.innerHTML = `Qty: ${kwtt}`;
           // console.log(dtotal,kwtt);
 
           const ptotal = modal.querySelector(`#${uid}`).querySelector('#total');
           const dtotal = ptotal.getAttribute('data-totall');
-          console.log(parseInt(dtotal));
           const ddtotal = parseInt(dtotal) + parseInt(totalPrice);
-          console.log(ddtotal);
-          ptotal.setAttribute('data-totall',ddtotal);
-          ptotal.innerHTML =`Total Price: ${ddtotal}`
+          console.log('new total of one item: ' + parseInt(ddtotal));
+          ptotal.setAttribute('data-totall', ddtotal);
 
-        }else{
+          ptotal.innerHTML = `Total Price: ${ddtotal}`
+          console.log('Total of All:', totalOfAll, typeof totalOfAll);
+
+        } else {
           modal.innerHTML += `
         <div id="${uid}" class="col-12 pl-2 pr-4 mb-3">
 
@@ -123,10 +125,12 @@ window.onload = function () {
       
         <br>
         </div>
-        `;}
-        
-        
-        console.log('nadagdagan ', totalOfAll, typeof totalOfAll);
+        `;
+          console.log('Total of All:', totalOfAll, typeof totalOfAll);
+        }
+
+
+
 
         // Get the side navigation menu's total element
         const sideNavTotal = document.querySelector('#mySidenav').childNodes[7].childNodes[1];
@@ -148,10 +152,13 @@ window.onload = function () {
 
             // updating the total in sidebar when user delete an order.
             const totalOneItem = parent.querySelector('#total').getAttribute('data-totall');
+            console.log(" ")
+            console.log('total of item: ' + totalOneItem);
+            console.log('Total of All:', totalOfAll, typeof totalOfAll);
             const totalOneItemInt = parseInt(totalOneItem);
 
             totalOfAll -= totalOneItemInt;
-            console.log('totalOfAll: ', totalOfAll, typeof totalOfAll);
+
             sideNavTotal.innerHTML = `Total:  ${totalOfAll}`;
             parent.remove();
 
