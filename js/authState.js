@@ -29,6 +29,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("user-profile").style.display = "block";
         document.getElementById("user-prof").style.display = "block";
         document.getElementsById("profileDropdown").style.display = "block";
+        document.getElementsById("profle-btn").style.display = "block";
 
       }} else {
         // No user is signed in.
@@ -41,6 +42,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("user-prof").style.display = "none";
         document.getElementById("user-profile").style.display = "none";
         document.getElementsById("profileDropdown").style.display = "none";
+        document.getElementsById("profle-btn").style.display = "none";
         
       }
    } else {
@@ -53,7 +55,8 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("user-log").style.display = "block";
     document.getElementById("user-profile").style.display = "none";
     document.getElementById("user-prof").style.display = "none";
-    document.getElementsById("profileDropdown").style.display = "none";
+    document.getElementById("profileDropdown").style.display = "none";
+    document.getElementsById("profle-btn").style.display = "none";
   }
   
 });
